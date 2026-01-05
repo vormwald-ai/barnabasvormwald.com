@@ -1,0 +1,297 @@
+/* =========================
+   Base + Design Tokens
+   ========================= */
+:root {
+  --bg: #ffffff;
+  --text: #111827;        /* charcoal */
+  --muted: #6b7280;       /* gray */
+  --border: rgba(17, 24, 39, 0.10);
+  --shadow: 0 12px 30px rgba(17, 24, 39, 0.10);
+  --shadow-soft: 0 10px 24px rgba(17, 24, 39, 0.08);
+
+  --primary: #2563eb;     /* professional blue */
+  --primary-hover: #1d4ed8;
+
+  --radius-card: 20px;    /* 16–24px target */
+  --radius-btn: 14px;     /* 12–16px target */
+
+  --maxw: 560px;          /* card/hero max width */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   Top Nav
+   ========================= */
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.nav__inner {
+  height: 56px;                 /* thin, clean bar */
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;              /* exact */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.nav__menu {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.nav__menu:hover {
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.08);
+}
+
+.hamburger {
+  width: 18px;
+  height: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger::before,
+.hamburger::after,
+.hamburger {
+  background: transparent;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: rgba(17, 24, 39, 0.78);
+  border-radius: 2px;
+}
+
+.hamburger::before { top: 2px; }
+.hamburger::after { bottom: 2px; }
+
+/* =========================
+   Page / Hero Layout
+   ========================= */
+.page {
+  padding: 28px 16px 40px 16px;   /* navbar → content spacing baseline */
+}
+
+.hero {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 18px 0 10px 0;          /* exact */
+  font-size: 34px;                /* mobile-first: premium but not oversized */
+  line-height: 1.10;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+.hero__subtitle {
+  margin: 0 0 18px 0;             /* exact gap before card */
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* =========================
+   Card
+   ========================= */
+.card {
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  background: #fff;
+  overflow: hidden;               /* ensures rounded corners on image */
+  text-align: left;               /* content inside aligns left (premium) */
+}
+
+.card__media {
+  padding: 16px;                  /* exact */
+  padding-bottom: 0;
+}
+
+.card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #f3f4f6;            /* prevents white flash if image loads late */
+}
+
+.card__body {
+  padding: 16px;                  /* exact */
+  padding-top: 14px;
+}
+
+.card__line {
+  margin: 0 0 8px 0;              /* exact */
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.card__line--strong {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.card__line--muted {
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 2px;
+  margin-bottom: 14px;            /* exact: before buttons */
+}
+
+/* =========================
+   Buttons
+   ========================= */
+.card__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;                      /* exact */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                      /* icon ↔ text */
+  width: 100%;
+  padding: 12px 14px;             /* exact */
+  border-radius: var(--radius-btn);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+  user-select: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.btn--outline {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.18);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--primary);
+  border: 1px solid rgba(37, 99, 235, 0.30);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Optional Links Row
+   ========================= */
+.links {
+  margin-top: 18px;               /* exact */
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.links__item {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.links__item:hover {
+  color: var(--text);
+  border-bottom-color: rgba(17, 24, 39, 0.18);
+}
+
+.links__dot {
+  color: rgba(107, 114, 128, 0.70);
+}
+
+/* =========================
+   Responsive Enhancements
+   ========================= */
+@media (min-width: 480px) {
+  .hero__title { font-size: 40px; }
+  .hero__subtitle { font-size: 16px; }
+  .page { padding-top: 34px; }
+}
+
+@media (min-width: 768px) {
+  :root { --maxw: 620px; }
+
+  .card__media { padding: 18px; padding-bottom: 0; }
+  .card__body { padding: 18px; padding-top: 14px; }
+
+  /* Two buttons side-by-side on wider screens (still full width on mobile) */
+  .card__actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
