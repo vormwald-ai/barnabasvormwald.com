@@ -3,686 +3,725 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barnabas Vormwald | Investment · Strategy · Relationship Management</title>
-  <meta name="description" content="Barnabas Vormwald — PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage). Investment, strategy, relationship management, and client-facing execution backed by strong analytical fundamentals." />
+  <title>Barnabas Vormwald</title>
+  <meta name="description" content="Barnabas Vormwald — Institutional client coverage, strategy, and decision-ready analysis. Shenzhen-based.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f8fafc;
-      --surface: rgba(255,255,255,0.86);
-      --surfaceSolid:#ffffff;
-
-      --text:#0f172a;
-      --muted:#64748b;
-      --muted2:#94a3b8;
-
-      --border: rgba(15,23,42,0.10);
-      --border2: rgba(15,23,42,0.07);
-
-      --link:#2563eb;
-      --accent:#0f172a;
-
-      --shadow: 0 18px 50px rgba(2,6,23,0.08);
-      --shadowSoft: 0 10px 24px rgba(2,6,23,0.06);
-
-      --max:1080px;
-      --r:16px;
+      --bg: #F7FAFF;
+      --bg2:#F8FAFC;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --muted:#64748B;
+      --muted2:#94A3B8;
+      --border:#E2E8F0;
+      --shadow: 0 20px 40px rgba(15, 23, 42, .06);
+      --shadow2: 0 10px 25px rgba(15, 23, 42, .06);
+      --radius: 16px;
+      --radius2: 14px;
+      --max: 1120px;
+      --accent:#0F172A;
+      --link:#2563EB;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
     body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color:var(--text);
-      line-height:1.55;
+      font-family: var(--sans);
+      color: var(--text);
       background:
-        radial-gradient(900px 420px at 18% -10%, rgba(37, 99, 235, 0.06), transparent 60%),
-        radial-gradient(820px 520px at 92% 8%, rgba(2, 6, 23, 0.05), transparent 60%),
-        var(--bg);
+        radial-gradient(1200px 700px at 70% 10%, rgba(37,99,235,.08), transparent 60%),
+        radial-gradient(900px 600px at 10% 20%, rgba(15,23,42,.05), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    a{color:inherit;text-decoration:none;}
-    a:hover{text-decoration:underline;}
-    ul{list-style:none;}
+
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ opacity:.9; }
 
     /* NAV */
-    .nav{
-      position:sticky;top:0;z-index:100;
-      background: rgba(248,250,252,0.90);
+    .navWrap{
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(248,250,252,.78);
       backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--border2);
+      border-bottom: 1px solid rgba(226,232,240,.85);
     }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 24px;
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:16px;
+      justify-content:space-between;
+      gap: 14px;
     }
     .brand{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      letter-spacing:-0.02em;
-      white-space:nowrap;
+      display:flex; align-items:center; gap:10px;
+      font-weight: 700; letter-spacing: -0.02em;
+      white-space: nowrap;
     }
     .dot{
-      width:8px;height:8px;border-radius:999px;
-      background:var(--text);
-      opacity:0.9;
+      width:8px; height:8px; border-radius:50%;
+      background: #0F172A;
+      box-shadow: 0 0 0 4px rgba(15,23,42,.08);
+      flex: 0 0 auto;
     }
-    .nav-links{
-      display:flex;
-      gap:18px;
-      color:var(--muted);
-      font-weight:800;
+    .navLinks{
+      display:flex; align-items:center; gap:22px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
     }
-    .nav-links a:hover{color:var(--text);text-decoration:none;}
-    .nav-cta{
-      display:flex;gap:10px;align-items:center;white-space:nowrap;
+    .navLinks a{ padding: 8px 6px; border-radius: 10px; }
+    .navLinks a:hover{ background: rgba(226,232,240,.5); color: var(--text); }
+
+    .navActions{
+      display:flex; align-items:center; gap:10px;
+      white-space: nowrap;
     }
     .btn{
-      font-size:0.86rem;
-      font-weight:900;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.90);
-      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.9);
+      font-weight: 650;
+      font-size: 14px;
+      color: var(--text);
+      box-shadow: 0 1px 0 rgba(15,23,42,.02);
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
     .btn:hover{
-      background:#fff;
-      box-shadow:0 10px 24px rgba(2,6,23,0.08);
       transform: translateY(-1px);
-      text-decoration:none;
+      box-shadow: 0 10px 20px rgba(15,23,42,.06);
+      background: #fff;
     }
-    .btn.primary{
-      background:var(--accent);
-      color:#fff;
-      border-color: rgba(15,23,42,0.20);
+    .btnPrimary{
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
     }
-    .btn.primary:hover{background:#1f2937;}
+    .btnPrimary:hover{
+      background: #111827;
+      border-color: #111827;
+    }
 
     /* MAIN */
     main{
-      max-width:var(--max);
-      margin:44px auto 78px;
-      padding:0 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 90px;
     }
 
     /* HERO */
     .hero{
       display:grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap:30px;
-      align-items:start;
-      margin-bottom:42px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: start;
+      margin-top: 10px;
+      padding: 26px;
+      border: 1px solid rgba(226,232,240,.8);
+      background: rgba(255,255,255,.55);
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
     }
 
-    h1{
-      font-size:3.05rem;
-      line-height:1.06;
-      letter-spacing:-0.05em;
-      margin-bottom:12px;
+    .heroLeft{ min-width: 0; }
+    .kicker{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 10px;
+      border: 1px solid rgba(226,232,240,.9);
+      background: rgba(255,255,255,.7);
+      border-radius: 999px;
+    }
+    .pill b{ color: var(--text); font-weight: 750; }
+
+    .heroTitle{
+      font-size: 58px;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+    .heroTitle .last{
+      color: #64748B;
+      font-weight: 750;
     }
 
-    .subline{
-      color:var(--muted);
-      font-size:1.06rem;
-      max-width:66ch;
-      margin-bottom:16px;
+    .heroLead{
+      color: var(--muted);
+      font-size: 16.5px;
+      line-height: 1.7;
+      max-width: 62ch;
+      margin-bottom: 18px;
     }
-    .subline strong{color:var(--text);font-weight:900;}
+    .heroLead strong{ color: var(--text); font-weight: 700; }
 
-    /* ========= TABLE: cleaner, more minimal ========= */
-    .corebox{
-      background: rgba(255,255,255,0.86);
-      border: 1px solid rgba(15,23,42,0.06);
-      border-radius: 18px;
-      box-shadow: 0 14px 34px rgba(2,6,23,0.06);
-      overflow:hidden;
-      max-width: 720px;
+    /* PREMIUM TABLE (bigger, fewer rows) */
+    .miniTable{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+      max-width: 680px;
     }
-
-    /* subtle top padding so it feels less “boxed” */
-    .corebox-inner{
-      padding: 6px 0;
-    }
-
-    .core-row{
+    .row{
       display:grid;
-      grid-template-columns: 150px 1fr;
-      gap:14px;
-      padding: 14px 18px;
-      align-items:center;
-      border-bottom: 1px solid rgba(15,23,42,0.045);
+      grid-template-columns: 170px 1fr;
+      gap: 16px;
+      padding: 18px 18px;            /* taller rows */
+      border-top: 1px solid rgba(226,232,240,.85);
+      align-items: center;
     }
-    .core-row:last-child{border-bottom:none;}
+    .row:first-child{ border-top: none; }
+    .rowLabel{
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      color: var(--muted2);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .rowValue{
+      font-size: 16px;
+      font-weight: 650;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .rowValue .muted{ color: var(--muted); font-weight: 600; }
+    .rowValue a{ color: var(--link); font-weight: 750; }
+    .rowValue a:hover{ text-decoration: underline; }
 
-    .core-k{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      font-size:0.68rem;
-      color: rgba(100,116,139,0.9);
-      white-space:nowrap;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    /* tiny dot marker (minimal, but adds structure) */
-    .core-k::before{
-      content:"";
-      width:6px;height:6px;border-radius:999px;
-      background: rgba(15,23,42,0.18);
-      display:inline-block;
-      flex:0 0 auto;
-    }
-
-    .core-v{
-      font-size:0.98rem;
-      color:var(--text);
-      font-weight:650;
-      letter-spacing:-0.01em;
-      line-height:1.45;
-    }
-    .core-v strong{font-weight:900;}
-    .core-v a{
-      color:var(--link);
-      font-weight:900;
-      text-decoration:none;
-    }
-    .core-v a:hover{text-decoration:underline;}
-
-    /* PHOTO */
-    .profile-card{
-      background:var(--surfaceSolid);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      box-shadow:var(--shadow);
+    .heroRight{ min-width: 0; }
+    .photoCard{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: calc(var(--radius) + 4px);
       overflow:hidden;
-      justify-self:end;
-      max-width: 460px;
-      width: 100%;
+      box-shadow: var(--shadow2);
     }
-    .img-wrap{
-      background:#e2e8f0;
-      aspect-ratio:4/5;
+    .photoWrap{
+      aspect-ratio: 4 / 3;
+      background: #E2E8F0;
       overflow:hidden;
     }
-    .img-wrap img{
+    .photoWrap img{
       width:100%;
       height:100%;
+      object-fit: cover;
+      object-position: center 22%;
       display:block;
-      object-fit:cover;
-      object-position:50% 22%;
     }
-    .img-meta{
-      padding:12px 14px;
-      color:var(--muted2);
+    .photoMeta{
       display:flex;
-      justify-content:space-between;
-      gap:10px;
-      font-size:0.82rem;
-    }
-    .img-meta span:last-child{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.75rem;
+      justify-content: space-between;
+      padding: 12px 14px;
+      color: var(--muted2);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .04em;
     }
 
     /* SECTIONS */
-    section{margin-bottom:46px;}
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap:14px;
-      border-bottom:1px solid rgba(15,23,42,0.10);
-      padding-bottom:12px;
-      margin-bottom:16px;
+    section{ margin-top: 56px; }
+    .sectionHead{
+      display:flex; align-items: baseline; justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(226,232,240,.9);
+      margin-bottom: 18px;
     }
-    h2{
-      font-size:1.03rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
+    .sectionHead h2{
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text);
     }
-    .meta{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.8rem;
-      color:var(--muted2);
-      white-space:nowrap;
+    .sectionMeta{
+      font-family: var(--mono);
+      color: var(--muted2);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    /* METHOD */
-    .method{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      padding:16px;
-      color:var(--muted);
-      box-shadow:var(--shadowSoft);
-      max-width:86ch;
+    .quoteBox{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      box-shadow: var(--shadow2);
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.7;
     }
-    .method strong{color:var(--text);font-weight:900;}
+    .quoteBox strong{ color: var(--text); font-weight: 750; }
 
-    /* WORK */
-    .work-grid{
+    /* WORK GRID */
+    .workGrid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:16px;
-      align-items:stretch;
+      gap: 16px;
     }
-    .work-card{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadowSoft);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      min-height: 250px;
-      display:flex;
-      flex-direction:column;
+    .card{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: var(--radius);
+      padding: 18px 18px 14px;
+      box-shadow: var(--shadow2);
+      transition: transform .15s ease, box-shadow .15s ease;
+      min-width: 0;
     }
-    .work-card:hover{
+    .card:hover{
       transform: translateY(-2px);
-      box-shadow:0 18px 44px rgba(2,6,23,0.10);
-      border-color: rgba(15,23,42,0.14);
+      box-shadow: 0 18px 34px rgba(15,23,42,.08);
     }
-    .work-kicker{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      text-transform:uppercase;
-      letter-spacing:0.07em;
-      font-size:0.72rem;
-      color:var(--link);
-      font-weight:900;
-      margin-bottom:10px;
+    .cardTop{
+      display:flex; align-items:flex-start; justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
     }
-    .work-card h3{
-      font-size:1.05rem;
-      letter-spacing:-0.01em;
-      margin-bottom:8px;
+    .badge{
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--link);
+      font-weight: 700;
+      white-space: nowrap;
     }
-    .work-card p{
-      color:var(--muted);
-      font-size:0.94rem;
-      margin-bottom:12px;
+    .card h3{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .card p{
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+      margin-bottom: 10px;
     }
 
-    /* ========= DETAILS: reliable + accordion ========= */
     details{
-      margin-top:auto;
-      border-top:1px solid rgba(15,23,42,0.06);
-      padding-top:12px;
+      border-top: 1px solid rgba(226,232,240,.85);
+      padding-top: 10px;
     }
     summary{
-      cursor:pointer;
-      user-select:none;
-      font-weight:900;
-      color:var(--text);
-      font-size:0.9rem;
-      list-style:none;
+      list-style: none;
+      cursor: pointer;
       display:flex;
       align-items:center;
-      gap:8px;
-      width:fit-content;
-      padding:6px 8px;
-      border-radius:10px;
-      transition: background .15s ease;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 14px;
+      padding: 6px 0;
+      user-select:none;
     }
-    summary:hover{
-      background: rgba(15,23,42,0.04);
-    }
-    summary::-webkit-details-marker{display:none;}
-
+    summary::-webkit-details-marker{ display:none; }
     .chev{
-      width:22px;height:22px;
-      border:1px solid rgba(15,23,42,0.12);
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-family:"JetBrains Mono", ui-monospace, monospace;
-      color:var(--muted);
-      font-size:0.95rem;
-      flex:0 0 auto;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-      transform: rotate(0deg);
+      width: 22px; height: 22px;
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: 999px;
+      display:inline-flex; align-items:center; justify-content:center;
+      color: var(--muted2);
+      font-family: var(--mono);
+      font-size: 12px;
+      flex: 0 0 auto;
+      transition: transform .15s ease, background .15s ease;
+      background: rgba(248,250,252,.9);
     }
-    details[open] .chev{
-      transform: rotate(90deg);
-      background: rgba(37,99,235,0.06);
-      border-color: rgba(37,99,235,0.25);
-      color: var(--link);
+    details[open] .chev{ transform: rotate(90deg); background: #fff; }
+    .detailBody{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      padding: 8px 0 2px 32px;
     }
-
-    .detail-panel{
-      overflow:hidden;
-    }
-    .detail-list{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:0.92rem;
-      display:grid;
-      gap:8px;
-      padding-bottom: 6px;
-    }
-    .detail-list li{
-      padding-left:14px;
-      position:relative;
-    }
-    .detail-list li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      color:rgba(15,23,42,0.35);
-    }
+    .detailBody ul{ padding-left: 16px; }
+    .detailBody li{ margin: 6px 0; }
 
     /* CONTACT */
-    .contact-box{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadowSoft);
-      max-width:78ch;
+    .contactCard{
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(226,232,240,.95);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow2);
       display:grid;
-      gap:10px;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
     }
-    .row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:0.95rem;
+    .contactLines{
+      display:grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14.5px;
     }
-    .row strong{color:var(--text);font-weight:900;}
-    .row a{color:var(--text);font-weight:900;text-decoration:none;}
-    .row a:hover{text-decoration:underline;}
-    .copy-mini{
-      font-size:0.82rem;
-      font-weight:900;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.90);
-      border-radius:999px;
-      padding:7px 10px;
+    .contactLines b{ color: var(--text); }
+    .contactLines a{ color: var(--link); font-weight: 750; }
+    .contactLines a:hover{ text-decoration: underline; }
+    .copyBtn{
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 750;
       cursor:pointer;
-      white-space:nowrap;
+      box-shadow: 0 1px 0 rgba(15,23,42,.02);
+      transition: transform .15s ease, box-shadow .15s ease;
+      color: var(--text);
+      min-width: 110px;
     }
-    .copy-mini:hover{background:#fff;}
+    .copyBtn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(15,23,42,.08);
+    }
     .toast{
-      display:none;
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.8rem;
-      color:var(--muted2);
-      margin-left:8px;
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(15,23,42,.92);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.2);
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 200;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
     }
 
     footer{
-      border-top:1px solid rgba(15,23,42,0.10);
-      padding-top:20px;
-      margin-top:46px;
-      color:var(--muted2);
-      font-size:0.85rem;
+      margin-top: 52px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(226,232,240,.9);
+      color: var(--muted2);
+      font-size: 13px;
       display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     /* RESPONSIVE */
     @media (max-width: 980px){
-      .work-grid{grid-template-columns: repeat(2, minmax(0,1fr));}
+      .hero{ grid-template-columns: 1fr; }
+      .miniTable{ max-width: 100%; }
+      .workGrid{ grid-template-columns: 1fr; }
+      .heroTitle{ font-size: 52px; }
+      .photoWrap{ aspect-ratio: 16 / 10; }
     }
-    @media (max-width: 900px){
-      main{margin-top:34px;}
-      .nav-links{display:none;}
-      .hero{
-        grid-template-columns: 1fr;
-        gap:14px;
-      }
-      .profile-card{
-        justify-self:start;
-        max-width: 420px;
-      }
-      h1{font-size:2.55rem;}
-      .core-row{
-        grid-template-columns: 1fr;
-        gap:8px;
-        align-items:start;
-      }
-      .core-k{white-space:normal;}
-    }
-    @media (max-width: 680px){
-      .work-grid{grid-template-columns: 1fr;}
-    }
+
+    /* Mobile-native refinements */
     @media (max-width: 520px){
-      main{padding:0 16px;}
-      .nav-inner{padding:12px 16px;}
-      .profile-card{max-width:360px;}
+      .nav{ padding: 12px 14px; }
+      .navLinks{ display:none; }
+      .btn{ padding: 10px 12px; font-size: 13px; }
+      .hero{
+        padding: 18px;
+        gap: 16px;
+      }
+      .heroTitle{
+        font-size: 44px;
+        margin-bottom: 10px;
+      }
+      .heroLead{
+        font-size: 15.5px;
+        margin-bottom: 14px;
+      }
+      .pill{ font-size: 12px; padding: 7px 10px; }
+      .row{
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 16px 16px; /* still tall, but compact */
+      }
+      .rowLabel{ font-size: 10.5px; }
+      .rowValue{ font-size: 15.5px; }
+      .photoWrap{ aspect-ratio: 4 / 3; }
+      .contactCard{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .copyBtn{ width: 100%; min-width: 0; border-radius: 14px; }
+      .card{ padding: 16px; }
+      .detailBody{ padding-left: 0; }
+      summary{ padding: 8px 0; }
     }
   </style>
 </head>
 
 <body>
-  <header class="nav">
-    <div class="nav-inner">
+
+  <div class="navWrap">
+    <div class="nav">
       <a class="brand" href="#top" aria-label="Home">
-        <span class="dot" aria-hidden="true"></span>
+        <span class="dot"></span>
         Barnabas Vormwald
       </a>
 
-      <nav class="nav-links" aria-label="Navigation">
+      <div class="navLinks" aria-label="Primary">
         <a href="#methodology">Methodology</a>
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
-      </nav>
+      </div>
 
-      <div class="nav-cta">
+      <div class="navActions" aria-label="Actions">
         <a class="btn" href="#contact">Contact</a>
-        <a class="btn primary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btnPrimary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
     </div>
-  </header>
+  </div>
 
   <main id="top">
-    <section class="hero" aria-label="Intro">
-      <!-- LEFT -->
-      <div class="hero-copy">
-        <h1>Barnabas<br><span style="color: var(--muted);">Vormwald</span></h1>
 
-        <p class="subline">
+    <section class="hero" aria-label="Hero">
+      <div class="heroLeft">
+        <div class="kicker">
+          <span class="pill"><b>Shenzhen</b><span style="color:var(--muted2);">· China</span></span>
+          <span class="pill"><b>Institutional clients</b></span>
+          <span class="pill"><b>Strategy & execution</b></span>
+        </div>
+
+        <h1 class="heroTitle">
+          Barnabas<br><span class="last">Vormwald</span>
+        </h1>
+
+        <p class="heroLead">
           Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5%).
           Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
-          I support investment and client decisions through structured analysis, clear communication, and strong execution.
+          I support client and investment decisions through structured analysis, clear communication, and disciplined execution.
         </p>
 
-        <div class="corebox" aria-label="Quick scan">
-          <div class="corebox-inner">
-            <div class="core-row">
-              <div class="core-k">Positioning</div>
-              <div class="core-v">Investment · Strategy · Relationship Management · Business Development</div>
+        <!-- Premium minimal table: no Toolkit row -->
+        <div class="miniTable" aria-label="Quick scan">
+          <div class="row">
+            <div class="rowLabel">Positioning</div>
+            <div class="rowValue">
+              Investment • Strategy • Relationship Management • Business Development
             </div>
-            <div class="core-row">
-              <div class="core-k">Location</div>
-              <div class="core-v"><strong>China-based</strong> (Shenzhen) · <strong>EU work permit</strong></div>
+          </div>
+          <div class="row">
+            <div class="rowLabel">Location</div>
+            <div class="rowValue">
+              China-based (Shenzhen) <span class="muted">·</span> EU work permit
             </div>
-            <div class="core-row">
-              <div class="core-k">Languages</div>
-              <div class="core-v">German (native) · English (C1+) · Spanish (B1+) · Chinese (HSK2, progressing)</div>
+          </div>
+          <div class="row">
+            <div class="rowLabel">Languages</div>
+            <div class="rowValue">
+              German (native) <span class="muted">·</span> English (C1+) <span class="muted">·</span> Spanish (B1+) <span class="muted">·</span> Chinese (HSK2, progressing)
             </div>
-            <div class="core-row">
-              <div class="core-k">Proof</div>
-              <div class="core-v">15+ mandates · DACH coverage · AUM &gt; $3B</div>
+          </div>
+          <div class="row">
+            <div class="rowLabel">Proof</div>
+            <div class="rowValue">
+              15+ mandates <span class="muted">·</span> DACH coverage <span class="muted">·</span> AUM &gt; $3B
             </div>
-            <div class="core-row">
-              <div class="core-k">Toolkit</div>
-              <div class="core-v">Excel (advanced) · Python (analysis) · WRDS/CRSP · SAP Finance · basic SQL</div>
-            </div>
-            <div class="core-row">
-              <div class="core-k">Status</div>
-              <div class="core-v"><a href="#contact">Open for internships / analyst roles</a></div>
+          </div>
+          <div class="row">
+            <div class="rowLabel">Status</div>
+            <div class="rowValue">
+              Open to associate-level roles in investment / strategy / client coverage
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <aside class="profile-card" aria-label="Profile image">
-        <div class="img-wrap">
-          <img
-            src="assets/img/headshot.jpg"
-            alt="Barnabas Vormwald headshot"
-            onerror="this.onerror=null; this.parentElement.style.backgroundColor='#cbd5e1'; this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;font-weight:900;font-family:Inter,system-ui,sans-serif;&quot;>assets/img/headshot.jpg not found</div>';"
-          >
+      <div class="heroRight" aria-label="Portrait">
+        <div class="photoCard">
+          <div class="photoWrap">
+            <img
+              src="assets/img/headshot.jpg"
+              alt="Barnabas Vormwald headshot"
+              onerror="this.onerror=null; this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='#64748B'; this.parentElement.style.fontWeight='700'; this.parentElement.textContent='assets/img/headshot.jpg not found';"
+            />
+          </div>
+          <div class="photoMeta">
+            <span>Shenzhen</span>
+            <span>ID: 9844-B</span>
+          </div>
         </div>
-        <div class="img-meta">
-          <span>Shenzhen</span>
-          <span>ID: 9844-B</span>
-        </div>
-      </aside>
+      </div>
     </section>
 
     <section id="methodology" aria-label="Methodology">
-      <div class="section-head">
+      <div class="sectionHead">
         <h2>Methodology</h2>
-        <span class="meta">HOW I WORK</span>
+        <div class="sectionMeta">How I work</div>
       </div>
-      <div class="method">
-        Client-facing, decision-oriented work: <strong>clarify the objective</strong>, validate inputs, prepare concise materials, and execute across stakeholders.
+
+      <div class="quoteBox">
+        Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate inputs, build the narrative and materials, and execute across stakeholders.
       </div>
     </section>
 
-    <section id="work" aria-label="Selected work">
-      <div class="section-head">
+    <section id="work" aria-label="Selected Work">
+      <div class="sectionHead">
         <h2>Selected Work</h2>
-        <span class="meta">3 ITEMS · DETAILS OPTIONAL</span>
+        <div class="sectionMeta">Scan first · details optional</div>
       </div>
 
-      <div class="work-grid">
-        <article class="work-card">
-          <div class="work-kicker">ALLIANCEBERNSTEIN</div>
+      <div class="workGrid" id="workGrid">
+
+        <article class="card">
+          <div class="cardTop">
+            <div class="badge">AllianceBernstein</div>
+          </div>
           <h3>Institutional Coverage (DACH)</h3>
-          <p>Primary client contact; RFP screening/pursuit; investment committee preparation and coordination across stakeholders.</p>
+          <p>
+            Primary contact for client communication and execution across 15+ mandates; supported RFP pursuit and investment committee preparation.
+          </p>
 
           <details>
             <summary><span class="chev">›</span>Details</summary>
-            <div class="detail-panel">
-              <ul class="detail-list">
-                <li>Managed 15+ institutional mandates (AUM &gt; $3B) as primary contact for communication, documentation, and execution.</li>
-                <li>Maintained full account coverage for 3+ months post-restructure during solo operation; stabilized workflows and ensured continuity.</li>
-                <li>Liaised between clients, consultants, internal stakeholders, and external providers; aligned pursuit strategy with senior sales leadership.</li>
+            <div class="detailBody">
+              <ul>
+                <li>Maintained full account coverage for 3+ months during solo operation; ensured service continuity.</li>
+                <li>Coordinated IC preparation and follow-up across internal teams and external providers.</li>
+                <li>Supported sales qualification and consultant inquiries; aligned pursuit strategy with leadership.</li>
               </ul>
             </div>
           </details>
         </article>
 
-        <article class="work-card">
-          <div class="work-kicker">PATRIZIA AG</div>
+        <article class="card">
+          <div class="cardTop">
+            <div class="badge">PATRIZIA AG</div>
+          </div>
           <h3>Fund Management (Intern)</h3>
-          <p>Investor reporting support, KPI reconciliation (SAP/Excel), and investment committee materials under tight deadlines.</p>
+          <p>
+            Investor reporting support and KPI reconciliation (SAP/Excel); contributed to planning, quarterly materials, and time-sensitive analyses.
+          </p>
 
           <details>
             <summary><span class="chev">›</span>Details</summary>
-            <div class="detail-panel">
-              <ul class="detail-list">
-                <li>Assisted fund steering for German real estate portfolios; quarterly investor reports and IC materials.</li>
-                <li>Verified and reconciled KPIs across SAP and Excel; built macros to identify inconsistencies and support reporting automation.</li>
-                <li>Prepared analysis inputs on COVID-19 impacts for retail assets; coordinated data with property management.</li>
+            <div class="detailBody">
+              <ul>
+                <li>Verified fund KPIs across SAP and Excel; built macros to flag inconsistencies and reduce manual checks.</li>
+                <li>Prepared inputs on COVID-19 impacts for retail assets under tight deadlines.</li>
               </ul>
             </div>
           </details>
         </article>
 
-        <article class="work-card">
-          <div class="work-kicker">PROJECTS</div>
-          <h3>Research & Modeling (Selected)</h3>
-          <p>Evidence-based projects that sharpen investment judgment: sovereign risk, feasibility modeling, and pricing strategy research.</p>
+        <article class="card">
+          <div class="cardTop">
+            <div class="badge">Research / Projects</div>
+          </div>
+          <h3>Structured, evidence-based work</h3>
+          <p>
+            Cross-country BRI analysis and an investor-style redevelopment feasibility model (team lead), focused on decision-ready outputs.
+          </p>
 
           <details>
             <summary><span class="chev">›</span>Details</summary>
-            <div class="detail-panel">
-              <ul class="detail-list">
-                <li><strong>BRI Infrastructure & Sovereign Risk</strong>: cross-country analysis (Pakistan, Sri Lanka, Montenegro) using indicators on FDI, debt ratios, and trade flows.</li>
-                <li><strong>Real Estate Redevelopment Feasibility</strong>: led an international team; built an investment feasibility model and delivered an investor-style pitch.</li>
-                <li><strong>Airline Pricing Strategy (Thesis)</strong>: structured dataset + pragmatic empirical analysis to explain route-level pricing patterns.</li>
+            <div class="detailBody">
+              <ul>
+                <li>BRI thesis: assessed FDI, debt ratios, and trade flows; implications for sovereign risk and resilience.</li>
+                <li>Redevelopment project: led an international team; built feasibility model and presented to external evaluators.</li>
               </ul>
             </div>
           </details>
         </article>
+
       </div>
     </section>
 
     <section id="contact" aria-label="Contact">
-      <div class="section-head">
+      <div class="sectionHead">
         <h2>Contact</h2>
-        <span class="meta">DIRECT</span>
+        <div class="sectionMeta">Direct</div>
       </div>
 
-      <div class="contact-box">
-        <div class="row">
-          <div>Email: <strong id="emailText">barnabasvormwald@gmail.com</strong></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button class="copy-mini" type="button" id="copyEmailBtn">Copy</button>
-            <span class="toast" id="toast">Copied.</span>
-          </div>
+      <div class="contactCard">
+        <div class="contactLines">
+          <div>Email: <b id="emailText">barnabasvormwald@gmail.com</b></div>
+          <div>LinkedIn: <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">Profile</a></div>
+          <div>CV: <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">PDF</a></div>
         </div>
-
-        <div class="row">
-          <div>LinkedIn:</div>
-          <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">Profile</a>
-        </div>
-
-        <div class="row">
-          <div>CV:</div>
-          <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">PDF</a>
-        </div>
+        <button class="copyBtn" id="copyBtn" type="button">Copy email</button>
       </div>
-
-      <footer>
-        <span>No trackers. Static HTML.</span>
-        <span>© <span id="year"></span> Barnabas Vormwald</span>
-      </footer>
     </section>
+
+    <footer aria-label="Footer">
+      <div>© <span id="year"></span> Barnabas Vormwald. Static HTML.</div>
+      <div>No trackers.</div>
+    </footer>
+
   </main>
 
-  <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <div class="toast" id="toast">Copied.</div>
 
-    // copy email
-    const btn = document.getElementById("copyEmailBtn");
-    const toast = document.getElementById("toast");
-    const email = document.getElementById("emailText").textContent;
-    btn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        toast.style.display = "inline";
-        setTimeout(() => (toast.style.display = "none"), 1100);
-      } catch (e) {
-        prompt("Copy this email:", email);
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy email (single button only, contact section)
+    const copyBtn = document.getElementById('copyBtn');
+    const emailText = document.getElementById('emailText').textContent.trim();
+    const toast = document.getElementById('toast');
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      window.clearTimeout(window.__toastTimer);
+      window.__toastTimer = window.setTimeout(() => toast.classList.remove('show'), 1200);
+    }
+
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(emailText);
+        showToast('Email copied.');
+      }catch(e){
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = emailText;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('Email copied.');
       }
     });
 
-    // DETAILS accordion: only one open at a time, reliable behavior
-    const allDetails = Array.from(document.querySelectorAll("#work details"));
-    allDetails.forEach((d) => {
-      d.addEventListener("toggle", () => {
-        if (d.open) {
-          allDetails.forEach((other) => {
-            if (other !== d) other.open = false;
-          });
-        }
+    // Fix: only one Selected Work details can be open at a time (accordion behavior)
+    const grid = document.getElementById('workGrid');
+    const allDetails = Array.from(grid.querySelectorAll('details'));
+
+    allDetails.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (!d.open) return;
+        allDetails.forEach(other => {
+          if (other !== d) other.open = false;
+        });
       });
     });
   </script>
+
 </body>
 </html>
 
