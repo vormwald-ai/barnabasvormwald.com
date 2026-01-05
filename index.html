@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barnabas Vormwald | Institutional Coverage + Quant-Driven Strategy</title>
-  <meta name="description" content="Barnabas Vormwald — PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage). Decision-ready analysis using structured finance, data, and AI-assisted workflows." />
+  <title>Barnabas Vormwald | Institutional Coverage + Quantitative Analysis</title>
+  <meta name="description" content="Barnabas Vormwald — Master of Management at PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage, $3B+ AUM). Decision-ready analysis across clients, markets, and modeling." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
       --accent:#0f172a;
 
       --shadow: 0 18px 50px rgba(2,6,23,0.08);
-      --shadowSoft: 0 10px 28px rgba(2,6,23,0.06);
+      --shadowSoft: 0 10px 26px rgba(2,6,23,0.06);
 
       --max:1080px;
       --r:16px;
@@ -119,13 +119,14 @@
     /* HERO */
     .hero{
       display:grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap:48px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:44px;
       align-items:start;
-      margin-bottom:70px;
+      margin-bottom:66px;
     }
+
     h1{
-      font-size:3.25rem;
+      font-size:3.15rem;
       line-height:1.06;
       letter-spacing:-0.05em;
       margin-bottom:12px;
@@ -138,7 +139,7 @@
     }
     .subline strong{color:var(--text);font-weight:900;}
 
-    /* PROOF CHIPS (small + calm) */
+    /* PROOF CHIPS */
     .proof{
       display:flex;
       flex-wrap:wrap;
@@ -156,18 +157,18 @@
     }
     .chip b{color:var(--text);font-weight:900;}
 
-    /* SMALL SNAPSHOT CARD (replaces big box) */
+    /* SNAPSHOT CARD (now stays inside left column = no big blank space) */
     .snapshot{
       background:var(--surface);
       border:1px solid var(--border2);
       border-radius:var(--r);
       box-shadow:var(--shadowSoft);
-      padding:14px 14px;
+      padding:14px;
       max-width: 640px;
     }
     .snap-row{
       display:grid;
-      grid-template-columns: 170px 1fr;
+      grid-template-columns: 165px 1fr;
       gap:12px;
       padding:10px 10px;
       border-bottom:1px solid rgba(15,23,42,0.06);
@@ -250,7 +251,7 @@
       background:var(--surface);
       border:1px solid var(--border2);
       border-radius:var(--r);
-      padding:16px 16px;
+      padding:16px;
       color:var(--muted);
       box-shadow:var(--shadowSoft);
       max-width:84ch;
@@ -366,28 +367,20 @@
       flex-wrap:wrap;
     }
 
-    /* MOBILE: show photo earlier + avoid it being pushed down */
+    /* RESPONSIVE */
     @media (max-width: 900px){
       main{margin-top:40px;}
       .nav-links{display:none;}
 
-      /* switch hero to flex so we can reorder photo above the snapshot */
+      /* simple stacking keeps photo from being pushed too far down */
       .hero{
-        display:flex;
-        flex-direction:column;
+        grid-template-columns: 1fr;
         gap:18px;
       }
 
-      /* photo right after headline/subline */
+      /* show photo right after intro */
       .profile-card{
-        order: 2;
         max-width: 420px;
-      }
-      .hero-copy{
-        order: 1;
-      }
-      .hero-snapshot{
-        order: 3;
       }
 
       h1{font-size:2.55rem;}
@@ -430,25 +423,47 @@
 
   <main id="top">
     <section class="hero" aria-label="Intro">
-      <!-- Copy block -->
+      <!-- LEFT -->
       <div class="hero-copy">
         <h1>Barnabas<br><span style="color: var(--muted);">Vormwald</span></h1>
 
         <p class="subline">
           Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5%).
           Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
-          I deliver decision-ready work across client needs, structured analysis, and AI-assisted data workflows.
+          I support client decisions through structured analysis, clear communication, and financial modeling.
         </p>
 
         <div class="proof" aria-label="Proof points">
           <span class="chip"><b>15+</b> mandates</span>
           <span class="chip"><b>$3B+</b> AUM coverage</span>
           <span class="chip"><b>Top 5%</b> scholarship</span>
-          <span class="chip"><b>Python</b> (analysis)</span>
+          <span class="chip"><b>Python</b> + Excel</span>
+        </div>
+
+        <!-- Snapshot is now INSIDE the left column: fixes the blank-space issue -->
+        <div class="snapshot" aria-label="Snapshot">
+          <div class="snap-row">
+            <div class="snap-k">Institutional coverage</div>
+            <div class="snap-v">
+              Primary contact for client communication and execution; <strong>RFP screening</strong> and pursuit support; <strong>IC preparation</strong>.
+            </div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-k">Fund analytics</div>
+            <div class="snap-v">
+              Real estate fund steering support; KPI reconciliation (SAP/Excel) and reporting automation; tight-deadline deliverables.
+            </div>
+          </div>
+          <div class="snap-row">
+            <div class="snap-k">Quant focus</div>
+            <div class="snap-v">
+              Coursework and thesis work using <strong>regression / ML</strong> with market datasets (WRDS/CRSP exposure). <em>Open for internships / analyst roles.</em>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Photo: on mobile it appears right after the copy -->
+      <!-- RIGHT -->
       <aside class="profile-card" aria-label="Profile image">
         <div class="img-wrap">
           <img
@@ -462,30 +477,6 @@
           <span>ID: 9844-B</span>
         </div>
       </aside>
-
-      <!-- Snapshot card: smaller than before -->
-      <div class="hero-snapshot">
-        <div class="snapshot" aria-label="Snapshot">
-          <div class="snap-row">
-            <div class="snap-k">Institutional coverage</div>
-            <div class="snap-v">
-              Client-facing execution: <strong>RFP screening</strong>, coordination, and <strong>investment committee</strong> materials.
-            </div>
-          </div>
-          <div class="snap-row">
-            <div class="snap-k">Decision support</div>
-            <div class="snap-v">
-              Structured modeling in Excel/Python; KPI reconciliation/automation; feasibility &amp; scenario thinking.
-            </div>
-          </div>
-          <div class="snap-row">
-            <div class="snap-k">Tools (realistic)</div>
-            <div class="snap-v">
-              Python for analysis (often <strong>AI-assisted</strong>), WRDS/CRSP exposure, and clean reporting. <em>Open for internships / analyst roles.</em>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="methodology" aria-label="Methodology">
@@ -494,8 +485,7 @@
         <span class="meta">APPROACH</span>
       </div>
       <div class="method">
-        I prioritize <strong>clarity</strong>: define the decision, validate inputs, model the drivers, and communicate the conclusion.
-        I’m practical about tooling — I use AI to accelerate execution, but I keep outputs auditable and decision-focused.
+        I aim for decision-ready output: <strong>define the question</strong>, validate inputs, model scenarios, and summarize the conclusion clearly.
       </div>
     </section>
 
@@ -510,12 +500,12 @@
           <div class="work-kicker">MASTER’S THESIS</div>
           <h3>Airline Fare Reverse-Engineering</h3>
           <p>
-            Multi-route fare dataset with empirical analysis (regression + selective ML) to explain route-level price dispersion and market structure.
+            Scraping and modeling global fare data; empirical analysis (regression + selected ML) to explain route-level pricing patterns.
           </p>
           <div class="tags">
             <span class="tag">Empirical pricing</span>
+            <span class="tag">Regression / ML</span>
             <span class="tag">Python</span>
-            <span class="tag">Data pipeline</span>
           </div>
         </article>
 
@@ -523,12 +513,12 @@
           <div class="work-kicker">BACHELOR THESIS</div>
           <h3>BRI Infrastructure &amp; Sovereign Risk</h3>
           <p>
-            Cross-country indicator-based research on China-funded infrastructure and implications for risk/resilience and trade exposure.
+            Cross-country analysis of projects in Pakistan, Sri Lanka, and Montenegro using indicators on FDI, debt ratios, and trade flows.
           </p>
           <div class="tags">
             <span class="tag">Macro</span>
             <span class="tag">Indicators</span>
-            <span class="tag">Structured research</span>
+            <span class="tag">Evidence</span>
           </div>
         </article>
 
@@ -536,7 +526,7 @@
           <div class="work-kicker">FEASIBILITY PROJECT</div>
           <h3>Real Estate Redevelopment</h3>
           <p>
-            Team-led concept with feasibility model and investor-style pitch: assumptions, scenarios, and decision-oriented outputs.
+            Team-led redevelopment concept with an investment feasibility model and an investor-style final presentation.
           </p>
           <div class="tags">
             <span class="tag">Valuation</span>
