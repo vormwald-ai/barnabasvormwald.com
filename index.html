@@ -3,590 +3,518 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barnabas Vormwald | Institutional Coverage + Quantitative Analysis</title>
-  <meta name="description" content="Barnabas Vormwald — Master of Management at PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage, $3B+ AUM). Decision-ready analysis across clients, markets, and modeling." />
+  <title>Barnabas Vormwald | Institutional Coverage + Quant Strategy</title>
+  <meta name="description" content="Barnabas Vormwald — Investment Professional. AllianceBernstein ($3B+ AUM) & PKU HSBC (Top 5%). Bridging Client Coverage with Python/ML Strategy." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#f8fafc;
-      --surface: rgba(255,255,255,0.86);
-      --surfaceSolid:#ffffff;
+    :root {
+      /* Palette: Clean, Corporate, "Private Equity" Style */
+      --bg-top: #ffffff;
+      --bg-bottom: #f1f5f9; /* Slate-100 */
+      
+      --text-main: #0f172a; /* Slate-900 */
+      --text-muted: #475569; /* Slate-600 */
+      --text-light: #94a3b8; /* Slate-400 */
+      
+      --border: #e2e8f0;    /* Slate-200 */
+      --accent: #0f172a;    /* Black/Navy */
+      --link: #2563eb;      /* Corporate Blue */
 
-      --text:#0f172a;
-      --muted:#64748b;
-      --muted2:#94a3b8;
-
-      --border: rgba(15,23,42,0.10);
-      --border2: rgba(15,23,42,0.07);
-
-      --link:#2563eb;
-      --accent:#0f172a;
-
-      --shadow: 0 18px 50px rgba(2,6,23,0.08);
-      --shadowSoft: 0 10px 26px rgba(2,6,23,0.06);
-
-      --max:1080px;
-      --r:16px;
+      --radius: 12px;
+      --max-w: 1040px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color:var(--text);
-      line-height:1.55;
-      background:
-        radial-gradient(900px 420px at 18% -10%, rgba(37, 99, 235, 0.07), transparent 60%),
-        radial-gradient(820px 520px at 92% 8%, rgba(2, 6, 23, 0.06), transparent 60%),
-        var(--bg);
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      /* Clean gradient background (No dots) */
+      background: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      min-height: 100vh;
     }
-    a{color:inherit;text-decoration:none;}
-    a:hover{text-decoration:underline;}
-    ul{list-style:none;}
 
-    /* NAV */
-    .nav{
-      position:sticky;top:0;z-index:100;
-      background: rgba(248,250,252,0.86);
+    a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+    
+    /* UTILS */
+    .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.03em; }
+    .btn { cursor: pointer; }
+
+    /* NAVIGATION */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--border2);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .brand{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      letter-spacing:-0.02em;
-      white-space:nowrap;
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
     }
-    .dot{
-      width:8px;height:8px;border-radius:999px;
-      background:var(--text);
-      opacity:0.9;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981; /* Green = Open for work */
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
     }
-    .nav-links{
-      display:flex;
-      gap:18px;
-      color:var(--muted);
-      font-weight:800;
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
     }
-    .nav-links a:hover{color:var(--text);text-decoration:none;}
-    .nav-cta{
-      display:flex;gap:10px;align-items:center;white-space:nowrap;
-    }
-    .btn{
-      font-size:0.86rem;
-      font-weight:900;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.85);
-      cursor:pointer;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .btn:hover{
-      background:#fff;
-      box-shadow:0 10px 24px rgba(2,6,23,0.08);
-      transform: translateY(-1px);
-      text-decoration:none;
-    }
-    .btn.primary{
-      background:var(--accent);
-      color:#fff;
-      border-color: rgba(15,23,42,0.20);
-    }
-    .btn.primary:hover{background:#1f2937;}
+    .nav-links a:hover { color: var(--text-main); }
+    .nav-actions { display: flex; gap: 12px; }
 
-    /* MAIN */
-    main{
-      max-width:var(--max);
-      margin:54px auto 90px;
-      padding:0 24px;
+    .btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .btn:hover { border-color: var(--text-muted); background: #f8fafc; }
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn.primary:hover {
+      background: #1e293b;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
     }
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap:44px;
-      align-items:start;
-      margin-bottom:66px;
+    /* MAIN CONTAINER */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 60px 24px 100px;
     }
 
-    h1{
-      font-size:3.15rem;
-      line-height:1.06;
-      letter-spacing:-0.05em;
-      margin-bottom:12px;
+    /* HERO GRID */
+    .hero {
+      display: grid;
+      /* Adjusted Layout: Left Text (1.1), Right Image (0.9) */
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 90px;
     }
-    .subline{
-      color:var(--muted);
-      font-size:1.02rem;
-      max-width:62ch;
-      margin-bottom:14px;
-    }
-    .subline strong{color:var(--text);font-weight:900;}
 
-    /* PROOF CHIPS */
-    .proof{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:12px 0 14px;
+    /* LEFT SIDE: TEXT */
+    .hero-content {
+      max-width: 580px; /* Restricts width so text isn't too long */
     }
-    .chip{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.74rem;
-      color:var(--muted);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border2);
-      background: rgba(255,255,255,0.55);
-    }
-    .chip b{color:var(--text);font-weight:900;}
 
-    /* SNAPSHOT CARD (now stays inside left column = no big blank space) */
-    .snapshot{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:var(--r);
-      box-shadow:var(--shadowSoft);
-      padding:14px;
-      max-width: 640px;
+    h1 {
+      font-size: 3.25rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      color: var(--text-main);
     }
-    .snap-row{
-      display:grid;
-      grid-template-columns: 165px 1fr;
-      gap:12px;
-      padding:10px 10px;
-      border-bottom:1px solid rgba(15,23,42,0.06);
-      align-items:start;
+    
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-weight: 400;
     }
-    .snap-row:last-child{border-bottom:none;}
-    .snap-k{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      text-transform:uppercase;
-      letter-spacing:0.07em;
-      font-size:0.72rem;
-      color:var(--muted2);
-      margin-top:2px;
-      white-space:nowrap;
-    }
-    .snap-v{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-    .snap-v strong{color:var(--text);font-weight:900;}
-    .snap-v em{font-style:normal;color:var(--link);font-weight:900;}
+    .hero-lead strong { color: var(--text-main); font-weight: 600; }
 
-    /* PHOTO */
-    .profile-card{
-      background:var(--surfaceSolid);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    /* CHIPS (Quick Stats) */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
     }
-    .img-wrap{
-      background:#e2e8f0;
-      aspect-ratio:4/5;
-      overflow:hidden;
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: #f1f5f9;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
     }
-    .img-wrap img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      object-position:50% 22%;
+    .chip strong { color: var(--text-main); font-weight: 600; }
+
+    /* COMPETENCY LANES (CV-Based) */
+    .lanes {
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
     }
-    .img-meta{
-      padding:12px 14px;
-      color:var(--muted2);
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      font-size:0.82rem;
+    .lane {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      font-size: 0.9rem;
     }
-    .img-meta span:last-child{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.75rem;
+    .lane-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      padding-top: 4px;
+    }
+    .lane-text { color: var(--text-muted); }
+    .lane-text strong { color: var(--text-main); font-weight: 600; }
+
+    /* RIGHT SIDE: IMAGE */
+    .profile-card {
+      position: relative;
+      background: #fff;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px; /* Standard rounded, no tilt */
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); /* Clean shadow */
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .img-box {
+      aspect-ratio: 4/5;
+      background: #cbd5e1;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-caption {
+      margin-top: 12px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
     }
 
     /* SECTIONS */
-    section{margin-bottom:64px;}
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap:14px;
-      border-bottom:1px solid rgba(15,23,42,0.10);
-      padding-bottom:12px;
-      margin-bottom:18px;
+    section { margin-bottom: 80px; }
+    
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--text-main);
+      padding-bottom: 12px;
+      margin-bottom: 32px;
     }
-    h2{
-      font-size:1.05rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      margin: 0;
     }
-    .meta{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.8rem;
-      color:var(--muted2);
-      white-space:nowrap;
+    .meta-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
     }
 
-    .method{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:var(--r);
-      padding:16px;
-      color:var(--muted);
-      box-shadow:var(--shadowSoft);
-      max-width:84ch;
+    /* PHILOSOPHY */
+    .quote-box {
+      background: #fff;
+      border-left: 4px solid var(--text-main);
+      padding: 24px 32px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
     }
-    .method strong{color:var(--text);font-weight:900;}
+    .quote-box strong { color: var(--text-main); }
 
-    /* WORK */
-    .work-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap:18px;
+    /* WORK GRID */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    .work-card{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadowSoft);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    .work-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .work-card:hover{
+    .work-card:hover {
       transform: translateY(-2px);
-      box-shadow:0 18px 44px rgba(2,6,23,0.10);
-      border-color: rgba(15,23,42,0.14);
+      border-color: var(--text-muted);
+      box-shadow: 0 8px 16px -4px rgba(0,0,0,0.05);
     }
-    .work-kicker{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      text-transform:uppercase;
-      letter-spacing:0.07em;
-      font-size:0.72rem;
-      color:var(--link);
-      font-weight:900;
-      margin-bottom:10px;
+    .work-type {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--link);
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
-    .work-card h3{
-      font-size:1.06rem;
-      letter-spacing:-0.01em;
-      margin-bottom:8px;
+    .work-card h3 {
+      font-size: 1.1rem;
+      margin: 0 0 8px 0;
+      color: var(--text-main);
     }
-    .work-card p{
-      color:var(--muted);
-      font-size:0.95rem;
-      margin-bottom:14px;
+    .work-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
-    .tags{
-      border-top:1px solid rgba(15,23,42,0.06);
-      padding-top:12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
+    .tech-stack {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
-    .tag{
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.72rem;
-      background: rgba(241,245,249,0.9);
-      padding:5px 8px;
-      border-radius:999px;
-      border:1px solid rgba(15,23,42,0.06);
-      color:var(--muted);
-    }
-
-    /* CONTACT */
-    .contact-box{
-      background:var(--surface);
-      border:1px solid var(--border2);
-      border-radius:18px;
-      padding:18px;
-      box-shadow:var(--shadowSoft);
-      max-width:78ch;
-      display:grid;
-      gap:10px;
-    }
-    .row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-    .row strong{color:var(--text);font-weight:900;}
-    .row a{color:var(--text);font-weight:900;text-decoration:none;}
-    .row a:hover{text-decoration:underline;}
-    .copy-mini{
-      font-size:0.82rem;
-      font-weight:900;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.85);
-      border-radius:999px;
-      padding:7px 10px;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .copy-mini:hover{background:#fff;}
-    .toast{
-      display:none;
-      font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size:0.8rem;
-      color:var(--muted2);
-      margin-left:8px;
+    .tech {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
     }
 
-    footer{
-      border-top:1px solid rgba(15,23,42,0.10);
-      padding-top:20px;
-      margin-top:58px;
-      color:var(--muted2);
-      font-size:0.85rem;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+    /* FOOTER / CONTACT */
+    .contact-block {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .contact-item { font-size: 0.9rem; }
+    .contact-item span { color: var(--text-light); margin-right: 8px; }
+    .contact-item a { font-weight: 600; color: var(--text-main); }
+    .contact-item a:hover { text-decoration: underline; }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px){
-      main{margin-top:40px;}
-      .nav-links{display:none;}
-
-      /* simple stacking keeps photo from being pushed too far down */
-      .hero{
-        grid-template-columns: 1fr;
-        gap:18px;
+    /* MOBILE LAYOUT */
+    @media (max-width: 850px) {
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
       }
+      
+      /* Order property moves Image (2) between Header (1) and Details (3) */
+      .hero-content { order: 1; }
+      .profile-card { order: 2; width: 100%; max-width: 340px; }
+      .lanes { order: 3; }
 
-      /* show photo right after intro */
-      .profile-card{
-        max-width: 420px;
-      }
-
-      h1{font-size:2.55rem;}
-
-      .snap-row{
-        grid-template-columns: 1fr;
-        gap:6px;
-      }
-      .snap-k{white-space:normal;}
-    }
-
-    @media (max-width: 520px){
-      main{padding:0 16px;}
-      .nav-inner{padding:12px 16px;}
-      .profile-card{max-width: 360px;}
+      .nav-links { display: none; }
+      h1 { font-size: 2.5rem; }
+      .lane { grid-template-columns: 1fr; gap: 4px; margin-bottom: 8px; }
     }
   </style>
 </head>
 
 <body>
+
   <header class="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="dot" aria-hidden="true"></span>
+      <a href="#" class="brand">
+        <div class="status-dot"></div>
         Barnabas Vormwald
       </a>
-
-      <nav class="nav-links" aria-label="Navigation">
-        <a href="#methodology">Methodology</a>
-        <a href="#work">Work</a>
+      
+      <nav class="nav-links">
+        <a href="#about">Philosophy</a>
+        <a href="#work">Track Record</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-cta">
-        <a class="btn" href="#contact">Contact</a>
-        <a class="btn primary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <div class="nav-actions">
+        <a class="btn" href="mailto:barnabasvormwald@gmail.com">Contact</a>
+        <a class="btn primary" href="BarnabasVormwald_CV.pdf" target="_blank">CV</a>
       </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-label="Intro">
-      <!-- LEFT -->
-      <div class="hero-copy">
-        <h1>Barnabas<br><span style="color: var(--muted);">Vormwald</span></h1>
-
-        <p class="subline">
-          Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5%).
-          Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
-          I support client decisions through structured analysis, clear communication, and financial modeling.
+  <main>
+    
+    <section class="hero">
+      
+      <div class="hero-content">
+        <h1>Barnabas <br><span style="color: var(--text-muted);">Vormwald</span></h1>
+        
+        <p class="hero-lead">
+          Master of Management at <strong>PKU HSBC</strong> (Top 5%). Former <strong>AllianceBernstein</strong> ($3B+ AUM Coverage). 
+          Bridging institutional sales with data-driven strategy.
         </p>
 
-        <div class="proof" aria-label="Proof points">
-          <span class="chip"><b>15+</b> mandates</span>
-          <span class="chip"><b>$3B+</b> AUM coverage</span>
-          <span class="chip"><b>Top 5%</b> scholarship</span>
-          <span class="chip"><b>Python</b> + Excel</span>
+        <div class="chip-row">
+          <div class="chip"><strong>15+</strong> Mandates</div>
+          <div class="chip"><strong>Top 5%</strong> Cohort</div>
+          <div class="chip"><strong>Python</strong> + WRDS</div>
         </div>
 
-        <!-- Snapshot is now INSIDE the left column: fixes the blank-space issue -->
-        <div class="snapshot" aria-label="Snapshot">
-          <div class="snap-row">
-            <div class="snap-k">Institutional coverage</div>
-            <div class="snap-v">
-              Primary contact for client communication and execution; <strong>RFP screening</strong> and pursuit support; <strong>IC preparation</strong>.
+        <div class="lanes">
+          <div class="lane">
+            <div class="lane-label">Institutional</div>
+            <div class="lane-text">
+              Primary client contact, <strong>RFP pursuit</strong>, and Investment Committee preparation. (AllianceBernstein).
             </div>
           </div>
-          <div class="snap-row">
-            <div class="snap-k">Fund analytics</div>
-            <div class="snap-v">
-              Real estate fund steering support; KPI reconciliation (SAP/Excel) and reporting automation; tight-deadline deliverables.
+          <div class="lane">
+            <div class="lane-label">Technical</div>
+            <div class="lane-text">
+              <strong>Python (Pandas, Numpy)</strong>, Playwright scraping, and reproducible data pipelines.
             </div>
           </div>
-          <div class="snap-row">
-            <div class="snap-k">Quant focus</div>
-            <div class="snap-v">
-              Coursework and thesis work using <strong>regression / ML</strong> with market datasets (WRDS/CRSP exposure). <em>Open for internships / analyst roles.</em>
+          <div class="lane">
+            <div class="lane-label">Analysis</div>
+            <div class="lane-text">
+              Fund steering, KPI reconciliation, and <strong>Automated Reporting Macros</strong> (Patrizia AG).
+            </div>
+          </div>
+          <div class="lane">
+            <div class="lane-label">Status</div>
+            <div class="lane-text" style="color: var(--link);">
+              Open for <strong>Analyst / Internship</strong> roles (2026).
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <aside class="profile-card" aria-label="Profile image">
-        <div class="img-wrap">
-          <img
-            src="assets/img/headshot.jpg"
-            alt="Barnabas Vormwald headshot"
-            onerror="this.onerror=null; this.parentElement.style.backgroundColor='#cbd5e1'; this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;font-weight:900;font-family:Inter,system-ui,sans-serif;&quot;>assets/img/headshot.jpg not found</div>';"
+      <div class="profile-card">
+        <div class="img-box">
+          <img 
+            src="headshot.jpg" 
+            alt="Barnabas Vormwald"
+            onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e2e8f0'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;font-weight:600;\'>headshot.jpg not found</div>';"
           >
         </div>
-        <div class="img-meta">
-          <span>Shenzhen</span>
-          <span>ID: 9844-B</span>
-        </div>
-      </aside>
+        <div class="img-caption">Shenzhen · ID: 9844-B</div>
+      </div>
+
     </section>
 
-    <section id="methodology" aria-label="Methodology">
+    <section id="about">
       <div class="section-head">
         <h2>Methodology</h2>
-        <span class="meta">APPROACH</span>
+        <span class="meta-tag">APPROACH</span>
       </div>
-      <div class="method">
-        I aim for decision-ready output: <strong>define the question</strong>, validate inputs, model scenarios, and summarize the conclusion clearly.
+      <div class="quote-box">
+        "I work like an analyst: define the decision, validate the data, model the drivers, and communicate the conclusion clearly. I value <strong>evidence over narratives</strong> and structure over noise."
       </div>
     </section>
 
-    <section id="work" aria-label="Selected work">
+    <section id="work">
       <div class="section-head">
         <h2>Selected Work</h2>
-        <span class="meta">SHORT BY DEFAULT</span>
+        <span class="meta-tag">FROM CV</span>
       </div>
-
+      
       <div class="work-grid">
-        <article class="work-card">
-          <div class="work-kicker">MASTER’S THESIS</div>
+        <div class="work-card">
+          <span class="work-type">Master's Thesis</span>
           <h3>Airline Fare Reverse-Engineering</h3>
-          <p>
-            Scraping and modeling global fare data; empirical analysis (regression + selected ML) to explain route-level pricing patterns.
-          </p>
-          <div class="tags">
-            <span class="tag">Empirical pricing</span>
-            <span class="tag">Regression / ML</span>
-            <span class="tag">Python</span>
+          <p>Scraping global fare data to identify route-level mispricing using regression & ML components.</p>
+          <div class="tech-stack">
+            <span class="tech">Python</span>
+            <span class="tech">Playwright</span>
+            <span class="tech">Scikit-Learn</span>
           </div>
-        </article>
+        </div>
 
-        <article class="work-card">
-          <div class="work-kicker">BACHELOR THESIS</div>
-          <h3>BRI Infrastructure &amp; Sovereign Risk</h3>
-          <p>
-            Cross-country analysis of projects in Pakistan, Sri Lanka, and Montenegro using indicators on FDI, debt ratios, and trade flows.
-          </p>
-          <div class="tags">
-            <span class="tag">Macro</span>
-            <span class="tag">Indicators</span>
-            <span class="tag">Evidence</span>
+        <div class="work-card">
+          <span class="work-type">Bachelor Thesis</span>
+          <h3>BRI Infrastructure & Risk</h3>
+          <p>Cross-country analysis of China-funded infrastructure, focusing on sovereign debt risk and trade flows.</p>
+          <div class="tech-stack">
+            <span class="tech">Macro Data</span>
+            <span class="tech">Stata</span>
+            <span class="tech">Excel</span>
           </div>
-        </article>
+        </div>
 
-        <article class="work-card">
-          <div class="work-kicker">FEASIBILITY PROJECT</div>
+        <div class="work-card">
+          <span class="work-type">Feasibility</span>
           <h3>Real Estate Redevelopment</h3>
-          <p>
-            Team-led redevelopment concept with an investment feasibility model and an investor-style final presentation.
-          </p>
-          <div class="tags">
-            <span class="tag">Valuation</span>
-            <span class="tag">Scenarios</span>
-            <span class="tag">Pitch</span>
+          <p>Team-led redevelopment concept with investment feasibility model and investor-style pitch.</p>
+          <div class="tech-stack">
+            <span class="tech">Valuation</span>
+            <span class="tech">Modeling</span>
+            <span class="tech">Pitch Deck</span>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section id="contact" aria-label="Contact">
+    <section id="contact">
       <div class="section-head">
         <h2>Contact</h2>
-        <span class="meta">DIRECT</span>
       </div>
-
-      <div class="contact-box">
-        <div class="row">
-          <div>Email: <strong id="emailText">barnabasvormwald@gmail.com</strong></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button class="copy-mini" type="button" id="copyEmailBtn">Copy</button>
-            <span class="toast" id="toast">Copied.</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>LinkedIn:</div>
-          <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">Profile</a>
-        </div>
-
-        <div class="row">
-          <div>CV:</div>
-          <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">PDF</a>
-        </div>
+      <div class="contact-block">
+        <div class="contact-item"><span>Email:</span> <a href="mailto:barnabasvormwald@gmail.com">barnabasvormwald@gmail.com</a></div>
+        <div class="contact-item"><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank">View Profile ↗</a></div>
+        <div class="contact-item"><span>CV:</span> <a href="BarnabasVormwald_CV.pdf" target="_blank">Download PDF ⬇</a></div>
       </div>
-
-      <footer>
-        <span>No trackers. Static HTML.</span>
-        <span>© <span id="year"></span> Barnabas Vormwald</span>
-      </footer>
     </section>
+
+    <footer>
+      <div>© <span id="year"></span> Barnabas Vormwald</div>
+      <div>Static HTML. No trackers.</div>
+    </footer>
+
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const btn = document.getElementById("copyEmailBtn");
-    const toast = document.getElementById("toast");
-    const email = document.getElementById("emailText").textContent;
-
-    btn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        toast.style.display = "inline";
-        setTimeout(() => (toast.style.display = "none"), 1100);
-      } catch (e) {
-        prompt("Copy this email:", email);
-      }
-    });
   </script>
 </body>
 </html>
-
