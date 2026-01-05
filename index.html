@@ -1,156 +1,350 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barnabas Vormwald</title>
-  <meta name="description" content="Finance · Strategy · Quantitative Analysis" />
-  <style>
-    :root{
-      --bg:#F3F4F6;
-      --text:#111827;
-      --muted:#6B7280;
-      --border:#E5E7EB;
-      --panel:#FFFFFF;
-      --panel-soft:#F9FAFB;
-      --primary:#2F6FDB;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    header{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-    }
-    .nav{
-      max-width:420px;
-      margin:0 auto;
-      padding:14px 16px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .nav a{
-      font-weight:700;
-      text-decoration:underline;
-      color:var(--text);
-    }
-    .burger{
-      display:flex;
-      flex-direction:column;
-      gap:5px;
-    }
-    .burger span{
-      width:22px;height:2px;
-      background:var(--text);
-      border-radius:2px;
-    }
-    main{
-      max-width:420px;
-      margin:0 auto;
-      padding:22px 16px 60px;
-      text-align:center;
-    }
-    h1{
-      font-size:40px;
-      line-height:44px;
-      margin:18px 0 6px;
-    }
-    .subtitle{
-      font-size:14px;
-      color:var(--muted);
-      letter-spacing:.5px;
-      margin-bottom:28px;
-    }
-    .card{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:24px;
-      padding:12px;
-    }
-    .card-inner{
-      background:var(--panel-soft);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:20px;
-    }
-    .photo{
-      height:180px;
-      background:var(--bg);
-      border-radius:18px;
-      margin-bottom:14px;
-    }
-    .headline{
-      font-size:20px;
-      font-weight:800;
-      line-height:24px;
-    }
-    .sub{
-      color:var(--muted);
-      margin-top:10px;
-    }
-    .fine{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:12px;
-    }
-    .cta{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:18px;
-    }
-    .btn{
-      height:56px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:600;
-      text-decoration:none;
-    }
-    .secondary{
-      background:#fff;
-      border:1px solid var(--text);
-      color:var(--text);
-    }
-    .primary{
-      background:var(--primary);
-      color:#fff;
-    }
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Barnabas Vormwald — Finance, Strategy, Quantitative Analysis" />
+    <title>Barnabas Vormwald</title>
 
-<body>
-<header>
-  <div class="nav">
-    <a href="#">Portfolio</a>
-    <div class="burger"><span></span><span></span><span></span></div>
-  </div>
-</header>
+    <!-- Inter (premium, recruiter-grade) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-<main>
-  <h1>Barnabas<br>Vormwald</h1>
-  <div class="subtitle">Finance · Strategy · Quantitative Analysis</div>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: rgba(17, 24, 39, 0.12);
 
-  <div class="card">
-    <div class="card-inner">
-      <div class="photo"></div>
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
 
-      <div class="headline">Peking University<br>HSBC Business School</div>
-      <div class="sub">Master of Management<br>(Expected 2026)</div>
-      <div class="fine">Formerly AllianceBernstein<br>(Institutional Client Coverage)</div>
+        --shadow: 0 12px 30px rgba(17, 24, 39, 0.10);
+        --shadow-soft: 0 10px 24px rgba(17, 24, 39, 0.08);
 
-      <div class="cta">
-        <a class="btn secondary" href="#">Download CV (PDF)</a>
-        <a class="btn primary" href="mailto:your@email.com">Contact Me</a>
+        --radius-card: 20px;
+        --radius-img: 16px;
+        --radius-btn: 14px;
+
+        --maxw: 560px;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ===== Top Nav ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        height: 56px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .menu-btn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+
+      .menu-btn:hover {
+        box-shadow: 0 6px 16px rgba(17, 24, 39, 0.08);
+      }
+
+      .hamburger {
+        width: 18px;
+        height: 12px;
+        position: relative;
+      }
+
+      .hamburger::before,
+      .hamburger::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        background: rgba(17, 24, 39, 0.78);
+        border-radius: 2px;
+      }
+      .hamburger::before { top: 2px; }
+      .hamburger::after { bottom: 2px; }
+
+      /* ===== Page ===== */
+      main {
+        padding: 28px 16px 44px;
+      }
+
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* Exact hero typography + spacing (mobile-first, 320px-safe) */
+      h1 {
+        margin: 18px 0 10px;
+        font-size: 34px;
+        line-height: 1.10;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+      }
+
+      .subtitle {
+        margin: 0 0 18px;
+        font-size: 15px;
+        line-height: 1.45;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      /* ===== Card ===== */
+      .card {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+        text-align: left;
+      }
+
+      .card-media {
+        padding: 16px;
+        padding-bottom: 0;
+      }
+
+      .headshot {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--radius-img);
+        object-fit: cover;
+        background: #f3f4f6;
+      }
+
+      .card-body {
+        padding: 16px;
+        padding-top: 14px;
+      }
+
+      .line {
+        margin: 0 0 8px;
+        font-size: 14px;
+        line-height: 1.45;
+        font-weight: 500;
+      }
+
+      .line-strong {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .line-muted {
+        color: var(--muted);
+        margin-top: 2px;
+        margin-bottom: 14px;
+      }
+
+      /* ===== Buttons ===== */
+      .cta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: var(--radius-btn);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        user-select: none;
+        transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
+      }
+
+      .btn-icon {
+        width: 16px;
+        height: 16px;
+        display: block;
+      }
+
+      .btn-outline {
+        background: #fff;
+        border: 1px solid rgba(17, 24, 39, 0.18);
+        color: var(--text);
+      }
+
+      .btn-outline:hover {
+        box-shadow: 0 10px 22px rgba(17, 24, 39, 0.08);
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        border: 1px solid rgba(37, 99, 235, 0.30);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-hover);
+        box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+        transform: translateY(-1px);
+      }
+
+      /* ===== Optional links row ===== */
+      .links {
+        margin-top: 18px;
+        font-size: 13px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+      }
+
+      .links a:hover {
+        color: var(--text);
+        border-bottom-color: rgba(17, 24, 39, 0.18);
+      }
+
+      .dot { color: rgba(107, 114, 128, 0.7); }
+
+      /* ===== Responsive enhancements ===== */
+      @media (min-width: 480px) {
+        main { padding-top: 34px; }
+        h1 { font-size: 40px; }
+        .subtitle { font-size: 16px; }
+      }
+
+      @media (min-width: 768px) {
+        :root { --maxw: 620px; }
+        .card-media { padding: 18px; padding-bottom: 0; }
+        .card-body { padding: 18px; padding-top: 14px; }
+
+        /* side-by-side CTAs on desktop/tablet */
+        .cta {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+      }
+    </style>
+
+    <!-- Avoid favicon 404 noise -->
+    <link rel="icon" href="data:," />
+  </head>
+
+  <body>
+    <header>
+      <div class="nav">
+        <a class="brand" href="/" aria-label="Home">Portfolio</a>
+        <button class="menu-btn" type="button" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
       </div>
-    </div>
-  </div>
-</main>
-</body>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <h1>BarnabasVormwald</h1>
+        <p class="subtitle">Finance · Strategy · Quantitative Analysis</p>
+
+        <section class="card" aria-label="Profile card">
+          <div class="card-media">
+            <img
+              class="headshot"
+              src="assets/img/headshot.jpg"
+              alt="Portrait of Barnabas Vormwald"
+              width="560"
+              height="560"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div class="card-body">
+            <p class="line line-strong">Peking University HSBC Business School</p>
+            <p class="line">Master of Management (Expected 2026)</p>
+            <p class="line line-muted">Formerly AllianceBernstein (Institutional Client Coverage)</p>
+
+            <div class="cta" role="group" aria-label="Primary actions">
+              <a class="btn btn-outline" href="assets/docs/BarnabasVormwald_CV.pdf" download>
+                <img class="btn-icon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
+                <span>Download CV (PDF)</span>
+              </a>
+
+              <!-- Replace with your real email -->
+              <a class="btn btn-primary" href="mailto:BARNABASVORMWALD@GMAIL.COM?subject=Portfolio%20Inquiry">
+                <img class="btn-icon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
+                <span>Contact Me</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Optional (edit or remove) -->
+        <nav class="links" aria-label="Quick links">
+          <a href="#" aria-disabled="true">LinkedIn</a>
+          <span class="dot" aria-hidden="true">·</span>
+          <a href="mailto:YOUR_EMAIL@EXAMPLE.COM">Email</a>
+          <span class="dot" aria-hidden="true">·</span>
+          <a href="#" aria-disabled="true">Projects</a>
+        </nav>
+      </section>
+    </main>
+  </body>
 </html>
+
