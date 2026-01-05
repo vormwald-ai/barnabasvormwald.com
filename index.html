@@ -3,295 +3,523 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barnabas Vormwald</title>
+  <title>Barnabas Vormwald | Investment Professional</title>
+  <meta name="description" content="Barnabas Vormwald — Investment / Strategy. Former AllianceBernstein (DACH institutional coverage, $3B+ AUM). Python/ML, reproducible analysis." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #f8fafc;
-      --card: #ffffff;
+      --surface: #ffffff;
       --text: #0f172a;
       --muted: #64748b;
-      --line: rgba(15, 23, 42, 0.08);
-      --blue: #2563eb;
-      --radius: 18px;
-      --max: 1100px;
+      --muted2: #94a3b8;
+      --border: #e2e8f0;
+      --shadow: 0 18px 45px rgba(2, 6, 23, 0.08);
+      --shadowSoft: 0 10px 30px rgba(2, 6, 23, 0.06);
+
+      --accent: #0f172a;
+      --link: #2563eb;
+
+      --max: 1080px;
+      --radius: 12px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(900px 420px at 18% -10%, rgba(37, 99, 235, 0.08), transparent 60%),
+        radial-gradient(700px 420px at 88% 10%, rgba(2, 6, 23, 0.06), transparent 60%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    ul { list-style: none; }
 
     /* NAV */
-    .nav {
+    .nav-wrapper {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(248, 250, 252, 0.85);
-      border-bottom: 1px solid var(--line);
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
     }
-    .nav-inner {
+    .nav-container {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 14px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 14px;
     }
     .brand {
       font-weight: 800;
-      display: flex;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      white-space: nowrap;
     }
     .dot {
       width: 8px;
       height: 8px;
-      border-radius: 50%;
       background: var(--text);
+      border-radius: 999px;
+      opacity: 0.9;
     }
+
     .nav-links {
       display: flex;
       gap: 18px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--muted);
     }
-    .nav-cta {
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-actions {
       display: flex;
       gap: 10px;
+      align-items: center;
+      white-space: nowrap;
     }
     .btn {
-      padding: 8px 14px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: white;
-      font-weight: 700;
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      background: rgba(255, 255, 255, 0.8);
       cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
-    .btn.primary {
-      background: #e0e7ff;
-      border-color: #c7d2fe;
+    .btn:hover { background: #fff; box-shadow: 0 8px 18px rgba(2, 6, 23, 0.08); transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: rgba(15, 23, 42, 0.25);
     }
+    .btn-primary:hover { background: #1f2937; }
 
-    /* LAYOUT */
+    /* MAIN */
     main {
       max-width: var(--max);
-      margin: 0 auto;
-      padding: 48px 20px 80px;
+      margin: 56px auto 90px;
+      padding: 0 24px;
     }
 
     /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      margin-bottom: 60px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 52px;
+      align-items: start;
+      margin-bottom: 80px;
     }
 
-    h1 {
-      font-size: 56px;
-      line-height: 1.05;
-      margin: 0 0 16px;
-      letter-spacing: -0.04em;
+    .hero-text h1 {
+      font-size: 3.4rem;
+      line-height: 1.07;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
     }
-
-    .positioning {
-      max-width: 52ch;
+    .hero-text p {
+      font-size: 1.08rem;
       color: var(--muted);
-      font-size: 17px;
+      max-width: 55ch;
+      margin-bottom: 22px;
     }
+    .hero-text strong { color: var(--text); font-weight: 750; }
 
+    /* SIGNALS: calmer than “status board” but still structured */
     .signals {
-      margin-top: 24px;
-      display: grid;
-      gap: 12px;
-      max-width: 52ch;
-    }
-
-    .signal {
-      background: var(--card);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: var(--radius);
-      padding: 12px 14px;
-      font-weight: 600;
-    }
-    .signal span {
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    /* PHOTO CARD */
-    .photo-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      box-shadow: var(--shadowSoft);
       overflow: hidden;
     }
-    .photo-card img {
+    .signal-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 14px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      font-size: 0.95rem;
+      align-items: center;
+    }
+    .signal-row:last-child { border-bottom: none; }
+    .signal-label {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--muted2);
+    }
+    .signal-value { font-weight: 800; color: var(--text); }
+    .signal-value em { font-style: normal; color: var(--link); font-weight: 900; }
+
+    /* PHOTO */
+    .image-container { margin-top: 6px; }
+    .profile-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .img-wrapper {
+      background: #e2e8f0;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+    .img-wrapper img {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: 100%;
       object-fit: cover;
+      object-position: 50% 25%;
+      display: block;
     }
-    .photo-meta {
-      padding: 16px;
-      font-size: 14px;
+    .img-caption {
+      padding: 12px 14px;
+      font-size: 0.82rem;
       color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .chip {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--muted2);
     }
 
-    /* SECTION */
-    section {
-      margin-bottom: 64px;
+    /* SECTIONS */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid rgba(15, 23, 42, 0.92);
+      margin-bottom: 26px;
+      padding-bottom: 10px;
+      gap: 12px;
     }
-    section h2 {
-      font-size: 28px;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+    h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .section-meta {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      color: var(--muted2);
+      white-space: nowrap;
     }
 
-    /* ABOUT */
-    .about {
-      background: var(--card);
-      border: 1px solid var(--line);
+    .about-box {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-left: 4px solid rgba(15, 23, 42, 0.92);
       border-radius: var(--radius);
-      padding: 24px;
-      max-width: 70ch;
+      padding: 22px 22px;
+      font-size: 1.05rem;
       color: var(--muted);
-      font-size: 16px;
+      box-shadow: var(--shadowSoft);
+      margin-bottom: 70px;
+      max-width: 80ch;
     }
+    .about-box strong { color: var(--text); font-weight: 850; }
 
     /* WORK */
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 20px;
+      margin-bottom: 70px;
     }
-    .work-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
+    .project-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadowSoft);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
-    .work-card h3 {
-      margin: 0 0 8px;
-      font-size: 16px;
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(2, 6, 23, 0.10);
+      border-color: rgba(15, 23, 42, 0.18);
     }
-    .work-card p {
-      margin: 0;
+    .project-category {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--link);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .project-card h3 { font-size: 1.05rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .project-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
+    .tag-container {
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      padding-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.72rem;
+      background: #f1f5f9;
+      padding: 5px 8px;
+      border-radius: 999px;
       color: var(--muted);
-      font-size: 14px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    /* CONTACT SECTION (works even without mail client) */
+    .contact-box {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadowSoft);
+      display: grid;
+      gap: 10px;
+      max-width: 70ch;
+    }
+    .contact-line { color: var(--muted); font-size: 0.95rem; }
+    .contact-line strong { color: var(--text); font-weight: 850; }
+    .copy-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .copy-pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      background: rgba(255, 255, 255, 0.85);
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .toast {
+      display: none;
+      color: var(--muted2);
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-      color: var(--muted);
-      font-size: 13px;
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      padding-top: 22px;
+      margin-top: 70px;
+      color: var(--muted2);
+      font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 44px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 28px; }
+      .hero-text h1 { font-size: 2.6rem; }
+      .signal-row { grid-template-columns: 140px 1fr; }
       .nav-links { display: none; }
+      main { margin-top: 40px; }
+    }
+    @media (max-width: 520px) {
+      .signal-row { grid-template-columns: 1fr; gap: 6px; }
+      .nav-container { padding: 12px 16px; }
+      main { padding: 0 16px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <span class="dot"></span> Barnabas Vormwald
-      </div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
+  <div class="nav-wrapper">
+    <div class="nav-container">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="dot" aria-hidden="true"></span>
+        Barnabas Vormwald
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#methodology">Methodology</a>
         <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-cta">
-        <a class="btn" href="mailto:barnabasvormwald@gmail.com">Email</a>
-        <a class="btn primary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank">CV</a>
+
+      <div class="nav-actions">
+        <!-- mailto is fine, but we also provide an on-page contact section -->
+        <a class="btn" href="#contact">Contact</a>
+
+        <!-- FIXED PATH: points to your repo asset -->
+        <a class="btn btn-primary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">
+          Download CV
+        </a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <h1>Barnabas<br>Vormwald</h1>
-        <p class="positioning">
-          Master’s student at <strong>PKU HSBC</strong> (full scholarship, top 5%). Former <strong>AllianceBernstein</strong>.
-          I focus on data-driven decision support in finance and strategy.
+  <main id="top">
+    <section class="hero" aria-label="Intro">
+      <div class="hero-text">
+        <h1>Barnabas <br><span style="color: var(--muted);">Vormwald</span></h1>
+
+        <p>
+          Master’s Candidate at <strong>PKU HSBC</strong> (Top 5% cohort).
+          Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
+          I bridge institutional client coverage with rigorous quantitative strategy.
         </p>
 
-        <div class="signals">
-          <div class="signal">Current focus <span>— empirical pricing, regression & ML</span></div>
-          <div class="signal">Strength <span>— structured analysis, clean modeling, clarity</span></div>
-          <div class="signal">Seeking <span>— internship / analyst roles</span></div>
+        <div class="signals" aria-label="Snapshot">
+          <div class="signal-row">
+            <span class="signal-label">Competency</span>
+            <span class="signal-value">Financial Strategy &amp; Modeling</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-label">Experience</span>
+            <span class="signal-value">Institutional Coverage (DACH)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-label">Technical</span>
+            <span class="signal-value">Python, WRDS, Excel, <span style="font-weight:850;">(basic)</span> SQL</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-label">Status</span>
+            <span class="signal-value"><em>Open for internships / analyst roles</em></span>
+          </div>
         </div>
       </div>
 
-      <div class="photo-card">
-        <img src="assets/img/headshot.jpg" alt="Barnabas Vormwald">
-        <div class="photo-meta">
-          Shenzhen, China · Python · Institutional coverage (DACH)
+      <div class="image-container">
+        <div class="profile-card">
+          <div class="img-wrapper">
+            <!-- FIXED PATH: points to your repo asset -->
+            <img
+              src="assets/img/headshot.jpg"
+              alt="Barnabas Vormwald"
+              onerror="this.onerror=null; this.parentElement.style.backgroundColor='#cbd5e1'; this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:#64748b;font-weight:800;font-family:Inter,system-ui,sans-serif;&quot;>assets/img/headshot.jpg not found</div>';"
+            >
+          </div>
+          <div class="img-caption">
+            <span>Shenzhen</span>
+            <span class="chip">ID: 9844-B</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>Working philosophy</h2>
-      <div class="about">
-        I approach problems like an analyst: define the decision, validate the data, model the drivers,
-        and communicate the conclusion clearly. I value evidence over narratives and structure over noise.
+    <section id="methodology" aria-label="Methodology">
+      <div class="section-header">
+        <h2>Methodology</h2>
+        <span class="section-meta">APPROACH</span>
+      </div>
+
+      <div class="about-box">
+        “I approach finance like an analyst: define the decision, validate the data, model the drivers, and communicate the conclusion clearly.
+        I value <strong>evidence over narratives</strong> and structure over noise.”
       </div>
     </section>
 
-    <!-- WORK -->
-    <section id="work">
-      <h2>Selected work</h2>
+    <section id="work" aria-label="Selected Work">
+      <div class="section-header">
+        <h2>Selected Work</h2>
+        <span class="section-meta">PORTFOLIO</span>
+      </div>
+
       <div class="work-grid">
-        <div class="work-card">
+        <div class="project-card">
+          <div class="project-category">MASTER'S THESIS</div>
           <h3>Airline Fare Reverse-Engineering</h3>
-          <p>Master’s thesis on multi-route pricing using web-scraped data.</p>
+          <p>Scraping &amp; modeling global fare data. Empirical pricing, regression/ML components, reproducible data pipelines.</p>
+          <div class="tag-container">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Playwright</span>
+            <span class="tech-tag">Modeling</span>
+          </div>
         </div>
-        <div class="work-card">
-          <h3>BRI Infrastructure & Sovereign Risk</h3>
-          <p>Cross-country indicator-based bachelor thesis.</p>
+
+        <div class="project-card">
+          <div class="project-category">BACHELOR THESIS</div>
+          <h3>BRI Infrastructure &amp; Risk</h3>
+          <p>Cross-country analysis of China-funded infrastructure using macro/indicator framing and evidence-driven argumentation.</p>
+          <div class="tag-container">
+            <span class="tech-tag">Macro</span>
+            <span class="tech-tag">Indicators</span>
+            <span class="tech-tag">Excel</span>
+          </div>
         </div>
-        <div class="work-card">
-          <h3>Real Estate Feasibility</h3>
-          <p>Team-led valuation and investor-style pitch.</p>
+
+        <div class="project-card">
+          <div class="project-category">FEASIBILITY STUDY</div>
+          <h3>Real Estate Redevelopment</h3>
+          <p>Feasibility model and investor-style pitch: assumptions, scenarios, and decision-oriented outputs.</p>
+          <div class="tag-container">
+            <span class="tech-tag">Valuation</span>
+            <span class="tech-tag">Scenarios</span>
+            <span class="tech-tag">Pitch</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer>
-      <span>No trackers. Static HTML.</span>
-      <span>© <span id="year"></span> Barnabas Vormwald</span>
-    </footer>
+    <section id="contact" aria-label="Contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <span class="section-meta">DIRECT</span>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-line">
+          Email: <a href="mailto:barnabasvormwald@gmail.com"><strong>barnabasvormwald@gmail.com</strong></a>
+        </div>
+        <div class="contact-line">
+          LinkedIn: <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener"><strong>Profile</strong></a>
+        </div>
+        <div class="contact-line">
+          CV: <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener"><strong>PDF</strong></a>
+        </div>
+
+        <div class="copy-row" style="margin-top:6px;">
+          <button class="copy-pill" type="button" id="copyEmailBtn">Copy email</button>
+          <span class="toast" id="toast">Copied.</span>
+        </div>
+      </div>
+
+      <footer>
+        <span>No trackers. Static HTML.</span>
+        <span>© <span id="year"></span> Barnabas Vormwald</span>
+      </footer>
+    </section>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy email (works even if mailto isn't configured)
+    const btn = document.getElementById("copyEmailBtn");
+    const toast = document.getElementById("toast");
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("barnabasvormwald@gmail.com");
+        toast.style.display = "inline";
+        setTimeout(() => (toast.style.display = "none"), 1200);
+      } catch (e) {
+        // Fallback if clipboard permission blocked
+        prompt("Copy this email:", "barnabasvormwald@gmail.com");
+      }
+    });
   </script>
 </body>
 </html>
