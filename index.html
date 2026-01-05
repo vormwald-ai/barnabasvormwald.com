@@ -14,7 +14,6 @@
     :root{
       --bg:#f7f9fc;
       --surface:#ffffff;
-      --surface-2:#fbfcff;
       --text:#0f172a;
       --muted:#64748b;
       --muted-2:#94a3b8;
@@ -22,7 +21,6 @@
       --shadow: 0 18px 40px rgba(15,23,42,.06);
       --shadow-2: 0 10px 22px rgba(15,23,42,.05);
       --radius: 18px;
-      --radius-sm: 14px;
       --max: 1120px;
       --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --accent: #0f172a;
@@ -97,9 +95,7 @@
       box-shadow: 0 14px 26px rgba(15,23,42,.12);
     }
     .btnPrimary:hover{transform: translateY(-1px)}
-    .icon{
-      width:16px; height:16px; display:inline-block;
-    }
+    .icon{width:16px; height:16px; display:inline-block}
     .icon svg{width:16px; height:16px; display:block}
 
     /* HERO */
@@ -116,7 +112,6 @@
       display:flex; flex-wrap:wrap; gap:10px;
       margin-bottom: 14px;
     }
-
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
@@ -151,7 +146,7 @@
     }
     .lead strong{color:var(--text); font-weight:750}
 
-    /* HERO TABLE (premium minimal) */
+    /* HERO TABLE (denser, more premium, less tall) */
     .tableCard{
       margin-top: 18px;
       background: rgba(255,255,255,.78);
@@ -162,44 +157,62 @@
     }
     .row{
       display:grid;
-      grid-template-columns: 170px 1fr;
-      gap: 18px;
-      padding: 20px 20px;
+      grid-template-columns: 140px 1fr; /* narrower label column reduces height */
+      gap: 14px;
+      padding: 16px 18px; /* smaller padding = shorter table */
       border-top: 1px solid rgba(230,237,246,.9);
       align-items:center;
     }
     .row:first-child{border-top:none}
+
     .label{
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--muted-2);
     }
+
     .value{
-      font-size: 18px;
-      font-weight: 650;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--text);
-      line-height: 1.35;
-    }
-    .value .mutedInline{
-      font-weight: 600;
-      color: var(--muted);
-    }
-    .value .dotSep{color:#c0cad8; padding: 0 10px}
-
-    .status{
-      color: var(--link);
-      font-weight: 800;
+      line-height: 1.25;
     }
 
-    /* RIGHT COLUMN: IMAGE + LINKS to remove blank space */
-    .rightCol{
+    /* Inline “chips” prevent awkward multi-line wrapping and keep it compact */
+    .inlineChips{
       display:flex;
-      flex-direction:column;
-      gap: 14px;
+      flex-wrap:wrap;
+      gap: 8px;
+      align-items:center;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(230,237,246,.95);
+      background: rgba(255,255,255,.72);
+      color: var(--text);
+      font-weight: 750;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .chip.muted{
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .chip.status{
+      color: var(--link);
+      font-weight: 850;
+      border-color: rgba(37,99,235,.18);
+      background: rgba(37,99,235,.06);
     }
 
+    /* RIGHT COLUMN */
+    .rightCol{display:flex; flex-direction:column; gap: 14px;}
     .photoCard{
       background: rgba(255,255,255,.75);
       border: 1px solid var(--border);
@@ -278,9 +291,7 @@
     }
 
     /* SECTION HEADERS */
-    .section{
-      margin-top: 42px;
-    }
+    .section{margin-top: 42px;}
     .sectionHeader{
       display:flex;
       justify-content:space-between;
@@ -335,9 +346,6 @@
       flex-direction:column;
       min-height: 240px;
     }
-    .cardTop{
-      display:flex; flex-direction:column; gap: 10px;
-    }
     .org{
       font-family: var(--mono);
       font-size: 12px;
@@ -351,10 +359,10 @@
       font-weight: 850;
       letter-spacing: -0.02em;
       line-height: 1.2;
-      margin: 0;
+      margin: 10px 0 0;
     }
     .desc{
-      margin: 0;
+      margin: 10px 0 0;
       color: var(--muted);
       line-height: 1.65;
       font-size: 15px;
@@ -364,7 +372,6 @@
       background: rgba(230,237,246,.95);
       margin: 16px 0;
     }
-
     .detailsToggle{
       margin-top:auto;
       display:flex;
@@ -415,10 +422,6 @@
       gap: 16px;
       align-items:flex-start;
     }
-    .contactLeft{
-      display:flex; flex-direction:column; gap: 10px;
-      min-width: 0;
-    }
     .kv{
       display:flex; gap: 10px; align-items:baseline;
       color: var(--muted);
@@ -454,7 +457,6 @@
     }
     .toast.show{opacity:1; transform: translateX(-50%) translateY(-4px)}
 
-    /* FOOTER */
     footer{
       margin-top: 46px;
       padding-top: 18px;
@@ -470,12 +472,12 @@
     @media (max-width: 980px){
       h1{font-size: 54px}
       .hero{grid-template-columns: 1fr; gap: 18px}
-      .rightCol{order:-1} /* image first on tablets */
+      .rightCol{order:-1}
       .photoWrap{aspect-ratio: 16/10}
-      .row{grid-template-columns: 150px 1fr}
       .workGrid{grid-template-columns: 1fr; gap: 14px}
       .card{min-height: unset}
       .quickLinks .qlSub{max-width: 440px}
+      .row{grid-template-columns: 1fr; gap: 8px}
     }
 
     @media (max-width: 560px){
@@ -488,23 +490,18 @@
       .kickerRow{margin-bottom: 10px}
       .pill{font-size: 12px; padding: 8px 10px}
       .tableCard{border-radius: 16px}
-      .row{
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 16px 16px;
-      }
-      .value{font-size: 16px}
-      .photoWrap{aspect-ratio: 4/3} /* mobile feels “native” with a stable card */
-      .quickLinks{display:none} /* avoid redundancy on mobile */
+      .row{padding: 14px 14px}
+      .value{font-size: 15px}
+      .chip{font-size: 13px; padding: 6px 9px}
+      .photoWrap{aspect-ratio: 4/3}
+      .quickLinks{display:none}
       .contactCard{flex-direction:column; align-items:stretch}
-      .copyBtn{width: fit-content}
       footer{flex-direction:column}
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
   <div class="navWrap">
     <div class="container">
       <div class="nav">
@@ -539,7 +536,6 @@
 
   <main id="top">
     <div class="container">
-      <!-- HERO -->
       <section class="hero" aria-label="Hero">
         <div>
           <div class="kickerRow" aria-label="Context pills">
@@ -560,40 +556,60 @@
             I support client and investment decisions through structured analysis, clear communication, and disciplined execution.
           </p>
 
-          <!-- Premium minimal table (no toolkit) -->
+          <!-- Denser, shorter table content to prevent stretching -->
           <div class="tableCard" role="table" aria-label="Snapshot table">
             <div class="row" role="row">
               <div class="label" role="cell">Positioning</div>
               <div class="value" role="cell">
-                Investment · Strategy · Relationship Management <span class="dotSep">·</span> Business Development
+                <div class="inlineChips">
+                  <span class="chip">Investment</span>
+                  <span class="chip">Strategy</span>
+                  <span class="chip">Client Coverage</span>
+                  <span class="chip">Business Development</span>
+                </div>
               </div>
             </div>
 
             <div class="row" role="row">
               <div class="label" role="cell">Location</div>
               <div class="value" role="cell">
-                China-based (Shenzhen) <span class="dotSep">·</span> EU work permit
+                <div class="inlineChips">
+                  <span class="chip">Shenzhen (China)</span>
+                  <span class="chip muted">EU work permit</span>
+                </div>
               </div>
             </div>
 
             <div class="row" role="row">
               <div class="label" role="cell">Languages</div>
               <div class="value" role="cell">
-                German (native) <span class="dotSep">·</span> English (C1+) <span class="dotSep">·</span> Spanish (B1+) <span class="dotSep">·</span> Chinese (HSK2, progressing)
+                <div class="inlineChips">
+                  <span class="chip">DE (native)</span>
+                  <span class="chip">EN (C1+)</span>
+                  <span class="chip">ES (B1+)</span>
+                  <span class="chip muted">ZH (HSK2)</span>
+                </div>
               </div>
             </div>
 
             <div class="row" role="row">
               <div class="label" role="cell">Proof</div>
               <div class="value" role="cell">
-                15+ mandates <span class="dotSep">·</span> DACH coverage <span class="dotSep">·</span> AUM &gt; $3B
+                <div class="inlineChips">
+                  <span class="chip">15+ mandates</span>
+                  <span class="chip">DACH</span>
+                  <span class="chip">AUM &gt; $3B</span>
+                </div>
               </div>
             </div>
 
             <div class="row" role="row">
               <div class="label" role="cell">Status</div>
-              <div class="value status" role="cell">
-                Open to associate-level roles in investment / strategy / client coverage
+              <div class="value" role="cell">
+                <div class="inlineChips">
+                  <span class="chip status">Open to associate-level roles</span>
+                  <span class="chip muted">Investment · Strategy · Coverage</span>
+                </div>
               </div>
             </div>
           </div>
@@ -614,7 +630,6 @@
             </div>
           </div>
 
-          <!-- Desktop-only: fills the “blank space under photo” with something useful but not CV-like -->
           <div class="quickLinks" aria-label="Quick links">
             <div class="qlText">
               <div class="qlTitle">Direct links</div>
@@ -644,19 +659,17 @@
         </div>
       </section>
 
-      <!-- METHODOLOGY -->
       <section id="methodology" class="section" aria-label="Methodology">
         <div class="sectionHeader">
           <h2>Methodology</h2>
           <div class="meta">How I work</div>
         </div>
         <div class="methodBox">
-          Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate the inputs,
+          Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate inputs,
           structure the narrative and materials, and execute across stakeholders with tight deadlines.
         </div>
       </section>
 
-      <!-- WORK -->
       <section id="work" class="section" aria-label="Selected work">
         <div class="sectionHeader">
           <h2>Selected work</h2>
@@ -664,15 +677,12 @@
         </div>
 
         <div class="workGrid">
-          <!-- Card 1 -->
           <article class="card" data-open="false">
-            <div class="cardTop">
-              <div class="org">AllianceBernstein</div>
-              <h3 class="title">Institutional Coverage (DACH)</h3>
-              <p class="desc">
-                Primary contact for client communication and execution across 15+ mandates; supported RFP pursuit and investment committee preparation.
-              </p>
-            </div>
+            <div class="org">AllianceBernstein</div>
+            <h3 class="title">Institutional Coverage (DACH)</h3>
+            <p class="desc">
+              Primary contact for client communication and execution across 15+ mandates; supported RFP pursuit and investment committee preparation.
+            </p>
 
             <div class="divider"></div>
 
@@ -687,22 +697,19 @@
 
             <div class="detailsBody" aria-hidden="true">
               <ul>
-                <li>Coordinated IC preparation and follow-up across sales, investment, and external fund service providers.</li>
-                <li>Acted as liaison between clients, consultants, internal stakeholders; triaged inquiries and aligned pursuit strategy with senior leadership.</li>
-                <li>Maintained coverage continuity post-restructuring, stabilizing workflows under time pressure.</li>
+                <li>Coordinated IC preparation and follow-up across internal teams and external providers.</li>
+                <li>Aligned pursuit strategy with senior stakeholders; supported client deliverables under time pressure.</li>
+                <li>Maintained coverage continuity post-restructuring across multiple mandates.</li>
               </ul>
             </div>
           </article>
 
-          <!-- Card 2 -->
           <article class="card" data-open="false">
-            <div class="cardTop">
-              <div class="org">PATRIZIA AG</div>
-              <h3 class="title">Fund Management (Intern)</h3>
-              <p class="desc">
-                Investor reporting support and KPI reconciliation (SAP/Excel); contributed to quarterly materials and time-sensitive analyses.
-              </p>
-            </div>
+            <div class="org">PATRIZIA AG</div>
+            <h3 class="title">Fund Management (Intern)</h3>
+            <p class="desc">
+              Investor reporting support and KPI reconciliation (SAP/Excel); contributed to quarterly materials and time-sensitive analyses.
+            </p>
 
             <div class="divider"></div>
 
@@ -717,22 +724,19 @@
 
             <div class="detailsBody" aria-hidden="true">
               <ul>
-                <li>Assisted fund steering for German real estate portfolios; supported quarterly investor reports and IC materials.</li>
-                <li>Reconciled fund-level KPIs across systems; used Excel automation/macros to identify inconsistencies.</li>
-                <li>Prepared analysis inputs on COVID-19 impacts; coordinated data with property management under tight deadlines.</li>
+                <li>Supported quarterly investor reports and IC materials for German real estate portfolios.</li>
+                <li>Reconciled fund-level KPIs across systems; used Excel automation to identify inconsistencies.</li>
+                <li>Prepared analysis inputs on COVID-19 impacts with tight deadlines.</li>
               </ul>
             </div>
           </article>
 
-          <!-- Card 3 -->
           <article class="card" data-open="false">
-            <div class="cardTop">
-              <div class="org">Research / Projects</div>
-              <h3 class="title">Structured, evidence-based work</h3>
-              <p class="desc">
-                Cross-country BRI analysis and an investor-style redevelopment feasibility model (team lead), focused on decision-ready outputs.
-              </p>
-            </div>
+            <div class="org">Research / Projects</div>
+            <h3 class="title">Structured, evidence-based work</h3>
+            <p class="desc">
+              Cross-country BRI analysis and an investor-style redevelopment feasibility model (team lead), focused on decision-ready outputs.
+            </p>
 
             <div class="divider"></div>
 
@@ -749,14 +753,13 @@
               <ul>
                 <li>BRI thesis: assessed FDI, debt ratios, and trade flows; implications for sovereign risk and resilience.</li>
                 <li>Redevelopment project: led an international team; built feasibility model and presented to external evaluators.</li>
-                <li>Master’s thesis in progress: airline pricing strategy (scraping + modeling) as structured empirical research.</li>
+                <li>Master’s thesis in progress: airline pricing strategy as structured empirical research.</li>
               </ul>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact" class="section" aria-label="Contact">
         <div class="sectionHeader">
           <h2>Contact</h2>
@@ -764,7 +767,7 @@
         </div>
 
         <div class="contactCard">
-          <div class="contactLeft">
+          <div style="display:flex; flex-direction:column; gap:10px; min-width:0;">
             <div class="kv"><span>Email:</span> <strong id="emailText">barnabasvormwald@gmail.com</strong></div>
             <div class="kv"><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener"><strong>Profile</strong></a></div>
             <div class="kv"><span>CV:</span> <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener"><strong>PDF</strong></a></div>
@@ -789,7 +792,6 @@
   <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Copy email
@@ -809,7 +811,6 @@
         await navigator.clipboard.writeText(emailText);
         showToast("Email copied");
       }catch(e){
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = emailText;
         document.body.appendChild(ta);
@@ -820,7 +821,7 @@
       }
     });
 
-    // Work details: only one open at a time; fixes “all expand”
+    // Work details: only one open at a time
     const cards = Array.from(document.querySelectorAll(".card"));
     cards.forEach(card => {
       const btn = card.querySelector(".detailsToggle");
@@ -829,7 +830,6 @@
       btn.addEventListener("click", () => {
         const isOpen = card.getAttribute("data-open") === "true";
 
-        // close others
         cards.forEach(c => {
           if (c !== card) {
             c.setAttribute("data-open", "false");
@@ -840,7 +840,6 @@
           }
         });
 
-        // toggle this
         card.setAttribute("data-open", String(!isOpen));
         btn.setAttribute("aria-expanded", String(!isOpen));
         body.setAttribute("aria-hidden", String(isOpen));
