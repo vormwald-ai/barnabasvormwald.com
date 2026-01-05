@@ -3,360 +3,359 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Barnabas Vormwald — Finance, Strategy, Quantitative Analysis" />
     <title>Barnabas Vormwald</title>
+    <meta name="description" content="Barnabas Vormwald — Finance, Strategy, Quantitative Analysis. PKU HSBC (Full Scholarship, Top 5%). Formerly AllianceBernstein (Institutional Client Coverage, DACH)." />
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Barnabas Vormwald" />
+    <meta property="og:description" content="Finance · Strategy · Quantitative Analysis — PKU HSBC (Full Scholarship, Top 5%). Formerly AllianceBernstein (Institutional Client Coverage)." />
+    <meta property="og:type" content="website" />
+
+    <!-- Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750&display=swap" rel="stylesheet" />
     <link rel="icon" href="data:," />
 
     <style>
-      :root {
-        --bg: #ffffff;
-        --hero-tint: #f8fafc; /* very subtle */
-        --text: #0f172a;
-        --muted: #64748b;
-        --muted-2: rgba(15, 23, 42, 0.72);
-        --border: rgba(15, 23, 42, 0.12);
-        --border-2: rgba(15, 23, 42, 0.10);
+      :root{
+        --bg:#ffffff;
+        --tint:#f8fafc;
+        --text:#0f172a;
+        --muted:#64748b;
+        --border:rgba(15,23,42,.12);
 
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
+        --primary:#2563eb;
+        --primaryH:#1d4ed8;
 
-        /* Shadows tuned to feel less “app-y” and more editorial */
-        --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.06);
-        --shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+        --shadowSoft:0 10px 24px rgba(15,23,42,.06);
+        --shadow:0 18px 40px rgba(15,23,42,.10);
 
-        --radius-card: 20px;
-        --radius-img: 16px;
-        --radius-btn: 12px;
+        --rCard:20px;
+        --rImg:16px;
+        --rBtn:12px;
 
-        --container: 1100px;
-        --hero-max: 540px;
-
-        --pad-x: 16px;
+        --container:1120px;
+        --pad:16px;
       }
 
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        background:var(--bg);
+        color:var(--text);
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        text-rendering:optimizeLegibility;
       }
 
-      /* ===== Top Nav ===== */
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border);
+      /* Top nav */
+      header{
+        position:sticky;
+        top:0;
+        z-index:10;
+        background:rgba(255,255,255,.92);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--border);
+      }
+      .nav{
+        height:58px;
+        max-width:var(--container);
+        margin:0 auto;
+        padding:0 var(--pad);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .brand{
+        font-size:14px;
+        font-weight:650;
+        letter-spacing:.2px;
+        color:var(--text);
+        text-decoration:none;
+        white-space:nowrap;
+      }
+      .navRight{
+        display:flex;
+        align-items:center;
+        gap:10px;
+      }
+      .navLink{
+        font-size:13px;
+        font-weight:600;
+        color:var(--muted);
+        text-decoration:none;
+        border-bottom:1px solid transparent;
+        padding-bottom:2px;
+      }
+      .navLink:hover{
+        color:var(--text);
+        border-bottom-color:rgba(15,23,42,.18);
+      }
+      .menuBtn{
+        width:40px;height:40px;
+        border:1px solid rgba(15,23,42,.10);
+        border-radius:12px;
+        background:#fff;
+        display:grid;
+        place-items:center;
+        cursor:default; /* non-functional */
+      }
+      .hamburger{width:18px;height:12px;position:relative}
+      .hamburger::before,.hamburger::after{
+        content:"";
+        position:absolute;left:0;
+        width:18px;height:2px;
+        background:rgba(15,23,42,.78);
+        border-radius:2px;
+      }
+      .hamburger::before{top:2px}
+      .hamburger::after{bottom:2px}
+
+      /* Layout */
+      main{
+        max-width:var(--container);
+        margin:0 auto;
+        padding:22px var(--pad) 72px;
       }
 
-      .nav {
-        height: 58px;
-        max-width: var(--container);
-        margin: 0 auto;
-        padding: 0 var(--pad-x);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      .heroShell{
+        background:linear-gradient(180deg,var(--tint),rgba(248,250,252,0));
+        border:1px solid rgba(15,23,42,.06);
+        border-radius:24px;
+        padding:20px;
       }
 
-      .brand {
-        font-size: 14px;
-        font-weight: 650;
-        letter-spacing: 0.2px;
-        color: var(--text);
-        text-decoration: none;
+      .heroGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:18px;
+        align-items:start;
       }
 
-      .menu-btn {
-        width: 40px;
-        height: 40px;
-        border: 1px solid var(--border-2);
-        border-radius: 12px;
-        background: #fff;
-        display: grid;
-        place-items: center;
-        cursor: default; /* non-functional */
+      /* Left */
+      .copy{
+        text-align:center;
+        max-width:700px;
+        margin:0 auto;
+      }
+      .kicker{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        margin:6px 0 10px;
+        font-size:12.5px;
+        font-weight:650;
+        color:rgba(15,23,42,.72);
+        letter-spacing:.2px;
+      }
+      .dot{
+        width:6px;height:6px;border-radius:999px;background:rgba(37,99,235,.85);
       }
 
-      .hamburger {
-        width: 18px;
-        height: 12px;
-        position: relative;
+      h1{
+        margin:6px 0 10px;
+        font-size:34px;
+        line-height:1.06;
+        font-weight:750;
+        letter-spacing:-.9px;
       }
-      .hamburger::before,
-      .hamburger::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 18px;
-        height: 2px;
-        background: rgba(15, 23, 42, 0.78);
-        border-radius: 2px;
-      }
-      .hamburger::before { top: 2px; }
-      .hamburger::after { bottom: 2px; }
-
-      /* ===== Page Layout ===== */
-      main {
-        max-width: var(--container);
-        margin: 0 auto;
-        padding: 26px var(--pad-x) 64px; /* less top whitespace */
+      .subtitle{
+        margin:0 0 14px;
+        font-size:15px;
+        line-height:1.55;
+        font-weight:650;
+        color:var(--muted);
+        letter-spacing:.2px;
       }
 
-      /* subtle hero section frame */
-      .hero-shell {
-        background: linear-gradient(180deg, var(--hero-tint), rgba(248,250,252,0));
-        border: 1px solid rgba(15, 23, 42, 0.06);
-        border-radius: 24px;
-        padding: 22px;
+      .lead{
+        margin:0 auto 14px;
+        font-size:14.75px;
+        line-height:1.65;
+        color:rgba(15,23,42,.78);
+        max-width:620px;
       }
 
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
-        align-items: start;
+      /* Proof chips */
+      .chips{
+        margin:0 auto 18px;
+        max-width:680px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        justify-content:center;
+      }
+      .chip{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 10px;
+        border:1px solid rgba(15,23,42,.10);
+        border-radius:999px;
+        background:#fff;
+        box-shadow:0 8px 18px rgba(15,23,42,.05);
+        font-size:12.75px;
+        font-weight:600;
+        color:rgba(15,23,42,.78);
+        white-space:nowrap;
+      }
+      .chip svg{width:14px;height:14px;opacity:.85}
+
+      /* CTA */
+      .cta{
+        max-width:620px;
+        margin:0 auto;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+      .btn{
+        width:100%;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding:12px 14px;
+        border-radius:var(--rBtn);
+        font-size:14px;
+        font-weight:650;
+        line-height:1;
+        text-decoration:none;
+        user-select:none;
+        transition:transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
+        outline:none;
+      }
+      .btn:focus-visible{
+        box-shadow:0 0 0 4px rgba(37,99,235,.18);
+      }
+      .btnIcon{width:16px;height:16px;display:block}
+
+      .btnOutline{
+        background:#fff;
+        border:1px solid rgba(15,23,42,.18);
+        color:var(--text);
+      }
+      .btnOutline:hover{
+        box-shadow:0 12px 26px rgba(15,23,42,.08);
+        transform:translateY(-1px);
       }
 
-      /* ===== Left (copy) ===== */
-      .copy {
-        text-align: center;
-        max-width: 680px;
-        margin: 0 auto;
+      .btnPrimary{
+        background:var(--primary);
+        border:1px solid rgba(37,99,235,.30);
+        color:#fff;
+      }
+      .btnPrimary:hover{
+        background:var(--primaryH);
+        box-shadow:0 16px 34px rgba(37,99,235,.20);
+        transform:translateY(-1px);
+      }
+      .btnPrimary .btnIcon{filter:brightness(0) invert(1)}
+
+      /* Right card */
+      .card{
+        width:100%;
+        background:#fff;
+        border:1px solid rgba(15,23,42,.10);
+        border-radius:var(--rCard);
+        box-shadow:var(--shadowSoft);
+        overflow:hidden;
+      }
+      .cardInner{padding:16px}
+      .headshot{
+        width:100%;
+        height:auto;
+        display:block;
+        border-radius:var(--rImg);
+        object-fit:cover;
+        background:#f3f4f6;
+        aspect-ratio:5/4;
+      }
+      .cardBody{padding-top:14px}
+      .line{margin:0 0 8px;font-size:14px;line-height:1.45;font-weight:520}
+      .lineStrong{font-weight:720}
+      .lineMuted{color:var(--muted);margin-top:2px}
+
+      .contactRow{
+        margin-top:12px;
+        padding-top:12px;
+        border-top:1px solid rgba(15,23,42,.08);
+        display:grid;
+        gap:8px;
+        font-size:13px;
+        color:rgba(15,23,42,.72);
+      }
+      .contactRow a{
+        color:rgba(15,23,42,.72);
+        text-decoration:none;
+        border-bottom:1px solid transparent;
+        padding-bottom:1px;
+        width:max-content;
+      }
+      .contactRow a:hover{
+        color:var(--text);
+        border-bottom-color:rgba(15,23,42,.18);
       }
 
-      .h1 {
-        margin: 8px 0 10px;
-        font-size: 34px;
-        line-height: 1.06;
-        font-weight: 750;
-        letter-spacing: -0.9px;
+      /* Below fold: compact sections */
+      .sections{
+        margin-top:18px;
+        display:grid;
+        gap:12px;
+      }
+      .panel{
+        background:#fff;
+        border:1px solid rgba(15,23,42,.08);
+        border-radius:18px;
+        box-shadow:0 10px 24px rgba(15,23,42,.04);
+        padding:16px;
+      }
+      .panel h2{
+        margin:0 0 10px;
+        font-size:14px;
+        letter-spacing:.2px;
+        font-weight:750;
+      }
+      .panel ul{
+        margin:0;
+        padding-left:16px;
+        color:rgba(15,23,42,.78);
+        font-size:13.5px;
+        line-height:1.55;
+      }
+      .panel li{margin:6px 0}
+      .meta{
+        color:var(--muted);
+        font-weight:600;
       }
 
-      .subtitle {
-        margin: 0 0 16px;
-        font-size: 15px;
-        line-height: 1.5;
-        font-weight: 600;
-        color: var(--muted);
-        letter-spacing: 0.2px;
-      }
-
-      .value {
-        margin: 0 auto 16px;
-        font-size: 14.5px;
-        line-height: 1.65;
-        color: var(--muted-2);
-        max-width: var(--hero-max);
-      }
-
-      .highlights {
-        margin: 0 auto 18px;
-        max-width: var(--hero-max);
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
-        text-align: left;
-      }
-
-      .highlights li {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        font-size: 13.5px;
-        line-height: 1.55;
-        color: rgba(15, 23, 42, 0.74);
-      }
-
-      .bullet {
-        width: 8px;
-        height: 8px;
-        margin-top: 7px;
-        border-radius: 999px;
-        background: rgba(37, 99, 235, 0.85);
-        flex: 0 0 auto;
-      }
-
-      /* ===== CTA ===== */
-      .cta {
-        max-width: var(--hero-max);
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .btn {
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 14px;
-        border-radius: var(--radius-btn);
-        font-size: 14px;
-        font-weight: 650;
-        line-height: 1;
-        text-decoration: none;
-        user-select: none;
-        transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
-        outline: none;
-      }
-
-      .btn:focus-visible {
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
-      }
-
-      .btn-icon { width: 16px; height: 16px; display: block; }
-
-      .btn-outline {
-        background: #fff;
-        border: 1px solid rgba(15, 23, 42, 0.18);
-        color: var(--text);
-      }
-      .btn-outline:hover {
-        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
-        transform: translateY(-1px);
-      }
-
-      .btn-primary {
-        background: var(--primary);
-        border: 1px solid rgba(37, 99, 235, 0.30);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: var(--primary-hover);
-        box-shadow: 0 16px 34px rgba(37, 99, 235, 0.20);
-        transform: translateY(-1px);
-      }
-
-      /* Ensure icons look correct on filled button even if SVG is black */
-      .btn-primary .btn-icon { filter: brightness(0) invert(1); }
-      .btn-outline .btn-icon { opacity: 0.9; }
-
-      /* ===== Links row (only real links) ===== */
-      .links {
-        margin: 16px auto 0;
-        max-width: var(--hero-max);
-        font-size: 13px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .links a {
-        color: var(--muted);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 2px;
-      }
-
-      .links a:hover {
-        color: var(--text);
-        border-bottom-color: rgba(15, 23, 42, 0.18);
-      }
-
-      .dot { color: rgba(100, 116, 139, 0.7); }
-
-      /* ===== Right (card) ===== */
-      .card {
-        width: 100%;
-        background: #fff;
-        border: 1px solid rgba(15, 23, 42, 0.10);
-        border-radius: var(--radius-card);
-        box-shadow: var(--shadow-soft);
-        overflow: hidden;
-      }
-
-      .card-inner { padding: 16px; }
-
-      .headshot {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: var(--radius-img);
-        object-fit: cover;
-        background: #f3f4f6;
-        aspect-ratio: 5 / 4; /* slightly more portrait-friendly than 4/3 */
-      }
-
-      .card-body { padding-top: 14px; }
-
-      .line {
-        margin: 0 0 8px;
-        font-size: 14px;
-        line-height: 1.45;
-        font-weight: 520;
-      }
-
-      .line-strong { font-weight: 720; }
-
-      .line-muted {
-        margin-top: 2px;
-        color: var(--muted);
-      }
-
-      /* ===== Desktop layout ===== */
-      @media (min-width: 900px) {
-        main { padding-top: 28px; }
-
-        .hero-shell { padding: 28px; }
-
-        .hero-grid {
-          grid-template-columns: 1.05fr 0.95fr;
-          gap: 40px;
-          align-items: start; /* key change: top-aligned, feels intentional */
+      /* Desktop */
+      @media (min-width: 900px){
+        main{padding-top:18px}
+        .heroShell{padding:26px}
+        .heroGrid{
+          grid-template-columns:1.08fr .92fr;
+          gap:44px;
+          align-items:start;
         }
+        .copy{text-align:left;margin:0}
+        .chips{justify-content:flex-start}
+        .cta{grid-template-columns:1fr 1fr 1fr; max-width:720px}
+        h1{font-size:56px; letter-spacing:-1.2px}
+        .subtitle{font-size:16.5px}
+        .card{box-shadow:var(--shadow)}
+        .cardInner{padding:18px}
 
-        .copy {
-          text-align: left;
-          margin: 0;
+        .sections{
+          grid-template-columns:1fr 1fr;
         }
-
-        .h1 {
-          font-size: 54px;
-          letter-spacing: -1.2px;
-          margin-top: 2px;
-        }
-
-        .subtitle {
-          font-size: 16.5px;
-          margin-bottom: 16px;
-        }
-
-        .value, .highlights, .cta, .links {
-          margin-left: 0;
-          margin-right: 0;
-        }
-
-        .cta { grid-template-columns: 1fr 1fr; }
-
-        .btn { padding: 11px 14px; } /* slightly tighter on desktop */
-
-        .card { box-shadow: var(--shadow); }
-        .card-inner { padding: 18px; }
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        .btn { transition: none; }
+      @media (prefers-reduced-motion: reduce){
+        .btn{transition:none}
       }
     </style>
   </head>
@@ -365,55 +364,112 @@
     <header>
       <div class="nav">
         <a class="brand" href="/" aria-label="Home">Barnabas Vormwald</a>
-        <button class="menu-btn" type="button" aria-label="Menu (coming soon)">
-          <span class="hamburger" aria-hidden="true"></span>
-        </button>
+        <div class="navRight">
+          <a class="navLink" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="navLink" href="mailto:barnabasvormwald@gmail.com">Email</a>
+          <button class="menuBtn" type="button" aria-label="Menu (coming soon)">
+            <span class="hamburger" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero-shell" aria-label="Hero section">
-        <section class="hero-grid" aria-label="Hero">
-          <!-- LEFT: Positioning -->
+      <section class="heroShell" aria-label="Hero section">
+        <section class="heroGrid" aria-label="Hero">
+          <!-- LEFT -->
           <div class="copy">
-            <div class="h1">Barnabas Vormwald</div>
+            <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Shenzhen, China</span></div>
+            <h1>Barnabas Vormwald</h1>
             <div class="subtitle">Finance · Strategy · Quantitative Analysis</div>
 
-            <p class="value">
-              Master’s student at PKU HSBC (Shenzhen) with experience in institutional client coverage.
-              Interested in roles spanning finance, strategy, and analytical research.
+            <p class="lead">
+              Master’s student at PKU HSBC (Full Academic Scholarship, Top 5% of international cohort) with experience in institutional client coverage at AllianceBernstein (DACH). :contentReference[oaicite:5]{index=5}
             </p>
 
-            <ul class="highlights" aria-label="Highlights">
-              <li><span class="bullet" aria-hidden="true"></span><span>Formerly AllianceBernstein — Institutional Client Coverage (DACH)</span></li>
-              <li><span class="bullet" aria-hidden="true"></span><span>Research focus: empirical pricing & data analysis (Master’s thesis)</span></li>
-              <li><span class="bullet" aria-hidden="true"></span><span>International profile across Europe & Asia; fluent stakeholder communication</span></li>
-            </ul>
+            <div class="chips" aria-label="Quick proof">
+              <div class="chip" title="AllianceBernstein coverage">
+                <!-- briefcase icon -->
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9h16v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9Z" stroke="currentColor" stroke-width="2"/><path d="M4 12h16" stroke="currentColor" stroke-width="2"/></svg>
+                <span>AllianceBernstein (Institutional)</span>
+              </div>
+              <div class="chip" title="DACH mandates and AUM">
+                <!-- chart icon -->
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 15l3-3 3 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>15+ mandates · $3B+ AUM</span>
+              </div>
+              <div class="chip" title="Scholarship">
+                <!-- medal icon -->
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/><path d="M9 14 7 20l5-2 5 2-2-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                <span>Full scholarship (Top 5%)</span>
+              </div>
+              <div class="chip" title="Technical stack">
+                <!-- code icon -->
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18 3 12l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Python · Playwright · ML</span>
+              </div>
+            </div>
 
             <div class="cta" role="group" aria-label="Primary actions">
-              <a class="btn btn-outline" href="assets/docs/BarnabasVormwald_CV.pdf" download>
-                <img class="btn-icon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
+              <a class="btn btnOutline" href="assets/docs/BarnabasVormwald_CV.pdf" download>
+                <img class="btnIcon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
                 <span>Download CV</span>
               </a>
 
-              <a class="btn btn-primary" href="mailto:BARNABASVORMWALD@GMAIL.COM?subject=Portfolio%20Inquiry">
-                <img class="btn-icon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
-                <span>Contact</span>
+              <a class="btn btnPrimary" href="mailto:barnabasvormwald@gmail.com?subject=Portfolio%20Inquiry">
+                <img class="btnIcon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
+                <span>Email</span>
+              </a>
+
+              <a class="btn btnOutline" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noreferrer">
+                <!-- simple in icon -->
+                <svg class="btnIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 10.5V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6.5 7.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M10.5 18v-4.2c0-2.3 3-2.5 3-0.1V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13.5 13.6c0-2.7 4-2.8 4 0.1V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>LinkedIn</span>
               </a>
             </div>
 
-            <nav class="links" aria-label="Quick links">
-              <!-- Add your LinkedIn URL when ready; until then, keep it off or real. -->
-              <!-- Example: <a href="https://www.linkedin.com/in/YOURHANDLE/" target="_blank" rel="noreferrer">LinkedIn</a> -->
-              <a href="mailto:BARNABASVORMWALD@GMAIL.COM">Email</a>
-              <span class="dot" aria-hidden="true">·</span>
-              <a href="assets/docs/BarnabasVormwald_CV.pdf">CV</a>
-            </nav>
+            <section class="sections" aria-label="Highlights">
+              <div class="panel">
+                <h2>Experience</h2>
+                <ul>
+                  <li><strong>AllianceBernstein</strong> — Institutional Sales Associate <span class="meta">(Munich, 2021–2023)</span></li>
+                  <li>Primary coverage for <strong>15+ mandates</strong> in DACH; <strong>AUM &gt; $3B</strong></li>
+                  <li>RFP screening & pursuit; investment committee preparation and cross-stakeholder execution</li>
+                </ul>
+              </div>
+
+              <div class="panel">
+                <h2>Education</h2>
+                <ul>
+                  <li><strong>PKU HSBC</strong> — Master of Management <span class="meta">(Expected 2026)</span></li>
+                  <li><strong>Full Academic Scholarship</strong> (Top 5% of international cohort)</li>
+                  <li>Coursework: ML in Asset Pricing (OLS, Random Forest, PCA; CRSP/WRDS)</li>
+                </ul>
+              </div>
+
+              <div class="panel">
+                <h2>Projects</h2>
+                <ul>
+                  <li><strong>Thesis:</strong> Airline Pricing Strategy — scraped & modeled global fare data; regression + ML</li>
+                  <li>Bachelor thesis: China-funded infrastructure & BRI (cross-country indicators)</li>
+                  <li>Real estate redevelopment feasibility model (team lead; investor-style pitch)</li>
+                </ul>
+              </div>
+
+              <div class="panel">
+                <h2>Skills</h2>
+                <ul>
+                  <li><strong>Python</strong> (pandas, numpy, matplotlib, Playwright), advanced Excel, basic SQL</li>
+                  <li>Data: WRDS, CRSP, Compustat, Fama-French</li>
+                  <li>Languages: German (native), English (C1+), Spanish (B1+), Chinese (HSK2)</li>
+                </ul>
+              </div>
+            </section>
           </div>
 
-          <!-- RIGHT: Profile card -->
+          <!-- RIGHT -->
           <section class="card" aria-label="Profile card">
-            <div class="card-inner">
+            <div class="cardInner">
               <img
                 class="headshot"
                 src="assets/img/headshot.jpg"
@@ -424,10 +480,16 @@
                 decoding="async"
               />
 
-              <div class="card-body">
-                <p class="line line-strong">Peking University HSBC Business School</p>
+              <div class="cardBody">
+                <p class="line lineStrong">Peking University HSBC Business School</p>
                 <p class="line">Master of Management (Expected 2026)</p>
-                <p class="line line-muted">Formerly AllianceBernstein (Institutional Client Coverage)</p>
+                <p class="line lineMuted">Formerly AllianceBernstein (Institutional Client Coverage)</p>
+
+                <div class="contactRow" aria-label="Contact details">
+                  <div>Shenzhen, China</div>
+                  <a href="mailto:barnabasvormwald@gmail.com">barnabasvormwald@gmail.com</a>
+                  <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noreferrer">linkedin.com/in/barnabas-vormwald-89aa57184</a>
+                </div>
               </div>
             </div>
           </section>
