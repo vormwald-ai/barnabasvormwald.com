@@ -28,48 +28,43 @@
     <link rel="icon" href="data:," />
 
     <style>
-      /* ============================
-         EDIT ME (quick customization)
-         ============================ */
       :root {
-        /* Colors */
-        --bg: #f7f8fb;              /* page background tint */
-        --surface: #ffffff;         /* card/surface */
-        --text: #0b1220;            /* charcoal */
-        --muted: rgba(11, 18, 32, .64);
-        --muted2: rgba(11, 18, 32, .48);
-        --border: rgba(11, 18, 32, .10);
+        /* Palette (finance/editorial) */
+        --bg: #f6f7fb;
+        --surface: #ffffff;
+        --text: #0b1220;
+        --muted: rgba(11, 18, 32, 0.64);
+        --muted2: rgba(11, 18, 32, 0.48);
+        --border: rgba(11, 18, 32, 0.10);
 
-        /* Brand */
         --primary: #2563eb;
         --primaryH: #1d4ed8;
 
-        /* Radii */
-        --rSurface: 24px;
-        --rInner: 18px;
-        --rBtn: 12px;
-
-        /* Layout */
-        --container: 1140px;
+        /* Geometry */
+        --container: 1120px;
         --padX: 18px;
 
-        /* Type scale */
-        --h1-mobile: 34px;
-        --h1-desktop: 60px;
-        --subtitle: 16px;
+        --rSurface: 22px;
+        --rInner: 16px;
+        --rBtn: 12px;
+
+        /* Shadow: subtle */
+        --shadow: 0 10px 28px rgba(11, 18, 32, 0.08);
+
+        /* Focus */
+        --focus: 0 0 0 4px rgba(37, 99, 235, 0.18);
+
+        /* Type */
+        --h1-mobile: 36px;
+        --h1-desktop: 62px;
+
+        --sub: 16px;
         --lead: 16px;
 
         /* Spacing */
-        --heroPad: 22px;
-        --heroPadDesktop: 28px;
-        --gridGapDesktop: 46px;
-
-        /* Shadows (keep subtle for finance/consulting) */
-        --shadow1: 0 10px 24px rgba(11, 18, 32, 0.06);
-        --shadow2: 0 18px 44px rgba(11, 18, 32, 0.10);
-
-        /* Focus ring */
-        --focusRing: 0 0 0 4px rgba(37, 99, 235, 0.18);
+        --heroPad: 24px;
+        --heroPadD: 30px;
+        --gapD: 52px;
       }
 
       * { box-sizing: border-box; }
@@ -87,8 +82,8 @@
 
       a { color: inherit; }
 
-      /* Accessibility: skip link */
-      .skipLink {
+      /* Skip link */
+      .skip {
         position: absolute;
         left: 12px;
         top: 10px;
@@ -96,29 +91,25 @@
         border-radius: 10px;
         background: var(--surface);
         border: 1px solid var(--border);
-        box-shadow: var(--shadow1);
+        box-shadow: var(--shadow);
         transform: translateY(-160%);
         transition: transform 140ms ease;
         z-index: 999;
         text-decoration: none;
-        font-weight: 650;
+        font-weight: 700;
         font-size: 13px;
       }
-      .skipLink:focus {
-        transform: translateY(0);
-        outline: none;
-      }
+      .skip:focus { transform: translateY(0); outline: none; }
 
       /* Top nav */
       header {
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(247, 248, 251, 0.86);
+        background: rgba(246, 247, 251, 0.86);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(11, 18, 32, 0.08);
       }
-
       .nav {
         height: 60px;
         max-width: var(--container);
@@ -128,7 +119,6 @@
         align-items: center;
         justify-content: space-between;
       }
-
       .brand {
         font-size: 14px;
         font-weight: 750;
@@ -136,13 +126,11 @@
         text-decoration: none;
         white-space: nowrap;
       }
-
       .navRight {
         display: flex;
         align-items: center;
         gap: 10px;
       }
-
       .navLink {
         font-size: 13px;
         font-weight: 650;
@@ -154,12 +142,12 @@
       }
       .navLink:hover {
         color: var(--text);
-        background: rgba(255, 255, 255, 0.70);
+        background: rgba(255, 255, 255, 0.75);
       }
       .navLink:focus-visible {
         outline: none;
-        box-shadow: var(--focusRing);
-        background: rgba(255, 255, 255, 0.9);
+        box-shadow: var(--focus);
+        background: rgba(255, 255, 255, 0.92);
       }
 
       .menuBtn {
@@ -170,12 +158,9 @@
         background: rgba(255, 255, 255, 0.82);
         display: grid;
         place-items: center;
-        cursor: default; /* intentionally non-functional */
+        cursor: default;
       }
-      .menuBtn:focus-visible {
-        outline: none;
-        box-shadow: var(--focusRing);
-      }
+      .menuBtn:focus-visible { outline: none; box-shadow: var(--focus); }
       .hamburger { width: 18px; height: 12px; position: relative; }
       .hamburger::before, .hamburger::after {
         content: "";
@@ -189,28 +174,28 @@
       .hamburger::before { top: 2px; }
       .hamburger::after { bottom: 2px; }
 
-      /* Main layout */
       main {
         max-width: var(--container);
         margin: 0 auto;
-        padding: 22px var(--padX) 72px;
+        padding: 26px var(--padX) 72px;
       }
 
-      .layout {
+      /* Layout */
+      .grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 14px;
+        align-items: start;
       }
 
-      /* Surfaces */
       .surface {
         background: var(--surface);
         border: 1px solid rgba(11, 18, 32, 0.09);
         border-radius: var(--rSurface);
-        box-shadow: var(--shadow1);
+        box-shadow: var(--shadow);
       }
 
-      /* HERO (left surface) */
+      /* HERO (clean) */
       .hero {
         padding: var(--heroPad);
       }
@@ -219,9 +204,9 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin: 4px 0 10px;
+        margin: 2px 0 12px;
         font-size: 12.5px;
-        font-weight: 700;
+        font-weight: 750;
         color: rgba(11, 18, 32, 0.72);
         letter-spacing: 0.2px;
       }
@@ -233,60 +218,68 @@
       }
 
       h1 {
-        margin: 6px 0 10px;
+        margin: 0 0 10px;
         font-size: var(--h1-mobile);
-        line-height: 1.05;
+        line-height: 1.03;
         font-weight: 750;
-        letter-spacing: -0.9px;
+        letter-spacing: -1.0px;
       }
 
       .subtitle {
-        margin: 0 0 12px;
-        font-size: var(--subtitle);
-        line-height: 1.5;
+        margin: 0 0 14px;
+        font-size: var(--sub);
+        line-height: 1.55;
         font-weight: 650;
         color: var(--muted);
         letter-spacing: 0.2px;
       }
 
-      .positioning {
-        margin: 0 0 16px;
-        font-size: var(--lead);
-        line-height: 1.65;
-        color: rgba(11, 18, 32, 0.80);
-        max-width: 62ch;
-      }
-      .positioning strong { font-weight: 750; }
-
-      /* Proof chips (quieter, more editorial) */
-      .chips {
+      .lead {
         margin: 0 0 18px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        font-size: var(--lead);
+        line-height: 1.7;
+        color: rgba(11, 18, 32, 0.82);
+        max-width: 64ch;
       }
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        border: 1px solid rgba(11, 18, 32, 0.10);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.96);
-        font-size: 12.75px;
-        font-weight: 650;
-        color: rgba(11, 18, 32, 0.72);
-        white-space: nowrap;
-      }
-      .chip svg { width: 14px; height: 14px; opacity: 0.9; }
+      .lead strong { font-weight: 750; }
 
-      /* CTA */
-      .cta {
+      /* Proof row (NOT pills) */
+      .proofRow {
         display: grid;
         grid-template-columns: 1fr;
         gap: 10px;
         margin: 0 0 18px;
-        max-width: 720px;
+        padding: 14px 14px;
+        border-radius: 16px;
+        background: rgba(11, 18, 32, 0.03);
+        border: 1px solid rgba(11, 18, 32, 0.06);
+      }
+      .proofItem {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 10px;
+        align-items: start;
+        font-size: 13.75px;
+        line-height: 1.45;
+        color: rgba(11, 18, 32, 0.78);
+      }
+      .proofIcon {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        background: rgba(37, 99, 235, 0.10);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+      }
+      .proofIcon svg { width: 12px; height: 12px; color: rgba(37, 99, 235, 0.95); }
+
+      /* CTAs */
+      .cta {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 2px;
       }
 
       .btn {
@@ -305,10 +298,7 @@
         border: 1px solid transparent;
         transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
       }
-      .btn:focus-visible {
-        outline: none;
-        box-shadow: var(--focusRing);
-      }
+      .btn:focus-visible { outline: none; box-shadow: var(--focus); }
 
       .btnIcon { width: 16px; height: 16px; display: block; }
 
@@ -321,7 +311,6 @@
         background: var(--primaryH);
         box-shadow: 0 16px 34px rgba(37, 99, 235, 0.22);
         transform: translateY(-1px);
-لاحظ
       }
       .btnPrimary .btnIcon { filter: brightness(0) invert(1); }
 
@@ -335,38 +324,7 @@
         transform: translateY(-1px);
       }
 
-      /* Below fold panels */
-      .panels {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .panel {
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid rgba(11, 18, 32, 0.08);
-        border-radius: 20px;
-        padding: 16px;
-      }
-      .panel h2 {
-        margin: 0 0 10px;
-        font-size: 13.5px;
-        letter-spacing: 0.3px;
-        font-weight: 800;
-        color: rgba(11, 18, 32, 0.82);
-        text-transform: uppercase;
-      }
-      .panel ul {
-        margin: 0;
-        padding-left: 16px;
-        color: rgba(11, 18, 32, 0.80);
-        font-size: 13.75px;
-        line-height: 1.55;
-      }
-      .panel li { margin: 6px 0; }
-      .meta { color: var(--muted); font-weight: 650; }
-
-      /* RIGHT (proof/snapshot surface) */
+      /* Right profile card (minimal) */
       .profile {
         padding: 16px;
       }
@@ -378,65 +336,39 @@
         border-radius: var(--rInner);
         object-fit: cover;
         background: #eef0f4;
-        aspect-ratio: 5 / 4; /* stable */
+        aspect-ratio: 5 / 4;
       }
 
-      .profileBody {
-        padding-top: 14px;
-      }
+      .profileBody { padding-top: 12px; }
 
       .profileTitle {
-        margin: 0 0 2px;
-        font-size: 15px;
-        font-weight: 800;
-        letter-spacing: -0.2px;
-      }
-      .profileSub {
-        margin: 0 0 10px;
-        font-size: 13.5px;
-        color: var(--muted);
-        font-weight: 650;
-        line-height: 1.45;
+        margin: 0 0 6px;
+        font-size: 14px;
+        font-weight: 850;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: rgba(11, 18, 32, 0.80);
       }
 
-      .snapshot {
-        margin-top: 10px;
-        border-top: 1px solid rgba(11, 18, 32, 0.08);
-        padding-top: 12px;
-        display: grid;
-        gap: 8px;
-      }
-
-      .snapRow {
-        display: grid;
-        grid-template-columns: 18px 1fr;
-        gap: 10px;
-        align-items: start;
-        font-size: 13.5px;
-        line-height: 1.45;
+      .miniList {
+        margin: 0;
+        padding-left: 16px;
         color: rgba(11, 18, 32, 0.78);
+        font-size: 13.5px;
+        line-height: 1.55;
       }
-      .snapIcon {
-        width: 18px;
-        height: 18px;
-        border-radius: 6px;
-        display: grid;
-        place-items: center;
-        background: rgba(37, 99, 235, 0.10);
-        border: 1px solid rgba(37, 99, 235, 0.18);
-      }
-      .snapIcon svg { width: 12px; height: 12px; color: rgba(37, 99, 235, 0.95); }
+      .miniList li { margin: 6px 0; }
+      .miniList strong { font-weight: 750; }
 
       .contact {
         margin-top: 12px;
-        border-top: 1px solid rgba(11, 18, 32, 0.08);
         padding-top: 12px;
+        border-top: 1px solid rgba(11, 18, 32, 0.08);
         display: grid;
         gap: 8px;
         font-size: 13px;
         color: rgba(11, 18, 32, 0.72);
       }
-
       .contact a {
         color: rgba(11, 18, 32, 0.72);
         text-decoration: none;
@@ -444,52 +376,130 @@
         border-bottom: 1px solid transparent;
         padding-bottom: 1px;
       }
-      .contact a:hover {
-        color: var(--text);
-        border-bottom-color: rgba(11, 18, 32, 0.18);
-      }
+      .contact a:hover { color: var(--text); border-bottom-color: rgba(11, 18, 32, 0.18); }
       .contact a:focus-visible {
         outline: none;
-        box-shadow: var(--focusRing);
+        box-shadow: var(--focus);
         border-radius: 8px;
         padding: 4px 6px;
         margin-left: -6px;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.92);
       }
 
-      footer {
-        margin-top: 18px;
-        color: var(--muted2);
+      /* BELOW FOLD: panels (short by default, expandable) */
+      .below {
+        margin-top: 16px;
+        padding: 18px;
+      }
+
+      .belowHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .belowHeader h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 850;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: rgba(11, 18, 32, 0.80);
+      }
+      .belowHeader p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .panels {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .panel {
+        border: 1px solid rgba(11, 18, 32, 0.08);
+        border-radius: 18px;
+        padding: 14px;
+        background: rgba(255,255,255,0.98);
+      }
+
+      .panelTitle {
+        margin: 0 0 10px;
+        font-size: 13.5px;
+        font-weight: 850;
+        letter-spacing: 0.25px;
+        color: rgba(11, 18, 32, 0.84);
+      }
+
+      .panel ul {
+        margin: 0;
+        padding-left: 16px;
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: rgba(11, 18, 32, 0.78);
+      }
+      .panel li { margin: 6px 0; }
+
+      details {
+        margin-top: 10px;
+        border-top: 1px solid rgba(11, 18, 32, 0.08);
+        padding-top: 10px;
+      }
+      summary {
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(11, 18, 32, 0.70);
+        list-style: none;
+        outline: none;
+      }
+      summary::-webkit-details-marker { display: none; }
+      summary:focus-visible { box-shadow: var(--focus); border-radius: 10px; padding: 6px 8px; margin-left: -8px; background: rgba(255,255,255,0.95); }
+
+      .note {
+        margin-top: 14px;
         font-size: 12.5px;
-        text-align: left;
-        padding: 0 4px;
+        color: var(--muted2);
       }
 
       /* Desktop */
       @media (min-width: 900px) {
         main { padding-top: 18px; }
 
-        .layout {
-          grid-template-columns: 1.10fr 0.90fr;
-          gap: var(--gridGapDesktop);
-          align-items: start;
+        .grid {
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: var(--gapD);
         }
 
-        .hero { padding: var(--heroPadDesktop); }
-        h1 { font-size: var(--h1-desktop); letter-spacing: -1.2px; }
+        .hero { padding: var(--heroPadD); }
+        h1 { font-size: var(--h1-desktop); }
+
+        .proofRow {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 14px;
+          padding: 14px 16px;
+        }
 
         .cta {
-          grid-template-columns: 1.2fr 1fr 1fr; /* primary CTA gets more weight */
+          grid-template-columns: 1fr 1fr 1fr;
           gap: 12px;
+          max-width: 760px;
         }
 
+        .profile {
+          position: sticky;
+          top: 86px; /* below nav */
+        }
+
+        .below { padding: 22px; }
         .panels {
           grid-template-columns: 1fr 1fr;
           gap: 12px;
         }
-
-        .surface { box-shadow: var(--shadow2); }
-        .profile { padding: 18px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -499,7 +509,7 @@
   </head>
 
   <body>
-    <a class="skipLink" href="#content">Skip to content</a>
+    <a class="skip" href="#content">Skip to content</a>
 
     <header>
       <div class="nav">
@@ -515,8 +525,8 @@
     </header>
 
     <main id="content">
-      <section class="layout" aria-label="Main layout">
-        <!-- LEFT: HERO + PANELS -->
+      <section class="grid" aria-label="Main layout">
+        <!-- LEFT -->
         <section class="surface hero" aria-label="Hero">
           <div class="kicker">
             <span class="dot" aria-hidden="true"></span>
@@ -526,56 +536,50 @@
           <h1>Barnabas Vormwald</h1>
           <div class="subtitle">Finance · Strategy · Quantitative Analysis</div>
 
-          <p class="positioning">
-            Master’s student at <strong>PKU HSBC</strong> (<strong>Full Academic Scholarship</strong>, Top 5% of international cohort).
-            Former <strong>AllianceBernstein</strong> (institutional client coverage, DACH) — building rigorous, data-driven work across markets and strategy.
+          <p class="lead">
+            Master’s student at <strong>PKU HSBC</strong> (full scholarship, top 5% international cohort). Former <strong>AllianceBernstein</strong> (institutional coverage, DACH). I build rigorous, data-driven work across markets and strategy.
           </p>
 
-          <div class="chips" aria-label="Quick proof">
-            <div class="chip" title="Coverage scope">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M4 9h16v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M4 12h16" stroke="currentColor" stroke-width="2"/>
-              </svg>
-              <span>AllianceBernstein · Institutional</span>
+          <div class="proofRow" aria-label="Proof highlights">
+            <div class="proofItem">
+              <div class="proofIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div><strong>PKU HSBC</strong> — Full Academic Scholarship (Top 5%)</div>
             </div>
 
-            <div class="chip" title="Mandates and AUM">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8 15l3-3 3 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>15+ mandates · $3B+ AUM</span>
+            <div class="proofItem">
+              <div class="proofIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div><strong>15+ mandates</strong> — DACH coverage; <strong>$3B+ AUM</strong></div>
             </div>
 
-            <div class="chip" title="Scholarship">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 14 7 20l5-2 5 2-2-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-              <span>Full scholarship · Top 5%</span>
-            </div>
-
-            <div class="chip" title="Technical stack">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 18 3 12l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>Python · Playwright · ML</span>
+            <div class="proofItem">
+              <div class="proofIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18 3 12l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><strong>Quant execution</strong> — Python, data pipelines, modeling</div>
             </div>
           </div>
 
           <div class="cta" role="group" aria-label="Primary actions">
-            <a class="btn btnOutline" href="assets/docs/BarnabasVormwald_CV.pdf" download>
-              <img class="btnIcon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
-              <span>Download CV</span>
-            </a>
-
             <a class="btn btnPrimary" href="mailto:barnabasvormwald@gmail.com?subject=Portfolio%20Inquiry">
               <img class="btnIcon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
               <span>Email</span>
+            </a>
+
+            <a class="btn btnOutline" href="assets/docs/BarnabasVormwald_CV.pdf" download>
+              <img class="btnIcon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
+              <span>Download CV</span>
             </a>
 
             <a class="btn btnOutline" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noreferrer">
@@ -588,52 +592,10 @@
               <span>LinkedIn</span>
             </a>
           </div>
-
-          <section class="panels" aria-label="Highlights">
-            <div class="panel">
-              <h2>Experience</h2>
-              <ul>
-                <li><strong>AllianceBernstein</strong> — Institutional Sales Associate <span class="meta">(Munich, 2021–2023)</span></li>
-                <li>Primary coverage for <strong>15+ mandates</strong> across DACH; <strong>AUM &gt; $3B</strong></li>
-                <li>RFP screening &amp; pursuit; investment committee preparation; stakeholder execution</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <h2>Education</h2>
-              <ul>
-                <li><strong>Peking University HSBC</strong> — Master of Management <span class="meta">(Expected 2026)</span></li>
-                <li><strong>Full Academic Scholarship</strong> (Top 5% of international cohort)</li>
-                <li>Coursework: ML in Asset Pricing; CRSP/WRDS; econometrics foundations</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <h2>Projects</h2>
-              <ul>
-                <li><strong>Thesis:</strong> Reverse-engineering airline fares from web-scraped multi-route data</li>
-                <li>Bachelor thesis: China-funded infrastructure &amp; BRI (cross-country indicators)</li>
-                <li>Real estate redevelopment feasibility model (team lead; investor-style pitch)</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <h2>Skills</h2>
-              <ul>
-                <li><strong>Python</strong> (pandas, numpy, matplotlib, Playwright), advanced Excel, basic SQL</li>
-                <li>Data: WRDS, CRSP, Compustat, Fama-French</li>
-                <li>Languages: German (native), English (C1+), Spanish (B1+), Chinese (HSK2)</li>
-              </ul>
-            </div>
-          </section>
-
-          <footer aria-label="Footer">
-            Minimal, fast-loading static site. No trackers. Last updated: edit this line anytime in <strong>index.html</strong>.
-          </footer>
         </section>
 
-        <!-- RIGHT: PROFILE / PROOF -->
-        <aside class="surface profile" aria-label="Profile and proof">
+        <!-- RIGHT -->
+        <aside class="surface profile" aria-label="Profile card">
           <img
             class="headshot"
             src="assets/img/headshot.jpg"
@@ -645,41 +607,12 @@
           />
 
           <div class="profileBody">
-            <p class="profileTitle">Snapshot</p>
-            <p class="profileSub">
-              Finance / strategy profile with quantitative execution — built for institutional, data-driven environments.
-            </p>
-
-            <div class="snapshot" aria-label="Proof points">
-              <div class="snapRow">
-                <div class="snapIcon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </div>
-                <div><strong>PKU HSBC</strong> — Full Academic Scholarship (Top 5% international cohort)</div>
-              </div>
-
-              <div class="snapRow">
-                <div class="snapIcon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div><strong>Institutional coverage</strong> — 15+ mandates; AUM &gt; $3B (DACH)</div>
-              </div>
-
-              <div class="snapRow">
-                <div class="snapIcon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M9 18 3 12l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div><strong>Quant execution</strong> — Python-based data work; modeling &amp; regression pipelines</div>
-              </div>
-            </div>
+            <div class="profileTitle">Profile</div>
+            <ul class="miniList">
+              <li><strong>Peking University HSBC</strong> — Master of Management (Expected 2026)</li>
+              <li><strong>Former AllianceBernstein</strong> — Institutional client coverage (DACH)</li>
+              <li><strong>Current focus</strong> — empirical pricing research; regression &amp; ML</li>
+            </ul>
 
             <div class="contact" aria-label="Contact details">
               <div><strong>Location</strong>: Shenzhen, China</div>
@@ -688,6 +621,79 @@
             </div>
           </div>
         </aside>
+      </section>
+
+      <!-- BELOW FOLD (minimal by default) -->
+      <section class="surface below" aria-label="Details">
+        <div class="belowHeader">
+          <h2>Selected details</h2>
+          <p>Short by default. Expand only if needed.</p>
+        </div>
+
+        <div class="panels">
+          <section class="panel" aria-label="Experience">
+            <div class="panelTitle">Experience</div>
+            <ul>
+              <li><strong>AllianceBernstein</strong> — Institutional Sales Associate <span style="color: var(--muted); font-weight: 650;">(Munich, 2021–2023)</span></li>
+              <li>Coverage: <strong>15+ mandates</strong> across DACH; <strong>AUM &gt; $3B</strong></li>
+            </ul>
+            <details>
+              <summary>More</summary>
+              <ul>
+                <li>RFP screening &amp; pursuit; investment committee preparation</li>
+                <li>Cross-stakeholder execution across internal teams and clients</li>
+              </ul>
+            </details>
+          </section>
+
+          <section class="panel" aria-label="Education">
+            <div class="panelTitle">Education</div>
+            <ul>
+              <li><strong>PKU HSBC</strong> — Master of Management <span style="color: var(--muted); font-weight: 650;">(Expected 2026)</span></li>
+              <li><strong>Full Academic Scholarship</strong> (Top 5% international cohort)</li>
+            </ul>
+            <details>
+              <summary>More</summary>
+              <ul>
+                <li>Coursework: ML in Asset Pricing; econometrics; CRSP/WRDS</li>
+              </ul>
+            </details>
+          </section>
+
+          <section class="panel" aria-label="Projects">
+            <div class="panelTitle">Projects</div>
+            <ul>
+              <li><strong>Thesis</strong>: reverse-engineering airline fares from multi-route scraped data</li>
+              <li>Modeling: regression frameworks + ML components</li>
+            </ul>
+            <details>
+              <summary>More</summary>
+              <ul>
+                <li>Bachelor thesis: China-funded infrastructure &amp; BRI (cross-country indicators)</li>
+                <li>Real estate redevelopment feasibility model (team lead; investor-style pitch)</li>
+              </ul>
+            </details>
+          </section>
+
+          <section class="panel" aria-label="Skills">
+            <div class="panelTitle">Skills</div>
+            <ul>
+              <li><strong>Python</strong> (pandas, numpy, matplotlib, Playwright), advanced Excel</li>
+              <li>Data: WRDS, CRSP, Compustat, Fama-French</li>
+            </ul>
+            <details>
+              <summary>More</summary>
+              <ul>
+                <li>Languages: German (native), English (C1+), Spanish (B1+), Chinese (HSK2)</li>
+                <li>Basic SQL</li>
+              </ul>
+            </details>
+          </section>
+        </div>
+
+        <div class="note">
+          No trackers. Static HTML. Edit all content in <strong>index.html</strong>.
+        </div>
       </section>
     </main>
   </body>
