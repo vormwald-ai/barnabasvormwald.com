@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Barnabas Vormwald</title>
-  <meta name="description" content="Barnabas Vormwald — Investment, Strategy, Client Coverage. China-based (Shenzhen). Former AllianceBernstein (DACH institutional coverage). PKU HSBC (Full Scholarship, Top 5%)." />
+  <meta name="description" content="Barnabas Vormwald — Investment, Strategy, Client Coverage, Business Development. China-based (Shenzhen). Former AllianceBernstein (DACH institutional coverage). PKU HSBC (Full Scholarship, Top 5%)." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,16 +14,17 @@
     :root{
       --bg:#f7f9fc;
       --surface:#ffffff;
-      --text:#0f172a;
-      --muted:#64748b;
-      --muted-2:#94a3b8;
+      --text:#0b1220;
+      --muted:#5f6f86;
+      --muted2:#93a3b8;
       --border:#e6edf6;
-      --shadow: 0 18px 40px rgba(15,23,42,.06);
-      --shadow-2: 0 10px 22px rgba(15,23,42,.05);
+      --shadow: 0 18px 46px rgba(11,18,32,.07);
+      --shadow2: 0 10px 24px rgba(11,18,32,.06);
       --radius: 18px;
+      --radius2: 14px;
       --max: 1120px;
       --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --accent: #0f172a;
+      --accent: #0b1220;
       --link: #2563eb;
     }
 
@@ -34,8 +35,8 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at 85% 10%, rgba(15,23,42,.06), transparent 55%),
-        radial-gradient(900px 500px at 10% 0%, rgba(37,99,235,.05), transparent 55%),
+        radial-gradient(1200px 650px at 85% 10%, rgba(11,18,32,.07), transparent 58%),
+        radial-gradient(900px 520px at 12% 0%, rgba(37,99,235,.06), transparent 58%),
         var(--bg);
     }
 
@@ -46,9 +47,9 @@
     /* NAV */
     .navWrap{
       position:sticky; top:0; z-index:50;
-      background: rgba(247,249,252,.75);
+      background: rgba(247,249,252,.78);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(230,237,246,.85);
+      border-bottom: 1px solid rgba(230,237,246,.9);
     }
     .nav{
       height:70px;
@@ -59,166 +60,142 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:-0.02em;
+      font-weight:800; letter-spacing:-0.02em;
     }
     .dot{
       width:8px; height:8px; border-radius:999px;
-      background:#0f172a;
-      box-shadow: 0 0 0 6px rgba(15,23,42,.06);
+      background:var(--text);
+      box-shadow: 0 0 0 6px rgba(11,18,32,.06);
     }
     .navLinks{
       display:flex; gap:22px;
       color: var(--muted);
-      font-weight:600;
+      font-weight:700;
       font-size: 14px;
     }
     .navLinks a{padding:8px 6px; border-radius:10px}
-    .navLinks a:hover{background: rgba(15,23,42,.04); color:var(--text)}
+    .navLinks a:hover{background: rgba(11,18,32,.04); color:var(--text)}
+
     .navActions{display:flex; gap:10px; align-items:center}
     .btn{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 14px;
       border-radius:999px;
       border: 1px solid var(--border);
-      background: var(--surface);
-      font-weight:700;
+      background: rgba(255,255,255,.75);
+      font-weight:800;
       font-size:14px;
       color: var(--text);
-      box-shadow: 0 1px 0 rgba(15,23,42,.02);
+      box-shadow: 0 1px 0 rgba(11,18,32,.02);
       cursor:pointer;
     }
-    .btn:hover{border-color:#d7e2f2; box-shadow: var(--shadow-2)}
+    .btn:hover{border-color:#d7e2f2; box-shadow: var(--shadow2)}
     .btnPrimary{
       background: var(--accent);
       color: #fff;
       border-color: transparent;
-      box-shadow: 0 14px 26px rgba(15,23,42,.12);
+      box-shadow: 0 14px 28px rgba(11,18,32,.14);
     }
     .btnPrimary:hover{transform: translateY(-1px)}
     .icon{width:16px; height:16px; display:inline-block}
     .icon svg{width:16px; height:16px; display:block}
 
-    /* HERO */
-    main{padding:38px 0 80px}
+    /* LAYOUT */
+    main{padding:40px 0 84px}
+
+    .heroShell{
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(230,237,246,.9);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow:hidden;
+    }
+
     .hero{
       display:grid;
       grid-template-columns: 1.08fr .92fr;
-      gap: 34px;
+      gap: 26px;
       align-items:start;
-      margin-top: 10px;
-    }
-
-    .kickerRow{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-bottom: 14px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.6);
-      color: var(--muted);
-      font-weight:650;
-      font-size: 13px;
-      line-height: 1;
-      white-space: nowrap;
-    }
-    .pill strong{color:var(--text)}
-    .pill .miniDot{
-      width:6px; height:6px; border-radius:999px; background: rgba(37,99,235,.75);
-      box-shadow: 0 0 0 5px rgba(37,99,235,.08);
     }
 
     h1{
       margin: 0;
-      font-size: 64px;
-      line-height: .95;
-      letter-spacing: -0.05em;
+      font-size: 62px;
+      line-height: .96;
+      letter-spacing: -0.055em;
     }
     .lastName{color: #7a8aa0}
+
     .lead{
       margin: 16px 0 0;
-      max-width: 58ch;
+      max-width: 60ch;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 17px;
+      line-height: 1.75;
     }
-    .lead strong{color:var(--text); font-weight:750}
+    .lead strong{color:var(--text); font-weight:800}
 
-    /* HERO TABLE (denser, more premium, less tall) */
+    /* HERO TABLE — premium, compact, one-line */
     .tableCard{
       margin-top: 18px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
       overflow:hidden;
     }
     .row{
       display:grid;
-      grid-template-columns: 140px 1fr; /* narrower label column reduces height */
+      grid-template-columns: 120px 1fr;
       gap: 14px;
-      padding: 16px 18px; /* smaller padding = shorter table */
+      padding: 14px 16px;
       border-top: 1px solid rgba(230,237,246,.9);
       align-items:center;
     }
     .row:first-child{border-top:none}
-
     .label{
       font-family: var(--mono);
       font-size: 11px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--muted-2);
+      color: var(--muted2);
     }
-
     .value{
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.25;
-    }
-
-    /* Inline “chips” prevent awkward multi-line wrapping and keep it compact */
-    .inlineChips{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      align-items:center;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(230,237,246,.95);
-      background: rgba(255,255,255,.72);
-      color: var(--text);
-      font-weight: 750;
-      font-size: 14px;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-    .chip.muted{
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .chip.status{
-      color: var(--link);
+      font-size: 15px;
       font-weight: 850;
-      border-color: rgba(37,99,235,.18);
-      background: rgba(37,99,235,.06);
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Allow only the languages row to wrap nicely if needed */
+    .value.wrap{
+      white-space: normal;
+      overflow: visible;
+      text-overflow: initial;
+    }
+    .value .sep{color: rgba(147,163,184,.9); padding: 0 8px; font-weight: 700;}
+
+    .status{
+      color: var(--link);
+      font-weight: 900;
     }
 
-    /* RIGHT COLUMN */
-    .rightCol{display:flex; flex-direction:column; gap: 14px;}
+    /* RIGHT COLUMN: photo + links as one “unit” to remove blank-space feel */
+    .rightUnit{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
     .photoCard{
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
       overflow:hidden;
+      box-shadow: var(--shadow2);
     }
     .photoWrap{
       background: #e8eef7;
@@ -234,64 +211,67 @@
     .photoMeta{
       display:flex;
       justify-content:space-between;
-      padding: 14px 16px;
-      color: var(--muted-2);
+      padding: 12px 14px;
+      color: var(--muted2);
       font-family: var(--mono);
       font-size: 12px;
       letter-spacing: .08em;
       text-transform: uppercase;
       border-top: 1px solid rgba(230,237,246,.85);
-      background: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.86);
     }
 
-    .quickLinks{
+    .directBar{
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 12px 12px;
       display:flex;
-      gap: 10px;
       align-items:center;
       justify-content:space-between;
-      background: rgba(255,255,255,.72);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 10px 10px 14px;
-      box-shadow: var(--shadow-2);
+      gap: 12px;
     }
-    .quickLinks .qlText{
-      display:flex; flex-direction:column; gap:2px;
-      min-width: 0;
+    .directText{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
     }
-    .quickLinks .qlTitle{
-      font-weight: 800;
+    .directText .t1{
+      font-weight: 900;
       font-size: 13px;
       letter-spacing: -.01em;
     }
-    .quickLinks .qlSub{
+    .directText .t2{
       font-size: 12px;
       color: var(--muted);
       white-space: nowrap;
-      overflow: hidden;
+      overflow:hidden;
       text-overflow: ellipsis;
-      max-width: 320px;
+      max-width: 340px;
     }
-    .quickLinks .qlBtns{display:flex; gap:8px; flex-shrink:0}
+
+    .directBtns{display:flex; gap:8px; flex-shrink:0}
     .chipBtn{
       display:inline-flex; align-items:center; gap:8px;
-      padding: 9px 12px;
+      padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--surface);
-      font-weight: 800;
+      background: rgba(255,255,255,.92);
+      font-weight: 900;
       font-size: 13px;
       cursor:pointer;
     }
-    .chipBtn:hover{border-color:#d7e2f2; box-shadow: var(--shadow-2)}
+    .chipBtn:hover{border-color:#d7e2f2}
     .chipBtnPrimary{
       background: var(--accent);
-      color: white;
+      color: #fff;
       border-color: transparent;
     }
 
-    /* SECTION HEADERS */
-    .section{margin-top: 42px;}
+    /* SECTIONS */
+    .section{margin-top: 38px;}
     .sectionHeader{
       display:flex;
       justify-content:space-between;
@@ -314,33 +294,33 @@
       font-size: 12px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--muted-2);
+      color: var(--muted2);
       white-space: nowrap;
     }
 
     .methodBox{
-      background: rgba(255,255,255,.72);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px 18px;
+      box-shadow: var(--shadow2);
+      padding: 16px 16px;
       color: var(--muted);
       line-height: 1.75;
       font-size: 16px;
     }
     .methodBox strong{color:var(--text)}
 
-    /* WORK CARDS */
+    /* WORK GRID */
     .workGrid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .card{
-      background: rgba(255,255,255,.76);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow2);
       padding: 18px;
       display:flex;
       flex-direction:column;
@@ -351,12 +331,12 @@
       font-size: 12px;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: rgba(37,99,235,.85);
-      font-weight: 700;
+      color: rgba(37,99,235,.9);
+      font-weight: 800;
     }
     .title{
       font-size: 20px;
-      font-weight: 850;
+      font-weight: 950;
       letter-spacing: -0.02em;
       line-height: 1.2;
       margin: 10px 0 0;
@@ -372,33 +352,39 @@
       background: rgba(230,237,246,.95);
       margin: 16px 0;
     }
+
+    /* Details toggle: full-width feel, one-card open only */
     .detailsToggle{
       margin-top:auto;
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap: 10px;
-      font-weight: 850;
+      font-weight: 950;
       color: var(--text);
       cursor:pointer;
       user-select:none;
-      padding: 10px 10px;
-      border-radius: 12px;
+      padding: 12px 12px;
+      border-radius: var(--radius2);
       border: 1px solid rgba(230,237,246,.95);
-      background: rgba(255,255,255,.65);
-      width: fit-content;
+      background: rgba(255,255,255,.94);
+      width: 100%;
     }
-    .detailsToggle:hover{box-shadow: var(--shadow-2); border-color:#d7e2f2}
+    .detailsToggle:hover{border-color:#d7e2f2}
+    .detailsToggle .left{
+      display:flex; align-items:center; gap:10px;
+    }
     .chev{
-      width: 28px; height: 28px; border-radius: 999px;
+      width: 30px; height: 30px; border-radius: 999px;
       border: 1px solid rgba(230,237,246,.95);
       display:flex; align-items:center; justify-content:center;
-      background: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.92);
       flex-shrink:0;
       transition: transform .18s ease;
     }
     .detailsBody{
-      margin-top: 14px;
-      padding-top: 14px;
+      margin-top: 12px;
+      padding-top: 12px;
       border-top: 1px solid rgba(230,237,246,.95);
       color: var(--muted);
       line-height: 1.7;
@@ -412,10 +398,10 @@
 
     /* CONTACT */
     .contactCard{
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow2);
       padding: 18px;
       display:flex;
       justify-content:space-between;
@@ -433,23 +419,24 @@
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.7);
-      font-weight: 850;
+      background: rgba(255,255,255,.92);
+      font-weight: 950;
       cursor:pointer;
       flex-shrink:0;
     }
-    .copyBtn:hover{box-shadow: var(--shadow-2); border-color:#d7e2f2}
+    .copyBtn:hover{border-color:#d7e2f2}
+
     .toast{
       position: fixed;
       left: 50%;
       bottom: 20px;
       transform: translateX(-50%);
-      background: rgba(15,23,42,.92);
+      background: rgba(11,18,32,.92);
       color: white;
-      font-weight: 800;
+      font-weight: 950;
       padding: 10px 14px;
       border-radius: 999px;
-      box-shadow: 0 18px 40px rgba(15,23,42,.25);
+      box-shadow: 0 18px 40px rgba(11,18,32,.25);
       opacity: 0;
       pointer-events: none;
       transition: opacity .2s ease, transform .2s ease;
@@ -458,9 +445,9 @@
     .toast.show{opacity:1; transform: translateX(-50%) translateY(-4px)}
 
     footer{
-      margin-top: 46px;
+      margin-top: 44px;
       padding-top: 18px;
-      color: var(--muted-2);
+      color: var(--muted2);
       font-size: 13px;
       display:flex;
       justify-content:space-between;
@@ -470,31 +457,32 @@
 
     /* RESPONSIVE */
     @media (max-width: 980px){
-      h1{font-size: 54px}
-      .hero{grid-template-columns: 1fr; gap: 18px}
-      .rightCol{order:-1}
+      h1{font-size: 52px}
+      .heroShell{padding: 18px}
+      .hero{grid-template-columns: 1fr; gap: 16px}
+      .rightUnit{order:-1}
       .photoWrap{aspect-ratio: 16/10}
       .workGrid{grid-template-columns: 1fr; gap: 14px}
       .card{min-height: unset}
-      .quickLinks .qlSub{max-width: 440px}
       .row{grid-template-columns: 1fr; gap: 8px}
+      .value{white-space: normal}
     }
 
     @media (max-width: 560px){
-      main{padding: 18px 0 64px}
+      main{padding: 16px 0 64px}
       .nav{height:64px}
       .navLinks{display:none}
       .btn{padding: 9px 12px}
-      h1{font-size: 46px}
+      h1{font-size: 44px}
       .lead{font-size: 16px; margin-top: 12px}
-      .kickerRow{margin-bottom: 10px}
-      .pill{font-size: 12px; padding: 8px 10px}
-      .tableCard{border-radius: 16px}
-      .row{padding: 14px 14px}
-      .value{font-size: 15px}
-      .chip{font-size: 13px; padding: 6px 9px}
       .photoWrap{aspect-ratio: 4/3}
-      .quickLinks{display:none}
+      .directBar{
+        flex-direction:column;
+        align-items:stretch;
+        border-radius: 16px;
+      }
+      .directText .t2{max-width: unset}
+      .directBtns{justify-content:flex-start; flex-wrap:wrap}
       .contactCard{flex-direction:column; align-items:stretch}
       footer{flex-direction:column}
     }
@@ -536,124 +524,98 @@
 
   <main id="top">
     <div class="container">
-      <section class="hero" aria-label="Hero">
-        <div>
-          <div class="kickerRow" aria-label="Context pills">
-            <span class="pill"><span class="miniDot"></span><strong>Shenzhen</strong> · China</span>
-            <span class="pill"><strong>Institutional clients</strong></span>
-            <span class="pill"><strong>Strategy</strong> & execution</span>
-            <span class="pill"><strong>Modeling</strong> & reporting</span>
-          </div>
+      <section class="heroShell" aria-label="Hero">
+        <div class="hero">
+          <div>
+            <h1>
+              Barnabas<br />
+              <span class="lastName">Vormwald</span>
+            </h1>
 
-          <h1>
-            Barnabas<br />
-            <span class="lastName">Vormwald</span>
-          </h1>
+            <p class="lead">
+              Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5% international cohort).
+              Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
+              I support client and investment decisions through structured analysis, clear communication, and disciplined execution.
+            </p>
 
-          <p class="lead">
-            Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5% international cohort).
-            Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
-            I support client and investment decisions through structured analysis, clear communication, and disciplined execution.
-          </p>
-
-          <!-- Denser, shorter table content to prevent stretching -->
-          <div class="tableCard" role="table" aria-label="Snapshot table">
-            <div class="row" role="row">
-              <div class="label" role="cell">Positioning</div>
-              <div class="value" role="cell">
-                <div class="inlineChips">
-                  <span class="chip">Investment</span>
-                  <span class="chip">Strategy</span>
-                  <span class="chip">Client Coverage</span>
-                  <span class="chip">Business Development</span>
+            <div class="tableCard" role="table" aria-label="Snapshot">
+              <div class="row" role="row">
+                <div class="label" role="cell">Focus</div>
+                <div class="value" role="cell" title="Investment · Strategy · Client Coverage · Business Development">
+                  Investment <span class="sep">·</span> Strategy <span class="sep">·</span> Client Coverage <span class="sep">·</span Business Development
                 </div>
               </div>
-            </div>
 
-            <div class="row" role="row">
-              <div class="label" role="cell">Location</div>
-              <div class="value" role="cell">
-                <div class="inlineChips">
-                  <span class="chip">Shenzhen (China)</span>
-                  <span class="chip muted">EU work permit</span>
+              <div class="row" role="row">
+                <div class="label" role="cell">Base</div>
+                <div class="value" role="cell" title="Shenzhen (China) · EU work permit">
+                  Shenzhen (China) <span class="sep">·</span> EU work permit
                 </div>
               </div>
-            </div>
 
-            <div class="row" role="row">
-              <div class="label" role="cell">Languages</div>
-              <div class="value" role="cell">
-                <div class="inlineChips">
-                  <span class="chip">DE (native)</span>
-                  <span class="chip">EN (C1+)</span>
-                  <span class="chip">ES (B1+)</span>
-                  <span class="chip muted">ZH (HSK2)</span>
+              <div class="row" role="row">
+                <div class="label" role="cell">Languages</div>
+                <div class="value wrap" role="cell">
+                  DE (native) <span class="sep">·</span> EN (C1+) <span class="sep">·</span> ES (B1+) <span class="sep">·</span> ZH (HSK2, progressing)
                 </div>
               </div>
-            </div>
 
-            <div class="row" role="row">
-              <div class="label" role="cell">Proof</div>
-              <div class="value" role="cell">
-                <div class="inlineChips">
-                  <span class="chip">15+ mandates</span>
-                  <span class="chip">DACH</span>
-                  <span class="chip">AUM &gt; $3B</span>
+              <div class="row" role="row">
+                <div class="label" role="cell">Track record</div>
+                <div class="value" role="cell" title="15+ mandates · DACH coverage · AUM > $3B">
+                  15+ mandates <span class="sep">·</span> DACH coverage <span class="sep">·</span> AUM &gt; $3B
                 </div>
               </div>
-            </div>
 
-            <div class="row" role="row">
-              <div class="label" role="cell">Status</div>
-              <div class="value" role="cell">
-                <div class="inlineChips">
-                  <span class="chip status">Open to associate-level roles</span>
-                  <span class="chip muted">Investment · Strategy · Coverage</span>
+              <div class="row" role="row">
+                <div class="label" role="cell">Status</div>
+                <div class="value" role="cell">
+                  <span class="status">Open to Associate / Senior Associate roles</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="rightCol" aria-label="Profile image column">
-          <div class="photoCard">
-            <div class="photoWrap">
-              <img
-                src="assets/img/headshot.jpg"
-                alt="Barnabas Vormwald headshot"
-                onerror="this.onerror=null; this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='#64748b'; this.parentElement.style.fontWeight='700'; this.parentElement.innerHTML='assets/img/headshot.jpg not found';"
-              />
+          <div class="rightUnit" aria-label="Profile unit">
+            <div class="photoCard">
+              <div class="photoWrap">
+                <img
+                  src="assets/img/headshot.jpg"
+                  alt="Barnabas Vormwald headshot"
+                  onerror="this.onerror=null; this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='#64748b'; this.parentElement.style.fontWeight='800'; this.parentElement.innerHTML='assets/img/headshot.jpg not found';"
+                />
+              </div>
+              <div class="photoMeta">
+                <span>Shenzhen</span>
+                <span>ID: 9844-B</span>
+              </div>
             </div>
-            <div class="photoMeta">
-              <span>Shenzhen</span>
-              <span>ID: 9844-B</span>
-            </div>
-          </div>
 
-          <div class="quickLinks" aria-label="Quick links">
-            <div class="qlText">
-              <div class="qlTitle">Direct links</div>
-              <div class="qlSub">barnabasvormwald@gmail.com · LinkedIn · PDF CV</div>
-            </div>
-            <div class="qlBtns">
-              <a class="chipBtn" href="mailto:barnabasvormwald@gmail.com" aria-label="Email Barnabas">
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>
-                </span>
-                Email
-              </a>
-              <a class="chipBtn" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener" aria-label="Open LinkedIn">
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M6 9v12" stroke="currentColor" stroke-width="2"/><path d="M6 6.5a1.5 1.5 0 1 0 0-.01" stroke="currentColor" stroke-width="2"/><path d="M10 21v-7a4 4 0 0 1 8 0v7" stroke="currentColor" stroke-width="2"/><path d="M10 10.5V21" stroke="currentColor" stroke-width="2"/></svg>
-                </span>
-                LinkedIn
-              </a>
-              <a class="chipBtn chipBtnPrimary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener" aria-label="Open CV PDF">
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v10" stroke="currentColor" stroke-width="2"/><path d="m7 11 5 5 5-5" stroke="currentColor" stroke-width="2"/><path d="M5 21h14" stroke="currentColor" stroke-width="2"/></svg>
-                </span>
-                CV
-              </a>
+            <div class="directBar" aria-label="Direct links">
+              <div class="directText">
+                <div class="t1">Direct links</div>
+                <div class="t2">barnabasvormwald@gmail.com · LinkedIn · PDF CV</div>
+              </div>
+              <div class="directBtns">
+                <a class="chipBtn" href="mailto:barnabasvormwald@gmail.com" aria-label="Email Barnabas">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
+                  Email
+                </a>
+                <a class="chipBtn" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener" aria-label="Open LinkedIn">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M6 9v12" stroke="currentColor" stroke-width="2"/><path d="M6 6.5a1.5 1.5 0 1 0 0-.01" stroke="currentColor" stroke-width="2"/><path d="M10 21v-7a4 4 0 0 1 8 0v7" stroke="currentColor" stroke-width="2"/><path d="M10 10.5V21" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
+                  LinkedIn
+                </a>
+                <a class="chipBtn chipBtnPrimary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener" aria-label="Open CV PDF">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v10" stroke="currentColor" stroke-width="2"/><path d="m7 11 5 5 5-5" stroke="currentColor" stroke-width="2"/><path d="M5 21h14" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
+                  CV
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -687,19 +649,22 @@
             <div class="divider"></div>
 
             <button class="detailsToggle" type="button" aria-expanded="false">
-              <span class="chev" aria-hidden="true">
-                <span class="icon">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="left">
+                <span class="chev" aria-hidden="true">
+                  <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
                 </span>
+                Details
               </span>
-              Details
+              <span style="color:var(--muted2); font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;">Open</span>
             </button>
 
             <div class="detailsBody" aria-hidden="true">
               <ul>
                 <li>Coordinated IC preparation and follow-up across internal teams and external providers.</li>
                 <li>Aligned pursuit strategy with senior stakeholders; supported client deliverables under time pressure.</li>
-                <li>Maintained coverage continuity post-restructuring across multiple mandates.</li>
+                <li>Maintained coverage continuity across multiple mandates.</li>
               </ul>
             </div>
           </article>
@@ -714,19 +679,22 @@
             <div class="divider"></div>
 
             <button class="detailsToggle" type="button" aria-expanded="false">
-              <span class="chev" aria-hidden="true">
-                <span class="icon">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="left">
+                <span class="chev" aria-hidden="true">
+                  <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
                 </span>
+                Details
               </span>
-              Details
+              <span style="color:var(--muted2); font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;">Open</span>
             </button>
 
             <div class="detailsBody" aria-hidden="true">
               <ul>
                 <li>Supported quarterly investor reports and IC materials for German real estate portfolios.</li>
                 <li>Reconciled fund-level KPIs across systems; used Excel automation to identify inconsistencies.</li>
-                <li>Prepared analysis inputs on COVID-19 impacts with tight deadlines.</li>
+                <li>Prepared analysis inputs with tight deadlines.</li>
               </ul>
             </div>
           </article>
@@ -741,18 +709,21 @@
             <div class="divider"></div>
 
             <button class="detailsToggle" type="button" aria-expanded="false">
-              <span class="chev" aria-hidden="true">
-                <span class="icon">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="left">
+                <span class="chev" aria-hidden="true">
+                  <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+                  </span>
                 </span>
+                Details
               </span>
-              Details
+              <span style="color:var(--muted2); font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;">Open</span>
             </button>
 
             <div class="detailsBody" aria-hidden="true">
               <ul>
                 <li>BRI thesis: assessed FDI, debt ratios, and trade flows; implications for sovereign risk and resilience.</li>
-                <li>Redevelopment project: led an international team; built feasibility model and presented to external evaluators.</li>
+                <li>Redevelopment project: led an international team; built feasibility model and presented to evaluators.</li>
                 <li>Master’s thesis in progress: airline pricing strategy as structured empirical research.</li>
               </ul>
             </div>
@@ -821,28 +792,32 @@
       }
     });
 
-    // Work details: only one open at a time
+    // Work details: ONLY one open at a time (hard close others)
     const cards = Array.from(document.querySelectorAll(".card"));
-    cards.forEach(card => {
+
+    function closeCard(card){
+      card.setAttribute("data-open", "false");
       const btn = card.querySelector(".detailsToggle");
       const body = card.querySelector(".detailsBody");
+      btn.setAttribute("aria-expanded", "false");
+      body.setAttribute("aria-hidden", "true");
+    }
 
+    function openCard(card){
+      card.setAttribute("data-open", "true");
+      const btn = card.querySelector(".detailsToggle");
+      const body = card.querySelector(".detailsBody");
+      btn.setAttribute("aria-expanded", "true");
+      body.setAttribute("aria-hidden", "false");
+    }
+
+    cards.forEach(card => {
+      closeCard(card);
+      const btn = card.querySelector(".detailsToggle");
       btn.addEventListener("click", () => {
         const isOpen = card.getAttribute("data-open") === "true";
-
-        cards.forEach(c => {
-          if (c !== card) {
-            c.setAttribute("data-open", "false");
-            const b = c.querySelector(".detailsToggle");
-            const bd = c.querySelector(".detailsBody");
-            b.setAttribute("aria-expanded", "false");
-            bd.setAttribute("aria-hidden", "true");
-          }
-        });
-
-        card.setAttribute("data-open", String(!isOpen));
-        btn.setAttribute("aria-expanded", String(!isOpen));
-        body.setAttribute("aria-hidden", String(isOpen));
+        cards.forEach(c => { if (c !== card) closeCard(c); });
+        if (isOpen) closeCard(card); else openCard(card);
       });
     });
   </script>
