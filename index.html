@@ -13,27 +13,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
         --bg: #ffffff;
-        --surface: #fbfbfb;
-        --surface-2: #f6f6f6;
         --text: #0b1220;
         --muted: #5a6476;
-        --muted-2: #768199;
-        --line: rgba(12, 18, 32, 0.12);
-        --line-2: rgba(12, 18, 32, 0.08);
+        --muted2: #768199;
+        --line: rgba(12, 18, 32, 0.10);
+        --line2: rgba(12, 18, 32, 0.07);
         --shadow: 0 18px 50px rgba(10, 14, 25, 0.08);
-        --shadow-soft: 0 10px 30px rgba(10, 14, 25, 0.06);
-        --radius-xl: 26px;
-        --radius-lg: 18px;
-        --radius-md: 14px;
-        --radius-sm: 12px;
+        --shadowSoft: 0 10px 30px rgba(10, 14, 25, 0.06);
+        --radiusXL: 26px;
+        --radiusLG: 18px;
+        --radiusMD: 14px;
         --max: 1120px;
+
+        --blue: #0a70ff;
+        --blueSoft: rgba(10, 112, 255, 0.10);
+        --blueLine: rgba(10, 112, 255, 0.22);
       }
 
       * { box-sizing: border-box; }
@@ -42,9 +43,10 @@
         margin: 0;
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
         color: var(--text);
-        background: radial-gradient(1200px 500px at 30% 0%, rgba(10, 112, 255, 0.06), transparent 60%),
-                    radial-gradient(900px 500px at 85% 20%, rgba(0, 0, 0, 0.03), transparent 55%),
-                    var(--bg);
+        background:
+          radial-gradient(1200px 520px at 30% 0%, rgba(10, 112, 255, 0.06), transparent 60%),
+          radial-gradient(900px 520px at 85% 20%, rgba(0, 0, 0, 0.03), transparent 55%),
+          var(--bg);
         line-height: 1.45;
       }
 
@@ -55,18 +57,18 @@
       .wrap {
         max-width: var(--max);
         margin: 0 auto;
-        padding: 28px 20px 48px;
+        padding: 22px 20px 48px;
       }
 
-      /* Top Nav */
+      /* NAV (single source of CTAs) */
       .nav {
         position: sticky;
         top: 0;
         z-index: 50;
         padding: 14px 0 10px;
         backdrop-filter: blur(10px);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
-        border-bottom: 1px solid var(--line-2);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
+        border-bottom: 1px solid var(--line2);
       }
       .navInner {
         max-width: var(--max);
@@ -78,26 +80,27 @@
         gap: 16px;
       }
       .brand {
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: -0.02em;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 10px;
         white-space: nowrap;
       }
       .brandDot {
-        width: 10px;
-        height: 10px;
+        width: 9px;
+        height: 9px;
         border-radius: 999px;
-        background: #0b1220;
+        background: var(--text);
         opacity: 0.85;
       }
+
       .navLinks {
         display: flex;
         align-items: center;
         gap: 18px;
         color: var(--muted);
-        font-weight: 600;
+        font-weight: 700;
       }
       .navLinks a { text-decoration: none; }
       .navLinks a:hover { color: var(--text); }
@@ -119,125 +122,150 @@
         border: 1px solid var(--line);
         background: rgba(255, 255, 255, 0.75);
         box-shadow: 0 1px 0 rgba(10, 14, 25, 0.04);
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: -0.01em;
         color: var(--text);
-        text-decoration: none;
         cursor: pointer;
         user-select: none;
+        text-decoration: none;
       }
-      .btn:hover { background: #ffffff; }
+      .btn:hover { background: #fff; }
       .btnPrimary {
-        border-color: rgba(10, 112, 255, 0.25);
-        background: rgba(10, 112, 255, 0.08);
+        border-color: var(--blueLine);
+        background: var(--blueSoft);
       }
-      .btnPrimary:hover { background: rgba(10, 112, 255, 0.11); }
-      .btnSmall { height: 40px; padding: 0 12px; font-weight: 700; }
+      .btnPrimary:hover { background: rgba(10, 112, 255, 0.13); }
+      .btnSmall { height: 40px; padding: 0 12px; }
 
-      .icon {
-        width: 18px;
-        height: 18px;
-        opacity: 0.9;
-      }
+      .icon { width: 18px; height: 18px; opacity: 0.9; }
 
-      /* Layout Sections */
+      /* Cards / surfaces */
       .card {
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid var(--line-2);
-        border-radius: var(--radius-xl);
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid var(--line2);
+        border-radius: var(--radiusXL);
         box-shadow: var(--shadow);
       }
-
-      .hero {
-        margin-top: 18px;
-        padding: 26px;
+      .panel {
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid var(--line2);
+        border-radius: var(--radiusXL);
+        box-shadow: var(--shadowSoft);
+        padding: 16px;
       }
 
+      /* HERO */
+      .hero { margin-top: 18px; padding: 26px; }
       .heroGrid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 22px;
-        align-items: stretch;
+        align-items: start;
       }
 
-      .kicker {
-        display: inline-flex;
+      .kickerRow {
+        display: flex;
         align-items: center;
         gap: 10px;
-        color: var(--muted);
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        font-size: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
       }
-      .kicker .pill {
+      .pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 6px 10px;
+        padding: 7px 10px;
         border-radius: 999px;
-        border: 1px solid var(--line-2);
+        border: 1px solid var(--line2);
         background: rgba(255, 255, 255, 0.75);
+        color: var(--muted);
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: -0.01em;
       }
-      .kicker .dot {
+      .dot {
         width: 7px;
         height: 7px;
         border-radius: 999px;
-        background: #0a70ff;
+        background: var(--blue);
       }
 
       h1 {
-        margin: 14px 0 10px;
-        font-size: 56px;
+        margin: 0;
+        font-size: 58px;
         line-height: 1.02;
-        letter-spacing: -0.04em;
+        letter-spacing: -0.045em;
       }
 
-      .sub {
-        margin: 0;
+      .lede {
+        margin: 12px 0 0;
         color: var(--muted);
         font-size: 16px;
-        line-height: 1.55;
-        max-width: 56ch;
+        line-height: 1.6;
+        max-width: 60ch;
       }
+      .lede strong { color: var(--text); font-weight: 850; }
 
-      .heroCtas {
-        margin-top: 18px;
+      /* Scannability block (fixes readability + blank space) */
+      .scanBlock {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 62ch;
+      }
+      .scanItem {
+        border: 1px solid var(--line2);
+        background: rgba(255, 255, 255, 0.74);
+        border-radius: var(--radiusLG);
+        padding: 12px 12px;
+      }
+      .scanTitle {
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        font-size: 13px;
+        text-transform: uppercase;
+        color: var(--muted2);
+        margin: 0 0 6px;
+      }
+      .scanText {
+        margin: 0;
+        color: var(--text);
+        font-weight: 750;
+        letter-spacing: -0.01em;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .scanText span { color: var(--muted); font-weight: 700; }
+
+      .metaRow {
+        margin-top: 14px;
+        color: var(--muted2);
+        font-size: 13px;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         align-items: center;
       }
-
-      .metaRow {
-        margin-top: 14px;
-        color: var(--muted-2);
-        font-size: 13px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        align-items: center;
-      }
-      .metaRow a { color: var(--muted-2); text-decoration: none; }
+      .metaRow a { color: var(--muted2); text-decoration: none; }
       .metaRow a:hover { color: var(--text); text-decoration: underline; }
 
-      /* Right hero panel */
+      /* Right hero */
       .heroSide {
-        height: 100%;
-        border-radius: var(--radius-xl);
-        border: 1px solid var(--line-2);
-        background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.62));
-        box-shadow: var(--shadow-soft);
-        padding: 16px;
+        border-radius: var(--radiusXL);
+        border: 1px solid var(--line2);
+        background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.64));
+        box-shadow: var(--shadowSoft);
+        padding: 14px;
         display: grid;
-        grid-template-rows: auto 1fr;
         gap: 12px;
       }
       .portrait {
-        border-radius: var(--radius-lg);
+        border-radius: var(--radiusLG);
         overflow: hidden;
-        border: 1px solid var(--line-2);
+        border: 1px solid var(--line2);
         background: #fff;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 11;
       }
       .portrait img {
         width: 100%;
@@ -247,16 +275,16 @@
       }
 
       .snapshot {
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line-2);
-        background: rgba(255, 255, 255, 0.72);
-        padding: 14px;
+        border-radius: var(--radiusLG);
+        border: 1px solid var(--line2);
+        background: rgba(255, 255, 255, 0.74);
+        padding: 12px 12px;
       }
       .snapshotTitle {
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: -0.02em;
-        margin: 0 0 10px;
-        font-size: 15px;
+        margin: 0 0 8px;
+        font-size: 14px;
       }
       .snapshot ul {
         margin: 0;
@@ -268,43 +296,35 @@
       .snapshot li { margin: 6px 0; }
 
       /* Credibility strip */
-      .strip {
-        margin-top: 16px;
-        padding: 14px;
-      }
+      .strip { margin-top: 16px; padding: 14px; }
       .stripGrid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
       }
       .stripItem {
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line-2);
+        border-radius: var(--radiusLG);
+        border: 1px solid var(--line2);
         background: rgba(255, 255, 255, 0.74);
         padding: 12px 14px;
       }
       .stripLabel {
-        color: var(--muted);
+        color: var(--muted2);
         font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.02em;
+        font-weight: 900;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
         margin: 0 0 6px;
       }
       .stripValue {
         margin: 0;
-        font-weight: 800;
+        font-weight: 900;
         letter-spacing: -0.02em;
       }
-      .stripValue span {
-        color: var(--muted);
-        font-weight: 700;
-      }
+      .stripValue span { color: var(--muted); font-weight: 800; }
 
       /* Sections */
-      .section {
-        margin-top: 26px;
-      }
+      .section { margin-top: 22px; }
       .sectionHead {
         display: flex;
         align-items: baseline;
@@ -318,7 +338,7 @@
         margin: 0;
       }
       .sectionHint {
-        color: var(--muted-2);
+        color: var(--muted2);
         font-size: 13px;
         margin: 0;
       }
@@ -330,19 +350,19 @@
         gap: 12px;
       }
       .workCard {
-        border-radius: var(--radius-xl);
-        border: 1px solid var(--line-2);
-        background: rgba(255, 255, 255, 0.78);
+        border-radius: var(--radiusXL);
+        border: 1px solid var(--line2);
+        background: rgba(255, 255, 255, 0.80);
         padding: 16px;
-        box-shadow: var(--shadow-soft);
+        box-shadow: var(--shadowSoft);
         display: flex;
         flex-direction: column;
         gap: 10px;
-        min-height: 220px;
+        min-height: 240px;
       }
       .workTitle {
         margin: 0;
-        font-weight: 900;
+        font-weight: 950;
         letter-spacing: -0.02em;
         font-size: 16px;
       }
@@ -350,7 +370,7 @@
         margin: 0;
         color: var(--muted);
         font-size: 14px;
-        line-height: 1.55;
+        line-height: 1.6;
       }
       .tags {
         display: flex;
@@ -359,24 +379,24 @@
       }
       .tag {
         font-size: 12px;
-        font-weight: 800;
+        font-weight: 900;
         color: var(--muted);
-        border: 1px solid var(--line-2);
+        border: 1px solid var(--line2);
         background: rgba(255, 255, 255, 0.72);
         padding: 6px 10px;
         border-radius: 999px;
       }
 
       details {
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line-2);
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: var(--radiusLG);
+        border: 1px solid var(--line2);
+        background: rgba(255, 255, 255, 0.74);
         padding: 10px 12px;
       }
       details summary {
         cursor: pointer;
         list-style: none;
-        font-weight: 800;
+        font-weight: 900;
         color: var(--text);
         display: flex;
         align-items: center;
@@ -391,7 +411,6 @@
         border-right: 2px solid var(--muted);
         border-bottom: 2px solid var(--muted);
         transform: rotate(-45deg);
-        margin-left: 8px;
         transition: transform 160ms ease;
         opacity: 0.9;
       }
@@ -406,22 +425,15 @@
       .detailsBody ul { margin: 10px 0 0; padding-left: 18px; }
       .detailsBody li { margin: 6px 0; }
 
-      /* Highlights section */
+      /* Two column highlights */
       .twoCol {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
-      .panel {
-        border-radius: var(--radius-xl);
-        border: 1px solid var(--line-2);
-        background: rgba(255, 255, 255, 0.78);
-        padding: 16px;
-        box-shadow: var(--shadow-soft);
-      }
       .panelTitle {
         margin: 0 0 10px;
-        font-weight: 900;
+        font-weight: 950;
         letter-spacing: -0.02em;
         font-size: 16px;
       }
@@ -434,41 +446,39 @@
       }
       .panel li { margin: 8px 0; }
 
-      .muted { color: var(--muted); }
-      .muted2 { color: var(--muted-2); }
-
-      /* Footer note */
-      .note {
+      /* Footer contact (text links only = avoids CTA duplication) */
+      .footer {
         margin-top: 22px;
-        color: var(--muted-2);
-        font-size: 12px;
-        border-top: 1px solid var(--line-2);
+        border-top: 1px solid var(--line2);
         padding-top: 14px;
+        color: var(--muted2);
+        font-size: 13px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         gap: 12px;
         flex-wrap: wrap;
       }
+      .footer a { color: var(--muted2); text-decoration: none; }
+      .footer a:hover { color: var(--text); text-decoration: underline; }
 
       /* Responsive */
       @media (max-width: 980px) {
-        h1 { font-size: 46px; }
+        .navLinks { display: none; }
         .heroGrid { grid-template-columns: 1fr; }
+        h1 { font-size: 46px; }
         .stripGrid { grid-template-columns: 1fr; }
         .workGrid { grid-template-columns: 1fr; }
         .twoCol { grid-template-columns: 1fr; }
-        .navLinks { display: none; }
       }
-
       @media (prefers-reduced-motion: reduce) {
-        * { scroll-behavior: auto !important; }
         .chev { transition: none; }
       }
     </style>
   </head>
 
   <body>
-    <!-- Sticky nav -->
+    <!-- NAV: keep Email + CV ONLY HERE -->
     <header class="nav" role="banner">
       <div class="navInner">
         <a class="brand" href="#top" aria-label="Home">
@@ -497,43 +507,55 @@
     </header>
 
     <main class="wrap" id="top">
-      <!-- Hero -->
+      <!-- HERO (no duplicate Email/CV buttons here) -->
       <section class="card hero" aria-label="Intro">
         <div class="heroGrid">
           <div>
-            <div class="kicker">
+            <div class="kickerRow">
               <span class="pill"><span class="dot" aria-hidden="true"></span> Shenzhen, China</span>
-              <span>Finance • Strategy • Quantitative Analysis</span>
+              <span class="pill">Finance • Strategy • Quantitative Analysis</span>
             </div>
 
             <h1>Barnabas<br />Vormwald</h1>
 
-            <p class="sub">
+            <!-- Improved readability: fewer clauses, better line length, clearer emphasis -->
+            <p class="lede">
               Master of Management at <strong>PKU HSBC</strong> (Full Scholarship, Top 5% international cohort).
               Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
               I build rigorous, data-driven analysis at the intersection of markets and strategy.
             </p>
 
-            <div class="heroCtas">
-              <a class="btn btnPrimary" href="mailto:barnabasvormwald@gmail.com">
-                <img class="icon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
-                Email me
-              </a>
-              <a class="btn" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">
-                <img class="icon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
-                Download CV
-              </a>
-              <a class="btn" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
+            <!-- This block fixes the empty space AND makes scanning easier -->
+            <div class="scanBlock" aria-label="Key proof points">
+              <div class="scanItem">
+                <p class="scanTitle">What I did</p>
+                <p class="scanText">
+                  Institutional client coverage (DACH) <span>•</span> RFP screening & pursuit <span>•</span> investment committee preparation
+                </p>
+              </div>
+              <div class="scanItem">
+                <p class="scanTitle">What I’m doing now</p>
+                <p class="scanText">
+                  Empirical pricing research <span>•</span> regression & ML <span>•</span> reproducible data pipelines
+                </p>
+              </div>
+              <div class="scanItem">
+                <p class="scanTitle">What I’m looking for</p>
+                <p class="scanText">
+                  Internship / analyst roles in finance, strategy, or quantitative analysis
+                </p>
+              </div>
             </div>
 
             <div class="metaRow">
-              <span>Open to internships / analyst roles</span>
-              <span class="muted2">•</span>
+              <span>Fast links:</span>
               <a href="#work">Selected work</a>
-              <span class="muted2">•</span>
+              <span>•</span>
+              <a href="#highlights">Highlights</a>
+              <span>•</span>
               <a href="#contact">Contact</a>
+              <span>•</span>
+              <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
 
@@ -572,7 +594,22 @@
         </div>
       </section>
 
-      <!-- Selected Work -->
+      <!-- ABOUT moved up (no longer oddly at bottom) -->
+      <section class="section" id="about" aria-label="About">
+        <div class="sectionHead">
+          <h2 class="sectionTitle">About</h2>
+          <p class="sectionHint">Short, recruiter-optimized context.</p>
+        </div>
+
+        <section class="panel">
+          <p style="margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; max-width: 85ch;">
+            I’m a Master’s student at PKU HSBC in Shenzhen with a full scholarship and a background in institutional client coverage at AllianceBernstein.
+            My work style is decision-oriented: structure the problem, clean and validate the data, model the drivers, and communicate the conclusion clearly.
+          </p>
+        </section>
+      </section>
+
+      <!-- Selected Work (expanders now worthwhile) -->
       <section class="section" id="work" aria-label="Selected Work">
         <div class="sectionHead">
           <h2 class="sectionTitle">Selected Work</h2>
@@ -580,7 +617,6 @@
         </div>
 
         <div class="workGrid">
-          <!-- Card 1 -->
           <article class="workCard">
             <h3 class="workTitle">Airline Fare Reverse-Engineering (Master’s thesis)</h3>
             <p class="workDesc">
@@ -593,21 +629,17 @@
             </div>
 
             <details>
-              <summary>
-                Read
-                <span class="chev" aria-hidden="true"></span>
-              </summary>
+              <summary>Details <span class="chev" aria-hidden="true"></span></summary>
               <div class="detailsBody">
-                Focus: how competition intensity, distance, stopover geometry, and carrier structure relate to observed fare dispersion.
                 <ul>
-                  <li>Pipeline mindset: data integrity checks, deduplication logic, and reproducible daily runs.</li>
-                  <li>Modeling: regressions + ML components for interpretability and predictive signal.</li>
+                  <li>Built a reproducible scraping/parsing workflow and data integrity checks.</li>
+                  <li>Designed route-level and itinerary-level models to separate composition vs within-route effects.</li>
+                  <li>Focus on interpretable drivers: competition/thickness, distance, stopover geometry, carrier structure.</li>
                 </ul>
               </div>
             </details>
           </article>
 
-          <!-- Card 2 -->
           <article class="workCard">
             <h3 class="workTitle">BRI Infrastructure &amp; Sovereign Risk (Bachelor thesis)</h3>
             <p class="workDesc">
@@ -620,21 +652,17 @@
             </div>
 
             <details>
-              <summary>
-                Read
-                <span class="chev" aria-hidden="true"></span>
-              </summary>
+              <summary>Details <span class="chev" aria-hidden="true"></span></summary>
               <div class="detailsBody">
-                Emphasis on measurable indicators and comparative framing across countries.
                 <ul>
-                  <li>Built a structured indicator set (trade/FDI/lending proxies) to evaluate narratives vs data.</li>
-                  <li>Wrote a thesis-style deliverable with clear claims, limitations, and robustness thinking.</li>
+                  <li>Created an indicator set to test narratives vs measurable evidence across countries.</li>
+                  <li>Focused on clear claims, limitations, and defensible comparisons.</li>
+                  <li>Thesis-style writing with structured sections and consistent logic.</li>
                 </ul>
               </div>
             </details>
           </article>
 
-          <!-- Card 3 -->
           <article class="workCard">
             <h3 class="workTitle">Real Estate Redevelopment Feasibility (Team lead)</h3>
             <p class="workDesc">
@@ -647,15 +675,12 @@
             </div>
 
             <details>
-              <summary>
-                Read
-                <span class="chev" aria-hidden="true"></span>
-              </summary>
+              <summary>Details <span class="chev" aria-hidden="true"></span></summary>
               <div class="detailsBody">
-                Built to support a decision-maker, not just to “calculate.”
                 <ul>
-                  <li>Key outputs: base case, downside/upside, and sensitivity drivers.</li>
-                  <li>Presentation: concise narrative with assumptions transparent and defensible.</li>
+                  <li>Built base/downside/upside cases and sensitivity drivers.</li>
+                  <li>Translated model results into an investor-style decision narrative.</li>
+                  <li>Led a team workflow with clear responsibilities and deliverable quality control.</li>
                 </ul>
               </div>
             </details>
@@ -667,7 +692,7 @@
       <section class="section" id="highlights" aria-label="Highlights">
         <div class="sectionHead">
           <h2 class="sectionTitle">Highlights</h2>
-          <p class="sectionHint">Recruiter-friendly: signal first, detail second.</p>
+          <p class="sectionHint">Signal first, detail second.</p>
         </div>
 
         <div class="twoCol">
@@ -675,17 +700,14 @@
             <h3 class="panelTitle">Experience (Highlights)</h3>
             <ul>
               <li>
-                <strong>AllianceBernstein (Munich)</strong> — Institutional Sales Associate <span class="muted">(2021–2023)</span><br />
-                <span class="muted">DACH institutional client coverage; relationship &amp; execution support.</span>
+                <strong>AllianceBernstein (Munich)</strong> — Institutional Sales Associate
+                <span style="color: var(--muted); font-weight: 800;">(2021–2023)</span>
               </li>
               <li><strong>Coverage</strong>: 15+ mandates across DACH; AUM &gt; $3B</li>
             </ul>
 
             <details style="margin-top: 12px;">
-              <summary>
-                More
-                <span class="chev" aria-hidden="true"></span>
-              </summary>
+              <summary>More <span class="chev" aria-hidden="true"></span></summary>
               <div class="detailsBody">
                 <ul>
                   <li>RFP screening &amp; pursuit; investment committee preparation</li>
@@ -700,20 +722,17 @@
             <ul>
               <li>
                 <strong>PKU HSBC</strong> — Master of Management
-                <span style="color: var(--muted); font-weight: 700;">(Expected 2026)</span>
+                <span style="color: var(--muted); font-weight: 800;">(Expected 2026)</span>
               </li>
               <li><strong>Full Academic Scholarship</strong> (Top 5% international cohort)</li>
               <li>
                 <strong>Python</strong> (pandas, numpy, matplotlib, Playwright), advanced Excel<br />
-                <span class="muted">Data: WRDS, CRSP, Compustat, Fama-French</span>
+                <span style="color: var(--muted); font-weight: 700;">Data: WRDS, CRSP, Compustat, Fama-French</span>
               </li>
             </ul>
 
             <details style="margin-top: 12px;">
-              <summary>
-                More
-                <span class="chev" aria-hidden="true"></span>
-              </summary>
+              <summary>More <span class="chev" aria-hidden="true"></span></summary>
               <div class="detailsBody">
                 <ul>
                   <li>Coursework: ML in Asset Pricing; econometrics; CRSP/WRDS</li>
@@ -726,56 +745,32 @@
         </div>
       </section>
 
-      <!-- About -->
-      <section class="section" id="about" aria-label="About">
-        <div class="sectionHead">
-          <h2 class="sectionTitle">About</h2>
-          <p class="sectionHint">One paragraph only.</p>
-        </div>
-
-        <section class="panel">
-          <p class="workDesc" style="margin: 0;">
-            I am a Master’s student at PKU HSBC in Shenzhen with a full scholarship and a background in institutional client coverage at AllianceBernstein.
-            My focus is quantitative, decision-oriented analysis: turning messy data into structured insight, models, and clear recommendations.
-          </p>
-        </section>
-      </section>
-
-      <!-- Contact -->
+      <!-- Contact (no big CTA buttons; avoids duplication) -->
       <section class="section" id="contact" aria-label="Contact">
         <div class="sectionHead">
           <h2 class="sectionTitle">Contact</h2>
-          <p class="sectionHint">Fastest path: email.</p>
+          <p class="sectionHint">Email is the fastest path.</p>
         </div>
 
         <section class="panel">
-          <div class="heroCtas" style="margin-top: 0;">
-            <a class="btn btnPrimary" href="mailto:barnabasvormwald@gmail.com">
-              <img class="icon" src="assets/icons/mail.svg" alt="" aria-hidden="true" />
-              barnabasvormwald@gmail.com
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-            <a class="btn" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">
-              <img class="icon" src="assets/icons/download.svg" alt="" aria-hidden="true" />
-              Download CV (PDF)
-            </a>
-          </div>
-          <p class="muted2" style="margin: 12px 0 0; font-size: 13px;">
+          <p style="margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65;">
+            Email: <a href="mailto:barnabasvormwald@gmail.com"><strong>barnabasvormwald@gmail.com</strong></a><br />
+            LinkedIn: <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener"><strong>Profile</strong></a><br />
+            CV (PDF): <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener"><strong>Download</strong></a>
+          </p>
+          <p style="margin: 10px 0 0; color: var(--muted2); font-size: 13px;">
             Location: Shenzhen, China. Open to internship/analyst opportunities.
           </p>
         </section>
 
-        <div class="note">
+        <div class="footer">
           <span>No trackers. Static HTML. Edit all content in <strong>index.html</strong>.</span>
-          <span class="muted2">Last updated: <span id="year"></span></span>
+          <span>© <span id="year"></span> Barnabas Vormwald</span>
         </div>
       </section>
     </main>
 
     <script>
-      // tiny convenience, not required
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
