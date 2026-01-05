@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Barnabas Vormwald | Investment · Strategy · Relationship Management</title>
-  <meta name="description" content="Barnabas Vormwald — Master of Management at PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage). Investment, strategy, relationship management, and client-facing execution backed by strong analysis." />
+  <meta name="description" content="Barnabas Vormwald — PKU HSBC (Full Academic Scholarship, Top 5%). Former AllianceBernstein (DACH institutional coverage). Investment, strategy, relationship management, and client-facing execution backed by strong analytical fundamentals." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,17 +112,17 @@
     /* MAIN */
     main{
       max-width:var(--max);
-      margin:46px auto 80px;
+      margin:44px auto 78px;
       padding:0 24px;
     }
 
     /* HERO */
     .hero{
       display:grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap:34px;
+      grid-template-columns: 1.12fr 0.88fr; /* more space for left table */
+      gap:30px;
       align-items:start;
-      margin-bottom:46px; /* reduced whitespace */
+      margin-bottom:42px;
     }
 
     h1{
@@ -135,44 +135,25 @@
     .subline{
       color:var(--muted);
       font-size:1.06rem;
-      max-width:64ch;
-      margin-bottom:14px;
+      max-width:66ch;
+      margin-bottom:16px;
     }
     .subline strong{color:var(--text);font-weight:900;}
 
-    /* HERO META (small, non-redundant) */
-    .hero-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:14px;
-    }
-    .pill{
-      border:1px solid rgba(15,23,42,0.10);
-      background: rgba(255,255,255,0.70);
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:0.82rem;
-      color:var(--muted);
-      font-weight:700;
-      letter-spacing:-0.01em;
-    }
-    .pill strong{color:var(--text);font-weight:900;}
-
-    /* SIMPLE CORE BOX */
+    /* CORE BOX (bigger, simpler, recruiter-scan) */
     .corebox{
-      background: rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.84);
       border: 1px solid var(--border2);
-      border-radius: var(--r);
+      border-radius: 18px;
       box-shadow: var(--shadowSoft);
       overflow:hidden;
-      max-width: 610px; /* slightly narrower = less “blocky” */
+      max-width: 720px; /* bigger as requested */
     }
     .core-row{
       display:grid;
-      grid-template-columns: 150px 1fr;
-      gap:14px;
-      padding: 12px 16px;
+      grid-template-columns: 175px 1fr; /* wider key column */
+      gap:16px;
+      padding: 14px 18px; /* bigger row */
       border-bottom: 1px solid rgba(15,23,42,0.06);
       align-items:center;
     }
@@ -180,17 +161,18 @@
     .core-k{
       font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       text-transform:uppercase;
-      letter-spacing:0.09em;
+      letter-spacing:0.10em;
       font-size:0.70rem;
       color:var(--muted2);
       white-space:nowrap;
     }
     .core-v{
-      font-size:0.95rem;
+      font-size:0.97rem;
       color:var(--text);
       font-weight:750;
       letter-spacing:-0.01em;
     }
+    .core-v strong{font-weight:900;}
     .core-v a{
       color:var(--link);
       font-weight:900;
@@ -235,7 +217,7 @@
     }
 
     /* SECTIONS */
-    section{margin-bottom:48px;} /* reduced whitespace */
+    section{margin-bottom:46px;}
     .section-head{
       display:flex;
       justify-content:space-between;
@@ -261,19 +243,20 @@
     .method{
       background:var(--surface);
       border:1px solid var(--border2);
-      border-radius:var(--r);
+      border-radius:18px;
       padding:16px;
       color:var(--muted);
       box-shadow:var(--shadowSoft);
-      max-width:84ch;
+      max-width:86ch;
     }
     .method strong{color:var(--text);font-weight:900;}
 
-    /* WORK */
+    /* WORK (force 3 cards on desktop so nothing drops) */
     .work-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap:16px;
+      align-items:stretch;
     }
     .work-card{
       background:var(--surface);
@@ -282,6 +265,9 @@
       padding:18px;
       box-shadow:var(--shadowSoft);
       transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      min-height: 250px; /* keeps rows visually balanced */
+      display:flex;
+      flex-direction:column;
     }
     .work-card:hover{
       transform: translateY(-2px);
@@ -308,9 +294,8 @@
       margin-bottom:12px;
     }
 
-    /* Optional expansion */
     details{
-      margin-top:10px;
+      margin-top:auto; /* pushes details control to bottom */
       border-top:1px solid rgba(15,23,42,0.06);
       padding-top:12px;
     }
@@ -402,7 +387,7 @@
     footer{
       border-top:1px solid rgba(15,23,42,0.10);
       padding-top:20px;
-      margin-top:48px;
+      margin-top:46px;
       color:var(--muted2);
       font-size:0.85rem;
       display:flex;
@@ -412,12 +397,15 @@
     }
 
     /* RESPONSIVE */
+    @media (max-width: 980px){
+      .work-grid{grid-template-columns: repeat(2, minmax(0,1fr));}
+    }
     @media (max-width: 900px){
-      main{margin-top:36px;}
+      main{margin-top:34px;}
       .nav-links{display:none;}
       .hero{
         grid-template-columns: 1fr;
-        gap:16px;
+        gap:14px;
       }
       .profile-card{
         justify-self:start;
@@ -431,7 +419,9 @@
       }
       .core-k{white-space:normal;}
     }
-
+    @media (max-width: 680px){
+      .work-grid{grid-template-columns: 1fr;}
+    }
     @media (max-width: 520px){
       main{padding:0 16px;}
       .nav-inner{padding:12px 16px;}
@@ -467,25 +457,26 @@
       <div class="hero-copy">
         <h1>Barnabas<br><span style="color: var(--muted);">Vormwald</span></h1>
 
-        <!-- Improved paragraph: fewer clauses, clearer scan -->
         <p class="subline">
           Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5%).
           Former <strong>AllianceBernstein</strong> (DACH institutional coverage).
-          I work at the intersection of <strong>relationships</strong>, <strong>strategy</strong>, and <strong>execution</strong>—supported by strong analytical fundamentals.
+          I support investment and client decisions through structured analysis, clear communication, and strong execution.
         </p>
 
-        <!-- Small, non-redundant meta pills (reduces “blank” feel without adding noise) -->
-        <div class="hero-meta" aria-label="At-a-glance">
-          <span class="pill"><strong>Shenzhen</strong> · China</span>
-          <span class="pill"><strong>Institutional</strong> clients</span>
-          <span class="pill"><strong>Strategy</strong> & execution</span>
-          <span class="pill"><strong>Modeling</strong> & reporting</span>
-        </div>
+        <!-- pills removed as requested -->
 
         <div class="corebox" aria-label="Quick scan">
           <div class="core-row">
-            <div class="core-k">Focus</div>
+            <div class="core-k">Positioning</div>
             <div class="core-v">Investment · Strategy · Relationship Management · Business Development</div>
+          </div>
+          <div class="core-row">
+            <div class="core-k">Location</div>
+            <div class="core-v"><strong>China-based</strong> (Shenzhen) · <strong>EU work permit</strong></div>
+          </div>
+          <div class="core-row">
+            <div class="core-k">Languages</div>
+            <div class="core-v">German (native) · English (C1+) · Spanish (B1+) · Chinese (HSK2, progressing)</div>
           </div>
           <div class="core-row">
             <div class="core-k">Proof</div>
@@ -493,7 +484,7 @@
           </div>
           <div class="core-row">
             <div class="core-k">Toolkit</div>
-            <div class="core-v">Excel (advanced) · Python (analysis) · WRDS/CRSP · SAP · basic SQL</div>
+            <div class="core-v">Excel (advanced) · Python (analysis) · WRDS/CRSP · SAP Finance · basic SQL</div>
           </div>
           <div class="core-row">
             <div class="core-k">Status</div>
@@ -531,7 +522,7 @@
     <section id="work" aria-label="Selected work">
       <div class="section-head">
         <h2>Selected Work</h2>
-        <span class="meta">SCAN FIRST · DETAILS OPTIONAL</span>
+        <span class="meta">3 ITEMS · DETAILS OPTIONAL</span>
       </div>
 
       <div class="work-grid">
@@ -543,9 +534,9 @@
           <details>
             <summary><span class="chev">›</span>Details</summary>
             <ul class="detail-list">
-              <li>Managed 15+ institutional mandates; maintained full account coverage during a 3+ month solo period post-restructure.</li>
-              <li>Supported pipeline development and early-stage sales qualification under limited team capacity.</li>
-              <li>Liaised between clients, consultants, internal stakeholders, and external providers.</li>
+              <li>Managed 15+ institutional mandates (AUM &gt; $3B) as primary contact for communication, documentation, and execution.</li>
+              <li>Maintained full account coverage for 3+ months post-restructure during solo operation; stabilized workflows and ensured continuity.</li>
+              <li>Liaised between clients, consultants, internal stakeholders, and external providers; aligned pursuit strategy with senior sales leadership.</li>
             </ul>
           </details>
         </article>
@@ -558,41 +549,24 @@
           <details>
             <summary><span class="chev">›</span>Details</summary>
             <ul class="detail-list">
-              <li>Fund steering support for German real estate portfolios; quarterly investor reports and IC materials.</li>
-              <li>Built Excel macros to identify inconsistencies and support reporting automation.</li>
+              <li>Assisted fund steering for German real estate portfolios; quarterly investor reports and IC materials.</li>
+              <li>Verified and reconciled KPIs across SAP and Excel; built macros to identify inconsistencies and support reporting automation.</li>
               <li>Prepared analysis inputs on COVID-19 impacts for retail assets; coordinated data with property management.</li>
             </ul>
           </details>
         </article>
 
-        <!-- HIGH-LEVERAGE SPLIT #1 -->
         <article class="work-card">
-          <div class="work-kicker">RESEARCH</div>
-          <h3>BRI Infrastructure & Sovereign Risk</h3>
-          <p>Cross-country analysis of China-funded infrastructure; indicators on FDI, debt ratios, and trade flows to assess risk and resilience.</p>
+          <div class="work-kicker">PROJECTS</div>
+          <h3>Research & Modeling (Selected)</h3>
+          <p>Evidence-based projects that sharpen investment judgment: sovereign risk, feasibility modeling, and pricing strategy research.</p>
 
           <details>
             <summary><span class="chev">›</span>Details</summary>
             <ul class="detail-list">
-              <li>Cases: Pakistan, Sri Lanka, Montenegro.</li>
-              <li>Structured evidence base; translated metrics into a coherent risk narrative.</li>
-              <li>Finance-relevant framing: debt sustainability, trade sensitivity, macro exposure.</li>
-            </ul>
-          </details>
-        </article>
-
-        <!-- HIGH-LEVERAGE SPLIT #2 -->
-        <article class="work-card">
-          <div class="work-kicker">THESIS</div>
-          <h3>Airline Pricing Strategy (Empirical)</h3>
-          <p>Pricing strategy research using web-scraped market data to explain route-level variation and competitive patterns.</p>
-
-          <details>
-            <summary><span class="chev">›</span>Details</summary>
-            <ul class="detail-list">
-              <li>Focus: market structure, pricing dispersion, and decision-ready insights from messy real-world data.</li>
-              <li>Methods: regression / basic ML components where useful (kept pragmatic, not academic for its own sake).</li>
-              <li>Transferable value: structuring ambiguity, building clean datasets, communicating findings clearly.</li>
+              <li><strong>BRI Infrastructure & Sovereign Risk</strong>: cross-country analysis (Pakistan, Sri Lanka, Montenegro) using indicators on FDI, debt ratios, and trade flows.</li>
+              <li><strong>Real Estate Redevelopment Feasibility</strong>: led an international team; built an investment feasibility model and delivered an investor-style pitch.</li>
+              <li><strong>Airline Pricing Strategy (Thesis)</strong>: structured dataset + pragmatic empirical analysis to explain route-level pricing patterns.</li>
             </ul>
           </details>
         </article>
