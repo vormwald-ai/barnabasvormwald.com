@@ -1,235 +1,434 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Barnabas Vormwald | Investment Professional</title>
-    <meta name="description" content="Portfolio of Barnabas Vormwald. Bridging Institutional Coverage ($3B+ AUM) with Quantitative Strategy (Python/ML).">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barnabas Vormwald | Investment Professional</title>
+  <meta name="description" content="Portfolio of Barnabas Vormwald. Bridging Institutional Coverage ($3B+ AUM) with Quantitative Strategy.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Color Palette - "Institutional Finance" */
+      --bg: #f8fafc;       /* Slate 50 */
+      --card: #ffffff;
+      --text-main: #0f172a; /* Slate 900 */
+      --text-muted: #64748b; /* Slate 500 */
+      --line: rgba(15, 23, 42, 0.1);
+      --blue: #2563eb;
+      --radius: 16px;
+      --max-w: 1100px;
+    }
+
+    * { box-sizing: border-box; }
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      /* Subtle technical grid pattern */
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        institutional: '#0f172a', // Slate 900
-                        paper: '#f8fafc',      // Slate 50
-                        accent: '#0284c7',     // Sky 600
-                        border: '#e2e8f0',     // Slate 200
-                    }
-                }
-            }
-        }
-    </script>
+    a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--blue); }
 
-    <style>
-        body {
-            background-color: #f1f5f9;
-            color: #334155;
-        }
-        /* Financial Report Grid Background */
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image:
-                linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-                linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-            background-position: top center;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #0f172a;
-        }
-        .tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: #e2e8f0;
-            color: #475569;
-        }
-    </style>
+    /* TYPOGRAPHY UTILS */
+    .font-mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }
+    .text-sm { font-size: 14px; }
+    .text-xs { font-size: 12px; }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 250, 252, 0.9);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+    }
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981; /* Green for 'Active' */
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .nav-cta { display: flex; gap: 12px; }
+    
+    .btn {
+      padding: 8px 18px;
+      border-radius: 99px;
+      border: 1px solid var(--line);
+      background: white;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { border-color: var(--text-muted); transform: translateY(-1px); }
+    .btn.primary {
+      background: var(--text-main);
+      color: white;
+      border-color: var(--text-main);
+    }
+    .btn.primary:hover {
+      background: #334155;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* HERO GRID */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      margin-bottom: 100px;
+      align-items: start;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+      margin: 0 0 24px;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+    }
+
+    .positioning {
+      max-width: 48ch;
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+    .positioning strong { color: var(--text-main); }
+
+    /* DATA SIGNALS (The "Dashboard" look) */
+    .signals-container {
+      display: grid;
+      gap: 16px;
+      max-width: 100%;
+    }
+    .signal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .signal-label {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .signal-value {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* PHOTO CARD */
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+      transform: rotate(2deg);
+      transition: transform 0.3s ease;
+    }
+    .photo-card:hover { transform: rotate(0deg); }
+    
+    .photo-frame {
+      border-radius: calc(var(--radius) - 6px);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: #e2e8f0;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-caption {
+      padding: 12px 4px 4px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    section { margin-bottom: 100px; }
+    
+    .section-head {
+      margin-bottom: 32px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--text-main);
+      padding-bottom: 12px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: #e2e8f0;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+
+    /* PHILOSOPHY BOX */
+    .philosophy {
+      background: var(--card);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+
+    /* WORK GRID */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .work-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .work-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+    .work-type {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .work-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .work-card p {
+      margin: 0 0 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      flex-grow: 1;
+    }
+    .tech-stack {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: var(--bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-col strong { color: var(--text-main); display: block; margin-bottom: 8px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; }
+      h1 { font-size: 40px; }
+      .nav-links { display: none; }
+      .photo-card { max-width: 400px; margin: 0 auto; transform: rotate(0deg); }
+    }
+  </style>
 </head>
 
-<body class="bg-grid min-h-screen p-4 md:p-12">
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="status-indicator"></span> Barnabas Vormwald
+      </div>
+      <nav class="nav-links">
+        <a href="#about">Philosophy</a>
+        <a href="#work">Track Record</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn" href="mailto:barnabasvormwald@gmail.com">Email Me</a>
+        <a class="btn primary" href="BarnabasVormwald_CV.pdf" target="_blank">Download CV</a>
+      </div>
+    </div>
+  </nav>
 
-    <main class="max-w-6xl mx-auto bg-white shadow-2xl border border-slate-300 overflow-hidden">
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Barnabas<br><span style="color: var(--text-muted);">Vormwald</span></h1>
+        <p class="positioning">
+          Master’s student at <strong>PKU HSBC</strong> (full scholarship, top 5%). Former <strong>AllianceBernstein</strong>.
+          Bridging institutional coverage with quantitative strategy.
+        </p>
+
+        <div class="signals-container">
+          <div class="signal-row">
+            <span class="signal-label">Focus</span>
+            <span class="signal-value">Empirical Pricing & ML Pipelines</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-label">Experience</span>
+            <span class="signal-value">$3B+ AUM Coverage (DACH)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-label">Status</span>
+            <span class="signal-value" style="color: var(--blue);">Open for Analyst Roles</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Barnabas Vormwald" id="profile-pic">
+        </div>
+        <div class="photo-caption">
+          Shenzhen, China · ID: 9844-B
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>Working Philosophy</h2>
+        <span class="section-tag">METHODOLOGY</span>
+      </div>
+      <div class="philosophy">
+        "I approach problems like an analyst: define the decision, validate the data, model the drivers,
+        and communicate the conclusion clearly. I value <strong>evidence over narratives</strong> and structure over noise."
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <h2>Selected Work</h2>
+        <span class="section-tag">PORTFOLIO</span>
+      </div>
+      <div class="work-grid">
         
-        <header class="grid grid-cols-1 lg:grid-cols-12 border-b border-slate-200">
-            <div class="lg:col-span-8 p-8 md:p-12">
-                <div class="inline-flex items-center gap-2 mb-4">
-                    <div class="h-3 w-3 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span class="font-mono text-xs uppercase tracking-widest text-slate-500">Available for 2026 Roles</span>
-                </div>
-                
-                <h1 class="text-5xl font-bold text-slate-900 tracking-tight mb-2">Barnabas Vormwald</h1>
-                <p class="text-xl text-slate-600 font-light mb-8 max-w-2xl">
-                    Bridging <span class="font-semibold text-slate-900">Institutional Coverage</span> and <span class="font-semibold text-slate-900">Quantitative Strategy</span>.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="mailto:barnabasvornwald@gmail.com" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2">
-                        <i data-lucide="mail" class="w-4 h-4"></i> CONTACT
-                    </a>
-                    <a href="#" class="px-5 py-2.5 border border-slate-300 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors flex items-center gap-2">
-                        <i data-lucide="download" class="w-4 h-4"></i> DOWNLOAD CV
-                    </a>
-                </div>
-            </div>
-
-            <div class="lg:col-span-4 bg-slate-50 p-8 md:p-12 border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col justify-center">
-                <div class="space-y-6">
-                    <div>
-                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Previous Exposure</div>
-                        <div class="text-3xl font-bold text-slate-900">$3B+ AUM</div>
-                        <div class="text-sm text-slate-600">DACH Institutional Mandates</div>
-                    </div>
-                    <div>
-                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Academic Rank</div>
-                        <div class="text-3xl font-bold text-slate-900">Top 5%</div>
-                        <div class="text-sm text-slate-600">PKU HSBC Cohort (Full Scholarship)</div>
-                    </div>
-                    <div>
-                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Technical Stack</div>
-                        <div class="text-sm font-mono text-slate-700 mt-1">
-                            Python <span class="text-slate-300">|</span> Pandas <span class="text-slate-300">|</span> Playwright <span class="text-slate-300">|</span> WRDS
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2">
-            
-            <section class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-slate-200">
-                <div class="section-header">
-                    <i data-lucide="building-2" class="w-6 h-6 text-slate-400"></i>
-                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide">Institutional Track Record</h2>
-                </div>
-                
-                <div class="space-y-8">
-                    <div class="group">
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-bold text-slate-900">AllianceBernstein</h3>
-                            <span class="font-mono text-xs text-slate-500">2021-2023</span>
-                        </div>
-                        <p class="text-sm font-semibold text-slate-600 mb-3">Institutional Sales Associate (DACH)</p>
-                        <ul class="space-y-2 text-sm text-slate-600 list-disc pl-4 marker:text-slate-300">
-                            <li>Managed <strong>15+ institutional mandates</strong> ($3B+ AUM) as primary contact for execution and documentation.</li>
-                            <li>Solo-managed account coverage for 3 months post-restructure; ensured continuity for key portfolios.</li>
-                            <li>Coordinated investment committee preparation across Equities, Fixed Income, and Alternatives.</li>
-                        </ul>
-                    </div>
-
-                    <div class="group opacity-80">
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-bold text-slate-900">PATRIZIA AG</h3>
-                            <span class="font-mono text-xs text-slate-500">2020-2021</span>
-                        </div>
-                        <p class="text-sm font-semibold text-slate-600 mb-3">Fund Management Intern</p>
-                        <ul class="space-y-2 text-sm text-slate-600 list-disc pl-4 marker:text-slate-300">
-                            <li>Supported steering of German real estate portfolios and quarterly investor reporting.</li>
-                            <li>Developed Excel macros to reconcile fund-level KPIs across SAP and BISon.Box.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="p-8 md:p-12 bg-slate-50/50">
-                <div class="section-header">
-                    <i data-lucide="terminal" class="w-6 h-6 text-slate-400"></i>
-                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide">Quantitative & Strategic</h2>
-                </div>
-
-                <div class="space-y-8">
-                    <div>
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-bold text-slate-900">PKU HSBC Business School</h3>
-                            <span class="font-mono text-xs text-slate-500">Expected 2026</span>
-                        </div>
-                        <p class="text-sm font-semibold text-slate-600 mb-3">Master of Management (Shenzhen)</p>
-                        <div class="p-4 bg-white border border-slate-200 rounded text-sm text-slate-600 shadow-sm">
-                            <div class="font-mono text-xs text-accent font-bold mb-2">/// CURRENT RESEARCH</div>
-                            <p class="mb-3">
-                                <strong>Thesis:</strong> Airline Pricing Strategy. Scraping global fare data to identify route-level mispricing using Regression & ML.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="tag">Python</span>
-                                <span class="tag">Scikit-Learn</span>
-                                <span class="tag">Web Scraping</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-bold text-slate-900">Real Estate Feasibility</h3>
-                            <span class="font-mono text-xs text-slate-500">Lead</span>
-                        </div>
-                        <p class="text-sm text-slate-600 mb-3">
-                            Built investment feasibility model for distressed property redevelopment. Presented to external evaluators in investor-style pitch format.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag">Financial Modeling</span>
-                            <span class="tag">Valuation</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="work-card">
+          <span class="work-type">Master’s Thesis</span>
+          <h3>Airline Fare Reverse-Engineering</h3>
+          <p>Multi-route pricing analysis using web-scraped data to explain route-level price variation and market structure.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scikit-Learn</span>
+            <span class="tech-tag">Web Scraping</span>
+          </div>
         </div>
 
-        <footer class="bg-slate-900 text-slate-400 p-8 md:p-12 text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div>
-                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Contact</h4>
-                    <p class="font-mono">Shenzhen, China</p>
-                    <p class="font-mono hover:text-white transition-colors"><a href="mailto:barnabasvornwald@gmail.com">barnabasvornwald@gmail.com</a></p>
-                    <div class="mt-4 flex gap-4">
-                        <a href="#" class="hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="hover:text-white"><i data-lucide="github" class="w-5 h-5"></i></a>
-                    </div>
-                </div>
+        <div class="work-card">
+          <span class="work-type">Bachelor Thesis</span>
+          <h3>BRI Infrastructure & Risk</h3>
+          <p>Cross-country indicator analysis of China-funded infrastructure, focusing on sovereign debt risk and resilience.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Macro Analysis</span>
+            <span class="tech-tag">Excel Modeling</span>
+            <span class="tech-tag">Stata</span>
+          </div>
+        </div>
 
-                <div>
-                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Languages</h4>
-                    <ul class="space-y-1 font-mono text-xs">
-                        <li class="flex justify-between w-32"><span>German</span> <span class="text-slate-600">Native</span></li>
-                        <li class="flex justify-between w-32"><span>English</span> <span class="text-slate-600">C1+</span></li>
-                        <li class="flex justify-between w-32"><span>Chinese</span> <span class="text-slate-600">HSK2</span></li>
-                    </ul>
-                </div>
+        <div class="work-card">
+          <span class="work-type">Case Study</span>
+          <h3>Real Estate Feasibility</h3>
+          <p>Full feasibility model and investor-style pitch: assumptions, scenario logic, and decision-oriented outputs.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Valuation</span>
+            <span class="tech-tag">Financial Modeling</span>
+            <span class="tech-tag">Pitch Deck</span>
+          </div>
+        </div>
 
-                <div class="md:text-right">
-                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Profile Context</h4>
-                    <p class="max-w-xs ml-auto leading-relaxed">
-                        Combining rigorous data analysis with the communication skills required for client-facing institutional roles.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="mt-12 pt-8 border-t border-slate-800 text-center font-mono text-xs text-slate-600">
-                &copy; 2026 Barnabas Vormwald. No trackers. Static HTML.
-            </div>
-        </footer>
+      </div>
+    </section>
 
-    </main>
-
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+    <footer id="contact">
+      <div class="footer-col">
+        <strong>Barnabas Vormwald</strong>
+        Shenzhen, China<br>
+        <span class="font-mono" style="font-size: 12px; color: var(--text-muted);">+86 198 7991 1662</span>
+      </div>
+      
+      <div class="footer-col">
+        <strong>Connect</strong>
+        <a href="
