@@ -154,10 +154,6 @@
         padding: 38px 0 80px;
       }
 
-      /* New: hero is now a 2-row grid.
-         Row 1: left text, right photo
-         Row 2: full-width profile sheet (table) aligned under both
-      */
       .hero {
         display: grid;
         grid-template-columns: 1.08fr 0.92fr;
@@ -166,7 +162,7 @@
         margin-top: 10px;
       }
 
-      /* Subtle, premium “metadata line” instead of pills */
+      /* Premium metadata line */
       .metaLine {
         display: inline-flex;
         flex-wrap: wrap;
@@ -225,7 +221,7 @@
         font-weight: 750;
       }
 
-      /* New: CTA row under summary (replaces the removed quicklinks bar) */
+      /* CTA row under summary */
       .heroCtas {
         margin-top: 18px;
         display: flex;
@@ -297,7 +293,7 @@
         background: rgba(255, 255, 255, 0.7);
       }
 
-      /* New: PROFILE SHEET (table) now spans full width under hero row */
+      /* PROFILE SHEET (condensed to 4 blocks) */
       .sheet {
         grid-column: 1 / -1;
         margin-top: 2px;
@@ -720,7 +716,6 @@
         <section class="hero" aria-label="Hero">
           <!-- LEFT: text -->
           <div>
-            <!-- Pills removed; replaced by a clean metadata line -->
             <div class="metaLine" aria-label="Context line">
               <span class="metaBadge"><span class="miniDot"></span> Shenzhen · China</span>
               <span class="sep">/</span>
@@ -742,7 +737,6 @@
               decisions through structured analysis, clear communication, and disciplined execution.
             </p>
 
-            <!-- New: clean CTAs here (removes the awkward bar under photo) -->
             <div class="heroCtas" aria-label="Primary actions">
               <a class="ctaBtn" href="mailto:barnabasvormwald@gmail.com" aria-label="Email Barnabas">
                 <span class="icon" aria-hidden="true">
@@ -806,11 +800,9 @@
                 <span>ID: 9844-B</span>
               </div>
             </div>
-
-            <!-- Removed: quickLinks bar (yellow highlight) -->
           </div>
 
-          <!-- FULL-WIDTH: profile sheet (table) aligned under both columns -->
+          <!-- FULL-WIDTH: condensed profile sheet (4 blocks) -->
           <div class="sheet" aria-label="Profile sheet">
             <div class="sheetCard" role="table" aria-label="Snapshot table">
               <div class="sheetTop">
@@ -822,54 +814,38 @@
                 <div class="sheetItem" role="row">
                   <div class="label" role="cell">Positioning</div>
                   <div class="inlineChips" role="cell">
-                    <span class="chip">Investment</span>
-                    <span class="chip">Strategy</span>
-                    <span class="chip">Client Coverage</span>
-                    <span class="chip">Business Development</span>
-                  </div>
-                </div>
-
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Location</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip">Shenzhen (China)</span>
-                    <span class="chip muted">EU work permit</span>
-                  </div>
-                </div>
-
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Languages</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip">DE (native)</span>
-                    <span class="chip">EN (C1+)</span>
-                    <span class="chip">ES (B1+)</span>
-                    <span class="chip muted">ZH (HSK2)</span>
+                    <span class="chip">Institutional Client Coverage</span>
+                    <span class="chip">RFP / Pipeline Screening</span>
+                    <span class="chip">Investment Committee Materials</span>
+                    <span class="chip">Cross-asset (EQ / FI / Alts)</span>
                   </div>
                 </div>
 
                 <div class="sheetItem" role="row">
                   <div class="label" role="cell">Status</div>
                   <div class="inlineChips" role="cell">
-                    <span class="chip status">Open to associate-level roles</span>
-                    <span class="chip muted">Investment · Strategy · Coverage</span>
+                    <span class="chip status">Open to Associate / Analyst roles (2026)</span>
+                    <span class="chip muted">Coverage · Strategy · Investments</span>
                   </div>
                 </div>
 
                 <div class="sheetItem" role="row">
                   <div class="label" role="cell">Proof</div>
                   <div class="inlineChips" role="cell">
-                    <span class="chip">15+ mandates</span>
-                    <span class="chip">DACH</span>
+                    <span class="chip">15+ institutional mandates</span>
                     <span class="chip">AUM &gt; $3B</span>
+                    <span class="chip">Solo coverage 3+ months</span>
+                    <span class="chip">Full scholarship (Top 5%)</span>
                   </div>
                 </div>
 
                 <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Focus</div>
+                  <div class="label" role="cell">Edge</div>
                   <div class="inlineChips" role="cell">
-                    <span class="chip">Decision memos</span>
-                    <span class="chip">Stakeholder mgmt</span>
-                    <span class="chip muted">Tight deadlines</span>
+                    <span class="chip">Client execution</span>
+                    <span class="chip">Consultant / IC coordination</span>
+                    <span class="chip">Excel automation (macros)</span>
+                    <span class="chip muted">Python analytics (pandas / Playwright)</span>
                   </div>
                 </div>
               </div>
@@ -883,8 +859,8 @@
             <div class="meta">How I work</div>
           </div>
           <div class="methodBox">
-            Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate inputs,
-            structure the narrative and materials, and execute across stakeholders with tight deadlines.
+            Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate inputs, structure
+            the narrative and materials, and execute across stakeholders with tight deadlines.
           </div>
         </section>
 
