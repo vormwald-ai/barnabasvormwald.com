@@ -1,1069 +1,668 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Barnabas Vormwald</title>
-    <meta
-      name="description"
-      content="Barnabas Vormwald — Investment, Strategy, Client Coverage. China-based (Shenzhen). Former AllianceBernstein (DACH institutional coverage). PKU HSBC (Full Scholarship, Top 5%)."
-    />
+/* ============================================================
+   barnabasvormwald.com — styles.css
+   Palette: paper white / deep ink / spruce green accent
+   Type:    Newsreader (display serif) + Instrument Sans (body)
+   ============================================================ */
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+:root {
+  --paper: #fafaf8;
+  --surface: #ffffff;
+  --ink: #1a2420;
+  --muted: #56615b;
+  --faint: #8a948e;
+  --line: #e3e7e2;
+  --accent: #1e5c45;
+  --accent-soft: #edf3ef;
+  --max: 1040px;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
 
-    <style>
-      :root {
-        --bg: #f7f9fc;
-        --surface: #ffffff;
-        --text: #0f172a;
-        --muted: #64748b;
-        --muted-2: #94a3b8;
-        --border: #e6edf6;
-        --shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
-        --shadow-2: 0 10px 22px rgba(15, 23, 42, 0.05);
-        --radius: 18px;
-        --max: 1120px;
-        --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-          "Courier New", monospace;
-        --accent: #0f172a;
-        --link: #2563eb;
-      }
+/* ---------- Reset & base ---------- */
 
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        color: var(--text);
-        background: radial-gradient(1200px 600px at 85% 10%, rgba(15, 23, 42, 0.06), transparent 55%),
-          radial-gradient(900px 500px at 10% 0%, rgba(37, 99, 235, 0.05), transparent 55%), var(--bg);
-      }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      a:hover {
-        color: var(--link);
-      }
-      .container {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 0 22px;
-      }
+html {
+  scroll-behavior: smooth;
+}
 
-      /* NAV */
-      .navWrap {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(247, 249, 252, 0.75);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(230, 237, 246, 0.85);
-      }
-      .nav {
-        height: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-      .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: #0f172a;
-        box-shadow: 0 0 0 6px rgba(15, 23, 42, 0.06);
-      }
-      .navLinks {
-        display: flex;
-        gap: 22px;
-        color: var(--muted);
-        font-weight: 600;
-        font-size: 14px;
-      }
-      .navLinks a {
-        padding: 8px 6px;
-        border-radius: 10px;
-      }
-      .navLinks a:hover {
-        background: rgba(15, 23, 42, 0.04);
-        color: var(--text);
-      }
-      .navActions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: var(--surface);
-        font-weight: 700;
-        font-size: 14px;
-        color: var(--text);
-        box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
-        cursor: pointer;
-      }
-      .btn:hover {
-        border-color: #d7e2f2;
-        box-shadow: var(--shadow-2);
-      }
-      .btnPrimary {
-        background: var(--accent);
-        color: #fff;
-        border-color: transparent;
-        box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
-      }
-      .btnPrimary:hover {
-        transform: translateY(-1px);
-      }
-      .icon {
-        width: 16px;
-        height: 16px;
-        display: inline-block;
-      }
-      .icon svg {
-        width: 16px;
-        height: 16px;
-        display: block;
-      }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
-      /* HERO */
-      main {
-        padding: 38px 0 80px;
-      }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-      .hero {
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 22px 34px;
-        align-items: start;
-        margin-top: 10px;
-      }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-      /* Premium metadata line */
-      .metaLine {
-        display: inline-flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        margin-bottom: 14px;
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-      .metaLine .sep {
-        opacity: 0.45;
-      }
-      .metaBadge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(230, 237, 246, 0.95);
-        background: rgba(255, 255, 255, 0.65);
-        color: var(--text);
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-size: 11px;
-      }
-      .metaBadge .miniDot {
-        width: 6px;
-        height: 6px;
-        border-radius: 999px;
-        background: rgba(37, 99, 235, 0.75);
-        box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.08);
-      }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
 
-      h1 {
-        margin: 0;
-        font-size: 64px;
-        line-height: 0.95;
-        letter-spacing: -0.05em;
-      }
-      .lastName {
-        color: #7a8aa0;
-      }
-      .lead {
-        margin: 16px 0 0;
-        max-width: 60ch;
-        color: var(--muted);
-        font-size: 18px;
-        line-height: 1.7;
-      }
-      .lead strong {
-        color: var(--text);
-        font-weight: 750;
-      }
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-      /* CTA row under summary */
-      .heroCtas {
-        margin-top: 18px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-      .ctaBtn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 11px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.78);
-        font-weight: 850;
-        font-size: 14px;
-        cursor: pointer;
-        box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
-      }
-      .ctaBtn:hover {
-        border-color: #d7e2f2;
-        box-shadow: var(--shadow-2);
-      }
-      .ctaBtnPrimary {
-        background: var(--accent);
-        color: white;
-        border-color: transparent;
-        box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
-      }
-      .ctaBtnPrimary:hover {
-        transform: translateY(-1px);
-      }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
-      /* RIGHT COLUMN */
-      .rightCol {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .photoCard {
-        background: rgba(255, 255, 255, 0.75);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-      .photoWrap {
-        background: #e8eef7;
-        aspect-ratio: 4/3;
-        overflow: hidden;
-      }
-      .photoWrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .photoMeta {
-        display: flex;
-        justify-content: space-between;
-        padding: 14px 16px;
-        color: var(--muted-2);
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        border-top: 1px solid rgba(230, 237, 246, 0.85);
-        background: rgba(255, 255, 255, 0.7);
-      }
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-      /* PROFILE SHEET (condensed to 4 blocks) */
-      .sheet {
-        grid-column: 1 / -1;
-        margin-top: 2px;
-      }
-      .sheetCard {
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-      .sheetTop {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 18px;
-        border-bottom: 1px solid rgba(230, 237, 246, 0.9);
-        background: rgba(255, 255, 255, 0.7);
-      }
-      .sheetTitle {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted-2);
-      }
-      .sheetHint {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: rgba(100, 116, 139, 0.75);
-        white-space: nowrap;
-      }
-      .sheetGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-      .sheetItem {
-        padding: 14px 18px;
-        border-top: 1px solid rgba(230, 237, 246, 0.9);
-      }
-      .sheetItem:nth-child(-n + 2) {
-        border-top: none;
-      }
-      .sheetItem:nth-child(odd) {
-        border-right: 1px solid rgba(230, 237, 246, 0.9);
-      }
-      .label {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted-2);
-        margin-bottom: 10px;
-      }
-      .inlineChips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(230, 237, 246, 0.95);
-        background: rgba(255, 255, 255, 0.72);
-        color: var(--text);
-        font-weight: 750;
-        font-size: 14px;
-        letter-spacing: -0.01em;
-        white-space: nowrap;
-      }
-      .chip.muted {
-        color: var(--muted);
-        font-weight: 700;
-      }
-      .chip.status {
-        color: var(--link);
-        font-weight: 850;
-        border-color: rgba(37, 99, 235, 0.18);
-        background: rgba(37, 99, 235, 0.06);
-      }
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 100;
+}
 
-      /* SECTION HEADERS */
-      .section {
-        margin-top: 42px;
-      }
-      .sectionHeader {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 14px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(230, 237, 246, 0.95);
-        margin-bottom: 18px;
-      }
-      .sectionHeader h2 {
-        margin: 0;
-        font-size: 13px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        font-family: var(--mono);
-        color: var(--text);
-      }
-      .sectionHeader .meta {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted-2);
-        white-space: nowrap;
-      }
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
 
-      .methodBox {
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 18px 18px;
-        color: var(--muted);
-        line-height: 1.75;
-        font-size: 16px;
-      }
-      .methodBox strong {
-        color: var(--text);
-      }
+/* ---------- Buttons ---------- */
 
-      /* WORK CARDS */
-      .workGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .card {
-        background: rgba(255, 255, 255, 0.76);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
-        min-height: 240px;
-      }
-      .org {
-        font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: rgba(37, 99, 235, 0.85);
-        font-weight: 700;
-      }
-      .title {
-        font-size: 20px;
-        font-weight: 850;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-        margin: 10px 0 0;
-      }
-      .desc {
-        margin: 10px 0 0;
-        color: var(--muted);
-        line-height: 1.65;
-        font-size: 15px;
-      }
-      .divider {
-        height: 1px;
-        background: rgba(230, 237, 246, 0.95);
-        margin: 16px 0;
-      }
-      .detailsToggle {
-        margin-top: auto;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 850;
-        color: var(--text);
-        cursor: pointer;
-        user-select: none;
-        padding: 10px 10px;
-        border-radius: 12px;
-        border: 1px solid rgba(230, 237, 246, 0.95);
-        background: rgba(255, 255, 255, 0.65);
-        width: fit-content;
-      }
-      .detailsToggle:hover {
-        box-shadow: var(--shadow-2);
-        border-color: #d7e2f2;
-      }
-      .chev {
-        width: 28px;
-        height: 28px;
-        border-radius: 999px;
-        border: 1px solid rgba(230, 237, 246, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.8);
-        flex-shrink: 0;
-        transition: transform 0.18s ease;
-      }
-      .detailsBody {
-        margin-top: 14px;
-        padding-top: 14px;
-        border-top: 1px solid rgba(230, 237, 246, 0.95);
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 14px;
-        display: none;
-      }
-      .detailsBody ul {
-        margin: 0;
-        padding-left: 18px;
-      }
-      .detailsBody li {
-        margin: 8px 0;
-      }
-      .card[data-open="true"] .detailsBody {
-        display: block;
-      }
-      .card[data-open="true"] .chev {
-        transform: rotate(180deg);
-      }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease;
+}
 
-      /* CONTACT */
-      .contactCard {
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 18px;
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: flex-start;
-      }
-      .kv {
-        display: flex;
-        gap: 10px;
-        align-items: baseline;
-        color: var(--muted);
-        font-size: 14px;
-      }
-      .kv strong {
-        color: var(--text);
-      }
-      .copyBtn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.7);
-        font-weight: 850;
-        cursor: pointer;
-        flex-shrink: 0;
-      }
-      .copyBtn:hover {
-        box-shadow: var(--shadow-2);
-        border-color: #d7e2f2;
-      }
-      .toast {
-        position: fixed;
-        left: 50%;
-        bottom: 20px;
-        transform: translateX(-50%);
-        background: rgba(15, 23, 42, 0.92);
-        color: white;
-        font-weight: 800;
-        padding: 10px 14px;
-        border-radius: 999px;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        z-index: 200;
-      }
-      .toast.show {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-4px);
-      }
+.button:hover,
+.button:focus-visible {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
-      footer {
-        margin-top: 46px;
-        padding-top: 18px;
-        color: var(--muted-2);
-        font-size: 13px;
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        border-top: 1px solid rgba(230, 237, 246, 0.9);
-      }
+.button-solid {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
 
-      /* RESPONSIVE */
-      @media (max-width: 980px) {
-        h1 {
-          font-size: 54px;
-        }
-        .hero {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .rightCol {
-          order: -1;
-        }
-        .photoWrap {
-          aspect-ratio: 16/10;
-        }
-        .sheetGrid {
-          grid-template-columns: 1fr;
-        }
-        .sheetItem:nth-child(odd) {
-          border-right: none;
-        }
-        .sheetItem {
-          border-top: 1px solid rgba(230, 237, 246, 0.9);
-        }
-        .sheetItem:first-child {
-          border-top: none;
-        }
-        .workGrid {
-          grid-template-columns: 1fr;
-          gap: 14px;
-        }
-        .card {
-          min-height: unset;
-        }
-      }
+.button-solid:hover,
+.button-solid:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
 
-      @media (max-width: 560px) {
-        main {
-          padding: 18px 0 64px;
-        }
-        .nav {
-          height: 64px;
-        }
-        .navLinks {
-          display: none;
-        }
-        .btn {
-          padding: 9px 12px;
-        }
-        h1 {
-          font-size: 46px;
-        }
-        .lead {
-          font-size: 16px;
-          margin-top: 12px;
-        }
-        .heroCtas {
-          gap: 8px;
-        }
-        .ctaBtn {
-          padding: 10px 12px;
-          font-size: 13px;
-        }
-        .photoWrap {
-          aspect-ratio: 4/3;
-        }
-        .chip {
-          font-size: 13px;
-          padding: 6px 9px;
-        }
-        .contactCard {
-          flex-direction: column;
-          align-items: stretch;
-        }
-        footer {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
+/* ---------- Header ---------- */
 
-  <body>
-    <div class="navWrap">
-      <div class="container">
-        <div class="nav">
-          <a class="brand" href="#top" aria-label="Home">
-            <span class="dot"></span>
-            <span>Barnabas Vormwald</span>
-          </a>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 250, 248, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
 
-          <div class="navLinks" aria-label="Primary">
-            <a href="#methodology">Methodology</a>
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
-          </div>
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+}
 
-          <div class="navActions">
-            <a class="btn" href="#contact">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2" />
-                  <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" />
-                </svg>
-              </span>
-              Contact
-            </a>
-            <a class="btn btnPrimary" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3v10" stroke="currentColor" stroke-width="2" />
-                  <path d="m7 11 5 5 5-5" stroke="currentColor" stroke-width="2" />
-                  <path d="M5 21h14" stroke="currentColor" stroke-width="2" />
-                </svg>
-              </span>
-              Download CV
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+.wordmark {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
 
-    <main id="top">
-      <div class="container">
-        <section class="hero" aria-label="Hero">
-          <!-- LEFT: text -->
-          <div>
-            <div class="metaLine" aria-label="Context line">
-              <span class="metaBadge"><span class="miniDot"></span> Shenzhen · China</span>
-              <span class="sep">/</span>
-              <span>Institutional coverage</span>
-              <span class="sep">/</span>
-              <span>Strategy & execution</span>
-              <span class="sep">/</span>
-              <span>Modeling & reporting</span>
-            </div>
+.wordmark:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
 
-            <h1>
-              Barnabas<br />
-              <span class="lastName">Vormwald</span>
-            </h1>
+.site-nav {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+}
 
-            <p class="lead">
-              Master of Management at <strong>PKU HSBC</strong> (Full Academic Scholarship, Top 5% international cohort).
-              Former <strong>AllianceBernstein</strong> (DACH institutional coverage). I support client and investment
-              decisions through structured analysis, clear communication, and disciplined execution.
-            </p>
+.site-nav a {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
 
-            <div class="heroCtas" aria-label="Primary actions">
-              <a class="ctaBtn" href="mailto:barnabasvormwald@gmail.com" aria-label="Email Barnabas">
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2" />
-                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </span>
-                Email
-              </a>
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--ink);
+  text-decoration: none;
+}
 
-              <a
-                class="ctaBtn"
-                href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open LinkedIn"
-              >
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M6 9v12" stroke="currentColor" stroke-width="2" />
-                    <path d="M6 6.5a1.5 1.5 0 1 0 0-.01" stroke="currentColor" stroke-width="2" />
-                    <path d="M10 21v-7a4 4 0 0 1 8 0v7" stroke="currentColor" stroke-width="2" />
-                    <path d="M10 10.5V21" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </span>
-                LinkedIn
-              </a>
+.header-cv {
+  padding: 8px 16px;
+  font-size: 14px;
+}
 
-              <a
-                class="ctaBtn ctaBtnPrimary"
-                href="assets/docs/BarnabasVormwald_CV.pdf"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open CV PDF"
-              >
-                <span class="icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3v10" stroke="currentColor" stroke-width="2" />
-                    <path d="m7 11 5 5 5-5" stroke="currentColor" stroke-width="2" />
-                    <path d="M5 21h14" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </span>
-                CV (PDF)
-              </a>
-            </div>
-          </div>
+/* ---------- Hero ---------- */
 
-          <!-- RIGHT: photo -->
-          <div class="rightCol" aria-label="Profile image column">
-            <div class="photoCard">
-              <div class="photoWrap">
-                <img
-                  src="assets/img/headshot.jpg"
-                  alt="Barnabas Vormwald headshot"
-                  onerror="this.onerror=null; this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='#64748b'; this.parentElement.style.fontWeight='700'; this.parentElement.innerHTML='assets/img/headshot.jpg not found';"
-                />
-              </div>
-              <div class="photoMeta">
-                <span>Shenzhen</span>
-                <span>ID: 9844-B</span>
-              </div>
-            </div>
-          </div>
+.hero {
+  padding: 72px 0 56px;
+}
 
-          <!-- FULL-WIDTH: condensed profile sheet (4 blocks) -->
-          <div class="sheet" aria-label="Profile sheet">
-            <div class="sheetCard" role="table" aria-label="Snapshot table">
-              <div class="sheetTop">
-                <div class="sheetTitle">Profile sheet</div>
-                <div class="sheetHint">Fast scan · high signal</div>
-              </div>
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+  gap: 56px;
+  align-items: start;
+}
 
-              <div class="sheetGrid">
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Positioning</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip">Institutional Client Coverage</span>
-                    <span class="chip">RFP / Pipeline Screening</span>
-                    <span class="chip">Investment Committee Materials</span>
-                    <span class="chip">Cross-asset (EQ / FI / Alts)</span>
-                  </div>
-                </div>
+.route {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Status</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip status">Open to Associate / Analyst roles (2026)</span>
-                    <span class="chip muted">Coverage · Strategy · Investments</span>
-                  </div>
-                </div>
+.route-arrow {
+  width: 44px;
+  height: 8px;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+}
 
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Proof</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip">15+ institutional mandates</span>
-                    <span class="chip">AUM &gt; $3B</span>
-                    <span class="chip">Solo coverage 3+ months</span>
-                    <span class="chip">Full scholarship (Top 5%)</span>
-                  </div>
-                </div>
+.route-year {
+  color: var(--faint);
+  border-left: 1px solid var(--line);
+  padding-left: 10px;
+}
 
-                <div class="sheetItem" role="row">
-                  <div class="label" role="cell">Edge</div>
-                  <div class="inlineChips" role="cell">
-                    <span class="chip">Client execution</span>
-                    <span class="chip">Consultant / IC coordination</span>
-                    <span class="chip">Excel automation (macros)</span>
-                    <span class="chip muted">Python analytics (pandas / Playwright)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+.hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(42px, 6.5vw, 68px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
 
-        <section id="methodology" class="section" aria-label="Methodology">
-          <div class="sectionHeader">
-            <h2>Methodology</h2>
-            <div class="meta">How I work</div>
-          </div>
-          <div class="methodBox">
-            Client-facing work that still respects rigor: <strong>clarify the decision</strong>, validate inputs, structure
-            the narrative and materials, and execute across stakeholders with tight deadlines.
-          </div>
-        </section>
+.role-line {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+}
 
-        <section id="work" class="section" aria-label="Selected work">
-          <div class="sectionHeader">
-            <h2>Selected work</h2>
-            <div class="meta">Scan first · details optional</div>
-          </div>
+.lead {
+  margin: 22px 0 0;
+  max-width: 58ch;
+  font-size: 18px;
+  color: var(--muted);
+}
 
-          <div class="workGrid">
-            <article class="card" data-open="false">
-              <div class="org">AllianceBernstein</div>
-              <h3 class="title">Institutional Coverage (DACH)</h3>
-              <p class="desc">
-                Primary contact for client communication and execution across 15+ mandates; supported RFP pursuit and
-                investment committee preparation.
-              </p>
+.lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
 
-              <div class="divider"></div>
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
 
-              <button class="detailsToggle" type="button" aria-expanded="false">
-                <span class="chev" aria-hidden="true">
-                  <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" />
-                    </svg>
-                  </span>
-                </span>
-                Details
-              </button>
+.hero-photo {
+  margin: 6px 0 0;
+}
 
-              <div class="detailsBody" aria-hidden="true">
-                <ul>
-                  <li>Coordinated IC preparation and follow-up across internal teams and external providers.</li>
-                  <li>Aligned pursuit strategy with senior stakeholders; supported client deliverables under time pressure.</li>
-                  <li>Maintained coverage continuity post-restructuring across multiple mandates.</li>
-                </ul>
-              </div>
-            </article>
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
 
-            <article class="card" data-open="false">
-              <div class="org">PATRIZIA AG</div>
-              <h3 class="title">Fund Management (Intern)</h3>
-              <p class="desc">
-                Investor reporting support and KPI reconciliation (SAP/Excel); contributed to quarterly materials and
-                time-sensitive analyses.
-              </p>
+.hero-photo figcaption {
+  margin-top: 10px;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
 
-              <div class="divider"></div>
+/* ---------- At a glance ---------- */
 
-              <button class="detailsToggle" type="button" aria-expanded="false">
-                <span class="chev" aria-hidden="true">
-                  <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" />
-                    </svg>
-                  </span>
-                </span>
-                Details
-              </button>
+.glance {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
 
-              <div class="detailsBody" aria-hidden="true">
-                <ul>
-                  <li>Supported quarterly investor reports and IC materials for German real estate portfolios.</li>
-                  <li>Reconciled fund-level KPIs across systems; used Excel automation to identify inconsistencies.</li>
-                  <li>Prepared analysis inputs on COVID-19 impacts with tight deadlines.</li>
-                </ul>
-              </div>
-            </article>
+.glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
-            <article class="card" data-open="false">
-              <div class="org">Research / Projects</div>
-              <h3 class="title">Structured, evidence-based work</h3>
-              <p class="desc">
-                Cross-country BRI analysis and an investor-style redevelopment feasibility model (team lead), focused on
-                decision-ready outputs.
-              </p>
+.glance-item {
+  padding: 28px 28px 28px 0;
+}
 
-              <div class="divider"></div>
+.glance-item + .glance-item {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
 
-              <button class="detailsToggle" type="button" aria-expanded="false">
-                <span class="chev" aria-hidden="true">
-                  <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" />
-                    </svg>
-                  </span>
-                </span>
-                Details
-              </button>
+.glance-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
 
-              <div class="detailsBody" aria-hidden="true">
-                <ul>
-                  <li>BRI thesis: assessed FDI, debt ratios, and trade flows; implications for sovereign risk and resilience.</li>
-                  <li>Redevelopment project: led an international team; built feasibility model and presented to external evaluators.</li>
-                  <li>Master’s thesis in progress: airline pricing strategy as structured empirical research.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </section>
+.glance-label-accent {
+  color: var(--accent);
+}
 
-        <section id="contact" class="section" aria-label="Contact">
-          <div class="sectionHeader">
-            <h2>Contact</h2>
-            <div class="meta">Direct</div>
-          </div>
+.glance-item p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--muted);
+}
 
-          <div class="contactCard">
-            <div style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
-              <div class="kv"><span>Email:</span> <strong id="emailText">barnabasvormwald@gmail.com</strong></div>
-              <div class="kv">
-                <span>LinkedIn:</span>
-                <a href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener"
-                  ><strong>Profile</strong></a
-                >
-              </div>
-              <div class="kv">
-                <span>CV:</span>
-                <a href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener"><strong>PDF</strong></a>
-              </div>
-            </div>
+/* ---------- Sections ---------- */
 
-            <button class="copyBtn" type="button" id="copyEmailBtn" aria-label="Copy email">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M9 9h10v10H9V9Z" stroke="currentColor" stroke-width="2" />
-                  <path
-                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </span>
-              Copy email
-            </button>
-          </div>
+.section {
+  padding: 72px 0;
+}
 
-          <footer>
-            <div>© <span id="year"></span> Barnabas Vormwald</div>
-            <div>Static HTML · No trackers</div>
-          </footer>
-        </section>
-      </div>
-    </main>
+.section-tinted {
+  background: var(--accent-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 
-    <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+.section-title {
+  margin: 0 0 36px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+.section-intro {
+  max-width: 58ch;
+  margin: -20px 0 40px;
+  font-size: 18px;
+  color: var(--muted);
+}
 
-      // Copy email
-      const copyBtn = document.getElementById("copyEmailBtn");
-      const emailText = document.getElementById("emailText").textContent.trim();
-      const toast = document.getElementById("toast");
+/* ---------- Timeline ---------- */
 
-      function showToast(msg) {
-        toast.textContent = msg;
-        toast.classList.add("show");
-        window.clearTimeout(window.__toastTimer);
-        window.__toastTimer = window.setTimeout(() => toast.classList.remove("show"), 1200);
-      }
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(emailText);
-          showToast("Email copied");
-        } catch (e) {
-          const ta = document.createElement("textarea");
-          ta.value = emailText;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand("copy");
-          document.body.removeChild(ta);
-          showToast("Email copied");
-        }
-      });
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  position: relative;
+  padding: 0 0 44px 0;
+}
 
-      // Work details: only one open at a time
-      const cards = Array.from(document.querySelectorAll(".card"));
-      cards.forEach((card) => {
-        const btn = card.querySelector(".detailsToggle");
-        const body = card.querySelector(".detailsBody");
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
 
-        btn.addEventListener("click", () => {
-          const isOpen = card.getAttribute("data-open") === "true";
+/* vertical rule + marker */
+.timeline-body {
+  position: relative;
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
 
-          cards.forEach((c) => {
-            if (c !== card) {
-              c.setAttribute("data-open", "false");
-              const b = c.querySelector(".detailsToggle");
-              const bd = c.querySelector(".detailsBody");
-              b.setAttribute("aria-expanded", "false");
-              bd.setAttribute("aria-hidden", "true");
-            }
-          });
+.timeline-item:last-child .timeline-body {
+  border-left-color: transparent;
+  background: linear-gradient(to bottom, var(--line) 0, var(--line) 28px, transparent 28px)
+    left top / 1px 100% no-repeat;
+}
 
-          card.setAttribute("data-open", String(!isOpen));
-          btn.setAttribute("aria-expanded", String(!isOpen));
-          body.setAttribute("aria-hidden", String(isOpen));
-        });
-      });
-    </script>
-  </body>
-</html>
+.timeline-body::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 9px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--faint);
+}
 
+.timeline-item.is-next .timeline-body::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.timeline-when {
+  text-align: right;
+  padding-top: 4px;
+}
+
+.when-years {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.when-place {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.timeline-body h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.timeline-role {
+  margin: 4px 0 10px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.timeline-body p:not(.timeline-role) {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  vertical-align: 1px;
+}
+
+/* ---------- Focus ---------- */
+
+.focus-list {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.focus-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.focus-row dt {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.focus-row dd {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.international-note {
+  margin: 32px 0 0;
+  max-width: 62ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-wrap {
+  text-align: left;
+}
+
+.contact-lead {
+  margin: -20px 0 28px;
+  max-width: 52ch;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 24px;
+  font-size: 13.5px;
+  color: var(--faint);
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+/* ---------- Toast ---------- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-photo {
+    order: -1;
+    max-width: 300px;
+  }
+
+  .glance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glance-item {
+    padding: 22px 0;
+  }
+
+  .glance-item + .glance-item {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-bottom: 36px;
+  }
+
+  .timeline-when {
+    text-align: left;
+    padding-left: 32px;
+    padding-top: 0;
+    padding-bottom: 6px;
+    border-left: 1px solid var(--line);
+  }
+
+  .timeline-item:last-child .timeline-when {
+    border-left-color: var(--line);
+  }
+
+  .when-years,
+  .when-place {
+    display: inline;
+  }
+
+  .when-place {
+    margin-left: 10px;
+  }
+
+  .focus-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 16px;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .section-title {
+    font-size: 27px;
+    margin-bottom: 28px;
+  }
+
+  .lead,
+  .section-intro,
+  .contact-lead {
+    font-size: 16.5px;
+  }
+
+  .hero-actions .button,
+  .contact-actions .button {
+    flex: 1 1 auto;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
