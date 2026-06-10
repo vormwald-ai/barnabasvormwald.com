@@ -1,668 +1,360 @@
-/* ============================================================
-   barnabasvormwald.com — styles.css
-   Palette: paper white / deep ink / spruce green accent
-   Type:    Newsreader (display serif) + Instrument Sans (body)
-   ============================================================ */
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  ============================================================
+  MAINTENANCE NOTES — barnabasvormwald.com
+  ============================================================
+  AFTER 1 AUGUST 2026, make these three edits:
 
-:root {
-  --paper: #fafaf8;
-  --surface: #ffffff;
-  --ink: #1a2420;
-  --muted: #56615b;
-  --faint: #8a948e;
-  --line: #e3e7e2;
-  --accent: #1e5c45;
-  --accent-soft: #edf3ef;
-  --max: 1040px;
-  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-}
+  1. <meta name="description">  — change
+     "joins ACT Commodities in Amsterdam as Account Manager in August 2026"
+     to "is an Account Manager at ACT Commodities in Amsterdam".
 
-/* ---------- Reset & base ---------- */
+  2. <meta property="og:description"> — same change as (1).
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  3. Hero paragraph (search for "UPDATE-AUG-2026") — change
+     "In August 2026 I join ACT Commodities in Amsterdam as an
+     Account Manager" to "I work at ACT Commodities in Amsterdam
+     as an Account Manager".
 
-html {
-  scroll-behavior: smooth;
-}
+  The "At a glance" strip uses "From August 2026", which stays
+  accurate after the start date — no edit needed there.
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  Optional later: update the hero eyebrow from
+  "Shenzhen → Amsterdam" to "Amsterdam" once relocated.
+  ============================================================
+-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barnabas Vormwald — Client Coverage &amp; International Business</title>
+  <meta name="description" content="Barnabas Vormwald is a German client coverage professional. He is completing a Master of Management at Peking University HSBC Business School in Shenzhen and joins ACT Commodities in Amsterdam as Account Manager in August 2026. Formerly AllianceBernstein, DACH institutional coverage." />
+  <link rel="canonical" href="https://barnabasvormwald.com/" />
+  <meta name="theme-color" content="#FAFAF8" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Barnabas Vormwald — Client Coverage &amp; International Business" />
+  <meta property="og:description" content="German client coverage professional. M.Mgmt at PKU HSBC Business School, Shenzhen. Joins ACT Commodities in Amsterdam as Account Manager in August 2026. Formerly AllianceBernstein (DACH institutional coverage)." />
+  <meta property="og:url" content="https://barnabasvormwald.com/" />
+  <meta property="og:image" content="https://barnabasvormwald.com/assets/img/headshot.jpg" />
+  <meta property="og:image:alt" content="Portrait of Barnabas Vormwald" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Barnabas Vormwald — Client Coverage &amp; International Business" />
+  <meta name="twitter:description" content="German client coverage professional, moving from Shenzhen to Amsterdam in 2026." />
+  <meta name="twitter:image" content="https://barnabasvormwald.com/assets/img/headshot.jpg" />
+
+  <!-- Icons: keep your existing icon files; adjust paths if they differ -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data (kept deliberately modest) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Barnabas Vormwald",
+    "url": "https://barnabasvormwald.com/",
+    "image": "https://barnabasvormwald.com/assets/img/headshot.jpg",
+    "nationality": "German",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Peking University HSBC Business School" },
+      { "@type": "CollegeOrUniversity", "name": "Technische Hochschule Aschaffenburg" }
+    ],
+    "knowsLanguage": ["German", "English", "Spanish", "Chinese"],
+    "sameAs": ["https://www.linkedin.com/in/barnabas-vormwald-89aa57184/"]
   }
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-body {
-  margin: 0;
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink);
-  background: var(--paper);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover,
-a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--ink);
-  color: #fff;
-  padding: 10px 16px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-}
-
-/* ---------- Buttons ---------- */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 11px 20px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background-color 0.15s ease,
-    color 0.15s ease;
-}
-
-.button:hover,
-.button:focus-visible {
-  text-decoration: none;
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.button-solid {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
-}
-
-.button-solid:hover,
-.button-solid:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
-
-/* ---------- Header ---------- */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(250, 250, 248, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  height: 64px;
-}
-
-.wordmark {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.01em;
-}
-
-.wordmark:hover {
-  text-decoration: none;
-  color: var(--accent);
-}
-
-.site-nav {
-  display: flex;
-  gap: 22px;
-  margin-left: auto;
-}
-
-.site-nav a {
-  color: var(--muted);
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.site-nav a:hover,
-.site-nav a:focus-visible {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.header-cv {
-  padding: 8px 16px;
-  font-size: 14px;
-}
-
-/* ---------- Hero ---------- */
-
-.hero {
-  padding: 72px 0 56px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
-  gap: 56px;
-  align-items: start;
-}
-
-.route {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 20px;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.route-arrow {
-  width: 44px;
-  height: 8px;
-  stroke: var(--accent);
-  stroke-width: 1.4;
-}
-
-.route-year {
-  color: var(--faint);
-  border-left: 1px solid var(--line);
-  padding-left: 10px;
-}
-
-.hero h1 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(42px, 6.5vw, 68px);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-}
-
-.role-line {
-  margin: 14px 0 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 20px;
-  color: var(--accent);
-}
-
-.lead {
-  margin: 22px 0 0;
-  max-width: 58ch;
-  font-size: 18px;
-  color: var(--muted);
-}
-
-.lead strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.hero-photo {
-  margin: 6px 0 0;
-}
-
-.hero-photo img {
-  width: 100%;
-  aspect-ratio: 1 / 1.08;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-}
-
-.hero-photo figcaption {
-  margin-top: 10px;
-  font-size: 12.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-/* ---------- At a glance ---------- */
-
-.glance {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--surface);
-}
-
-.glance-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.glance-item {
-  padding: 28px 28px 28px 0;
-}
-
-.glance-item + .glance-item {
-  padding-left: 28px;
-  border-left: 1px solid var(--line);
-}
-
-.glance-label {
-  margin: 0 0 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-.glance-label-accent {
-  color: var(--accent);
-}
-
-.glance-item p {
-  margin: 0;
-  font-size: 15.5px;
-  color: var(--muted);
-}
-
-/* ---------- Sections ---------- */
-
-.section {
-  padding: 72px 0;
-}
-
-.section-tinted {
-  background: var(--accent-soft);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.section-title {
-  margin: 0 0 36px;
-  font-family: var(--serif);
-  font-size: 32px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.section-intro {
-  max-width: 58ch;
-  margin: -20px 0 40px;
-  font-size: 18px;
-  color: var(--muted);
-}
-
-/* ---------- Timeline ---------- */
-
-.timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 32px;
-  position: relative;
-  padding: 0 0 44px 0;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* vertical rule + marker */
-.timeline-body {
-  position: relative;
-  padding-left: 32px;
-  border-left: 1px solid var(--line);
-}
-
-.timeline-item:last-child .timeline-body {
-  border-left-color: transparent;
-  background: linear-gradient(to bottom, var(--line) 0, var(--line) 28px, transparent 28px)
-    left top / 1px 100% no-repeat;
-}
-
-.timeline-body::before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: 9px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--faint);
-}
-
-.timeline-item.is-next .timeline-body::before {
-  border-color: var(--accent);
-  background: var(--accent);
-}
-
-.timeline-when {
-  text-align: right;
-  padding-top: 4px;
-}
-
-.when-years {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-
-.when-place {
-  display: block;
-  margin-top: 2px;
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-.timeline-body h3 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 23px;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.timeline-role {
-  margin: 4px 0 10px;
-  font-size: 15.5px;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.timeline-body p:not(.timeline-role) {
-  margin: 0;
-  max-width: 62ch;
-  font-size: 16px;
-  color: var(--muted);
-}
-
-.tag {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 2px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  vertical-align: 1px;
-}
-
-/* ---------- Focus ---------- */
-
-.focus-list {
-  margin: 0;
-  border-top: 1px solid var(--line);
-}
-
-.focus-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 32px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.focus-row dt {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.focus-row dd {
-  margin: 0;
-  max-width: 62ch;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.international-note {
-  margin: 32px 0 0;
-  max-width: 62ch;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--ink);
-}
-
-/* ---------- Contact ---------- */
-
-.contact-wrap {
-  text-align: left;
-}
-
-.contact-lead {
-  margin: -20px 0 28px;
-  max-width: 52ch;
-  font-size: 18px;
-  color: var(--muted);
-}
-
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* ---------- Footer ---------- */
-
-.site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--surface);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 22px 24px;
-  font-size: 13.5px;
-  color: var(--faint);
-}
-
-.footer-inner p {
-  margin: 0;
-}
-
-/* ---------- Toast ---------- */
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%) translateY(6px);
-  background: var(--ink);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 999px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 200;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ============================================================
-   Responsive
-   ============================================================ */
-
-@media (max-width: 900px) {
-  .hero {
-    padding: 48px 0 40px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .hero-photo {
-    order: -1;
-    max-width: 300px;
-  }
-
-  .glance-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .glance-item {
-    padding: 22px 0;
-  }
-
-  .glance-item + .glance-item {
-    padding-left: 0;
-    border-left: none;
-    border-top: 1px solid var(--line);
-  }
-
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding-bottom: 36px;
-  }
-
-  .timeline-when {
-    text-align: left;
-    padding-left: 32px;
-    padding-top: 0;
-    padding-bottom: 6px;
-    border-left: 1px solid var(--line);
-  }
-
-  .timeline-item:last-child .timeline-when {
-    border-left-color: var(--line);
-  }
-
-  .when-years,
-  .when-place {
-    display: inline;
-  }
-
-  .when-place {
-    margin-left: 10px;
-  }
-
-  .focus-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-}
-
-@media (max-width: 560px) {
-  body {
-    font-size: 16px;
-  }
-
-  .site-nav {
-    display: none;
-  }
-
-  .header-inner {
-    justify-content: space-between;
-  }
-
-  .section {
-    padding: 52px 0;
-  }
-
-  .section-title {
-    font-size: 27px;
-    margin-bottom: 28px;
-  }
-
-  .lead,
-  .section-intro,
-  .contact-lead {
-    font-size: 16.5px;
-  }
-
-  .hero-actions .button,
-  .contact-actions .button {
-    flex: 1 1 auto;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    gap: 4px;
-  }
-}
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top">B. Vormwald</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#experience">Experience</a>
+        <a href="#focus">Focus</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button button-solid header-cv" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="route" aria-label="Shenzhen to Amsterdam, 2026">
+            <span>Shenzhen</span>
+            <svg class="route-arrow" viewBox="0 0 56 8" aria-hidden="true" focusable="false">
+              <line x1="0" y1="4" x2="50" y2="4" />
+              <path d="M48 1l5 3-5 3" fill="none" />
+            </svg>
+            <span>Amsterdam</span>
+            <span class="route-year">2026</span>
+          </p>
+
+          <h1>Barnabas Vormwald</h1>
+          <p class="role-line">Client coverage&ensp;·&ensp;International business</p>
+
+          <!-- UPDATE-AUG-2026: see maintenance notes at top of file -->
+          <p class="lead">
+            I work at the intersection of client relationships, finance, and international
+            markets. I am completing a Master of Management at Peking University HSBC
+            Business School in Shenzhen, and in August 2026 I join
+            <strong>ACT&nbsp;Commodities</strong> in Amsterdam as an Account Manager,
+            working in environmental commodity markets. Before graduate school, I spent
+            two years in institutional client coverage at
+            <strong>AllianceBernstein</strong> in Munich.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-solid" href="mailto:barnabasvormwald@gmail.com">Email me</a>
+            <a class="button" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="button" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo">
+          <img src="assets/img/headshot.jpg" alt="Portrait of Barnabas Vormwald" width="640" height="640" loading="eager" />
+          <figcaption>Shenzhen, 2026</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= AT A GLANCE ================= -->
+    <section class="glance" aria-label="At a glance">
+      <div class="container glance-grid">
+        <div class="glance-item">
+          <h2 class="glance-label">Now</h2>
+          <p>Master of Management, Peking University HSBC Business School, Shenzhen — graduating July 2026, full academic scholarship.</p>
+        </div>
+        <div class="glance-item">
+          <h2 class="glance-label glance-label-accent">From August 2026</h2>
+          <p>Account Manager, ACT&nbsp;Commodities, Amsterdam — client coverage in environmental commodity markets.</p>
+        </div>
+        <div class="glance-item">
+          <h2 class="glance-label">Before</h2>
+          <p>Institutional client coverage at AllianceBernstein (DACH), Munich; fund management internship at PATRIZIA, Hamburg.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <h2 class="section-title" id="experience-title">Experience</h2>
+
+        <ol class="timeline">
+          <li class="timeline-item is-next">
+            <div class="timeline-when">
+              <span class="when-years">2026 —</span>
+              <span class="when-place">Amsterdam</span>
+            </div>
+            <div class="timeline-body">
+              <h3>ACT Commodities B.V.</h3>
+              <p class="timeline-role">Account Manager <span class="tag">from 1 August 2026</span></p>
+              <p>Client coverage in environmental commodity markets.</p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">
+              <span class="when-years">2024 – 2026</span>
+              <span class="when-place">Shenzhen</span>
+            </div>
+            <div class="timeline-body">
+              <h3>Peking University HSBC Business School</h3>
+              <p class="timeline-role">Master of Management</p>
+              <p>
+                Full academic scholarship. Coursework across strategy, managerial
+                economics, and machine learning in asset pricing. Master’s thesis: an
+                empirical study of the determinants of international airfare variation,
+                built on web-scraped itinerary data.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">
+              <span class="when-years">2023 – 2024</span>
+              <span class="when-place">Asia-Pacific</span>
+            </div>
+            <div class="timeline-body">
+              <h3>Independent work &amp; travel</h3>
+              <p class="timeline-role">Freelance projects</p>
+              <p>
+                Market-entry benchmarking for a Taiwanese e-commerce brand and business
+                language coaching in Tokyo, alongside extended travel across the region.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">
+              <span class="when-years">2021 – 2023</span>
+              <span class="when-place">Munich</span>
+            </div>
+            <div class="timeline-body">
+              <h3>AllianceBernstein</h3>
+              <p class="timeline-role">Institutional Client Coverage, DACH</p>
+              <p>
+                Primary contact for 15+ institutional mandates representing more than
+                $3B in assets — client communication, documentation, and execution.
+                Screened and pursued institutional RFPs, prepared investment-committee
+                materials across equities, fixed income, and alternatives, and
+                coordinated between clients, consultants, and internal teams. Maintained
+                full account coverage through a team restructure.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">
+              <span class="when-years">2020 – 2021</span>
+              <span class="when-place">Hamburg</span>
+            </div>
+            <div class="timeline-body">
+              <h3>PATRIZIA AG</h3>
+              <p class="timeline-role">Fund Management Intern</p>
+              <p>
+                Investor reporting and KPI reconciliation across SAP and Excel for
+                German real-estate funds; quarterly materials and time-sensitive
+                analyses, including COVID-19 impact work on retail assets.
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">
+              <span class="when-years">– 2021</span>
+              <span class="when-place">Aschaffenburg</span>
+            </div>
+            <div class="timeline-body">
+              <h3>TH Aschaffenburg</h3>
+              <p class="timeline-role">B.A. International Real Estate Management, Finance</p>
+              <p>
+                Final grade 1.6. Exchange semester at RMIT in Ho Chi Minh City. Bachelor
+                thesis on the economic impact of Belt and Road infrastructure projects.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= FOCUS ================= -->
+    <section class="section section-tinted" id="focus" aria-labelledby="focus-title">
+      <div class="container">
+        <h2 class="section-title" id="focus-title">Focus</h2>
+        <p class="section-intro">
+          Most of my work has one shape: take complex material — mandates, markets,
+          models — and make it clear enough for someone to decide and act.
+        </p>
+
+        <dl class="focus-list">
+          <div class="focus-row">
+            <dt>Client coverage</dt>
+            <dd>
+              Day-to-day ownership of professional relationships: communication,
+              documentation, follow-through, and coordination between clients,
+              consultants, and internal teams.
+            </dd>
+          </div>
+          <div class="focus-row">
+            <dt>Analysis &amp; reporting</dt>
+            <dd>
+              Structured analysis and decision-ready materials — investment-committee
+              preparation, investor reporting, KPI reconciliation, and empirical
+              research with real-world data.
+            </dd>
+          </div>
+          <div class="focus-row">
+            <dt>Tools</dt>
+            <dd>
+              Excel (advanced, including automation), Python for analytics and web
+              scraping (pandas, Playwright), SAP, basic SQL.
+            </dd>
+          </div>
+          <div class="focus-row">
+            <dt>Languages</dt>
+            <dd>
+              German (native), English (professional, IELTS Academic 8.0), Spanish
+              (B1), Chinese and Japanese (basic, actively learning).
+            </dd>
+          </div>
+        </dl>
+
+        <p class="international-note">
+          Lived and studied in Germany, Vietnam, and China; worked with clients and
+          teams across Europe and Asia; travelled in 60+ countries.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-wrap">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <p class="contact-lead">
+          The fastest way to reach me is by email. I read everything and reply to
+          anything genuine.
+        </p>
+        <div class="contact-actions">
+          <a class="button button-solid" href="mailto:barnabasvormwald@gmail.com">barnabasvormwald@gmail.com</a>
+          <button class="button" type="button" id="copy-email" data-email="barnabasvormwald@gmail.com">Copy email</button>
+          <a class="button" href="https://www.linkedin.com/in/barnabas-vormwald-89aa57184/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="button" href="assets/docs/BarnabasVormwald_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Barnabas Vormwald</p>
+      <p>Static site · No cookies, no trackers</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>Email copied</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const copyBtn = document.getElementById("copy-email");
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    copyBtn.addEventListener("click", async () => {
+      const email = copyBtn.dataset.email;
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      toast.hidden = false;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+        toast.hidden = true;
+      }, 1400);
+    });
+  </script>
+</body>
+</html>
